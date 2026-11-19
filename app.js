@@ -1,10 +1,8 @@
 /* Content lives in data.js. This file is the engine. */
 const $=s=>document.querySelector(s),N=POETS.length;
 const stage=$('#stage'),poets=$('#poets'),sc=$('.scroller');
-let focus=POETS.findIndex(p=>p.id==='mir'),mode='dial',cur=0,switchTimer;const WAH={};
+let focus=POETS.findIndex(p=>p.id==='mir'),mode='dial',switchTimer;
 const norm=a=>((a+180)%360+360)%360-180;
-// Timeline x: 1253 sits at the far left; 1500-1960 fills the rest.
-const yearX=y=>y<1400?.03:.1+(y-1500)/460*.88;
 
 function flowerSVG(f){
   const R=44,x=R*f.w;
@@ -29,8 +27,8 @@ function ringAngles(cx,cy,R,l,t,r,b){
   const ang=k=>270-k*.5,pt=k=>[cx+R*Math.cos(ang(k)*Math.PI/180),cy+R*Math.sin(ang(k)*Math.PI/180)];
   const vis=Array.from({length:720},(_,k)=>{const[x,y]=pt(k);return x>=l&&x<=r&&y>=t&&y<=b});
   const starts=vis.map((v,k)=>v&&!vis[(k+719)%720]?k:-1).filter(k=>k>=0);
-  if(!starts.length)return Array.from({length:N},(_,i)=>270-i*360/N);   // whole ring fits on the page
-  const k0=starts.reduce((m,k)=>pt(k)[1]<pt(m)[1]?k:m);                 // begin at the top-most visible end
+  if(!starts.length)return Array.from({length:N},(_,i)=>270-i*360/N);
+  const k0=starts.reduce((m,k)=>pt(k)[1]<pt(m)[1]?k:m);
   const v=[];for(let j=0;j<720;j++){const k=(k0+j)%720;if(vis[k])v.push(ang(k))}
   return Array.from({length:N},(_,i)=>v[Math.round(i*(v.length-1)/(N-1))]);
 }
@@ -58,7 +56,7 @@ function layout(instant){
       n.style.transform=vert?'translate(40px,0px) rotate(0deg) translate(0px,'+(36+(H-72)*t)+'px) rotate(0deg)'
         :'translate(0px,'+cy+'px) rotate(0deg) translate('+(64+(cw-128)*t)+'px,0px) rotate(0deg)';
     }else{
-      const a=norm(A[i]),r=a*Math.PI/180,s=mob?-1:1; // labels sit outside the ring (inside on phones)
+      const a=norm(A[i]),r=a*Math.PI/180,s=mob?-1:1;
       n.style.transform='translate('+cx+'px,'+cy+'px) rotate('+a+'deg) translate('+R+'px,0px) rotate('+-a+'deg)';
       n.style.setProperty('--ux',s*Math.cos(r));n.style.setProperty('--uy',s*Math.sin(r));
     }
@@ -68,33 +66,41 @@ function layout(instant){
 }
 
 function paint(o){document.body.style.setProperty('--bg',o.c);document.body.style.setProperty('--fg',o.f)}
-const lines=a=>a.map(l=>'<span>'+l+'</span>').join('');
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
 
-function renderMic(){
-  const cs=COUPLETS.filter(c=>c.p===POETS[focus].id),c=cs[cur];
-  $('#mic').innerHTML=!c?'<p class="sm todo">No couplets yet.</p>'
-    :'<div class="cp"><p class="tr">'+lines(c.tr)+'</p><p class="u" lang="ur" dir="rtl">'+lines(c.ur)+'</p>'
-    +'<div class="gl sm" hidden><p>'+c.en+'</p><p class="words">'+c.w.map(w=>'<span><b>'+w[0]+'</b> '+w[1]+'</span>').join('')+'</p></div>'
-    +'<div class="acts">'+(cs.length>1?'<button id="irshad">Irshad</button>':'')
-    +'<button data-act="mukarrar" aria-expanded="false">Mukarrar</button>'
-    +'<button data-act="wah" data-id="'+c.id+'">Wah! <span>'+(WAH[c.id]||0)+'</span></button></div></div>';
+function renderTrLine(line){
+  if(typeof line==='string')return '<span>'+esc(line)+'</span>';
+  const parts=Array.isArray(line)?line:[line];
+  return '<span>'+parts.map(seg=>{
+    if(typeof seg==='string')return esc(seg);
+    return '<span class="gloss" tabindex="0" data-g="'+esc(seg.g)+'">'+esc(seg.t)+'</span>';
+  }).join('')+'</span>';
 }
 
-// Everything about the selected poet lives here, inside the ring.
+function renderCouplets(){
+  const cs=COUPLETS.filter(c=>c.p===POETS[focus].id);
+  if(!cs.length)return '<p class="sm todo">No couplets yet.</p>';
+  return '<div class="cps">'+cs.map(c=>
+    '<div class="cp">'
+    +'<p class="tr">'+c.tr.map(renderTrLine).join('')+'</p>'
+    +'<p class="u" lang="ur" dir="rtl">'+c.ur.map(l=>'<span>'+esc(l)+'</span>').join('')+'</p>'
+    +'</div>'
+  ).join('')+'</div>';
+}
+
 function renderDetail(){
   const p=POETS[focus],e=ERAS[p.era];
   document.querySelectorAll('#eranav button').forEach((b,k)=>b.setAttribute('aria-current',k===p.era));
+  const eyebrow=e.n+(e.sub?', '+e.sub:'')+' · '+p.y;
   $('#detail').innerHTML='<div class="flw">'+flowerSVG(p.fl)+'</div>'
-    +'<p class="sm">'+e.n+(e.sub?', '+e.sub:'')+'</p><h2>'+p.name+'</h2><p class="sm">'+p.y+'</p>'
-    +'<p class="ur nm" lang="ur" dir="rtl">'+p.ur+'</p><div id="mic"></div>'
-    +'<div class="more"><details><summary>Notable works</summary><ul class="works sm">'+p.works.map(w=>'<li>'+w+'</li>').join('')+'</ul></details>'
-    +'<details><summary>Biography</summary><p class="sm todo">Biography and links go here.</p></details>'
-    +'<details><summary>The era</summary><p class="sm">'+e.span+'. '+e.desc+'</p>'
-    +'<ul class="roll">'+POETS.filter(q=>q.era===p.era).map(q=>'<li><button class="who" data-p="'+q.id+'">'+flowerSVG(q.fl)+q.name+'</button></li>').join('')+'</ul></details></div>';
-  renderMic();paint(e);
+    +'<p class="sm eyebrow">'+eyebrow+'</p>'
+    +'<h2>'+p.name+'</h2>'
+    +renderCouplets()
+    +'<ul class="tags">'+p.works.map(w=>'<li>'+w+'</li>').join('')+'</ul>';
+  paint(e);
 }
 
-function setFocus(j){focus=j;cur=0;layout();renderDetail()}
+function setFocus(j){focus=j;layout();renderDetail()}
 const step=d=>setFocus((focus+d+N)%N);
 
 function setMode(v){
@@ -117,22 +123,8 @@ stage.addEventListener('keydown',e=>{
   e.preventDefault();step(k==='ArrowRight'||k==='ArrowDown'?1:-1);nodes[focus].focus();
 });
 document.addEventListener('click',e=>{
-  const w=e.target.closest('.who');
-  if(w){setFocus(POETS.findIndex(p=>p.id===w.dataset.p));scrollTo({top:0,behavior:'smooth'});return}
   const en=e.target.closest('#eranav button');
-  if(en){setFocus(POETS.findIndex(p=>p.era===+en.dataset.era));return}
-  if(e.target.closest('#irshad')){
-    cur=(cur+1)%COUPLETS.filter(c=>c.p===POETS[focus].id).length;renderMic();return;
-  }
-  const b=e.target.closest('[data-act]');if(!b)return;
-  if(b.dataset.act==='mukarrar'){ // repeat the couplet and show its meaning
-    const cp=b.closest('.cp'),g=cp.querySelector('.gl'),t=cp.querySelector('.tr');
-    g.hidden=!g.hidden;b.setAttribute('aria-expanded',!g.hidden);
-    t.classList.remove('flash');void t.offsetWidth;t.classList.add('flash');
-  }else{
-    const id=b.dataset.id;WAH[id]=(WAH[id]||0)+1;b.querySelector('span').textContent=WAH[id];
-    b.classList.remove('pop');void b.offsetWidth;b.classList.add('pop');
-  }
+  if(en){setFocus(POETS.findIndex(p=>p.era===+en.dataset.era))}
 });
 addEventListener('resize',()=>layout(true));
 $('#eranav').innerHTML=ERAS.map((e,k)=>'<button data-era="'+k+'">'+e.n+'</button>').join('');
