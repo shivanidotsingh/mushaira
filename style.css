@@ -10,38 +10,53 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 .is-tl .eranav{visibility:visible;opacity:1}
 .eranav button{font:400 var(--xs)/1.4 var(--sans);letter-spacing:.04em;background:none;border:0;padding:0;cursor:pointer}
 .eranav button[aria-current=true]{font-weight:600}
-.sw{display:flex;align-items:center;gap:.6rem;margin-left:auto}
-.sw>button{font:400 var(--xs)/1 var(--sans);letter-spacing:.04em;background:none;border:0;padding:0;cursor:pointer;opacity:.65}
+
+/* Compact toggle */
+.sw{display:flex;align-items:center;gap:.4rem;margin-left:auto}
+.sw>button{font:400 .6875rem/1 var(--sans);letter-spacing:.04em;background:none;border:0;padding:0;cursor:pointer;opacity:.6}
 .sw>button[aria-pressed=true]{opacity:1;font-weight:600}
-#sw{position:relative;width:30px;height:16px;border:1px solid currentColor;border-radius:99px;opacity:1}
-#sw i{position:absolute;top:2px;left:2px;width:10px;height:10px;border-radius:50%;background:currentColor;transition:transform .3s}
-#sw[aria-checked=true] i{transform:translateX(14px)}
+#sw{position:relative;width:22px;height:12px;border:1px solid currentColor;border-radius:99px;background:none;padding:0;cursor:pointer;opacity:.85}
+#sw i{position:absolute;top:1px;left:1px;width:8px;height:8px;border-radius:50%;background:currentColor;transition:transform .25s cubic-bezier(.22,1,.36,1)}
+#sw[aria-checked=true] i{transform:translateX(10px)}
+
 .poets{display:grid;grid-template-columns:minmax(0,1fr);padding:0 0 3rem}
 .scroller,.detail{grid-area:1/1}
 .poets.stk .detail{grid-area:2/1}
 .stage{position:relative;overflow:hidden}
-.arc{position:absolute;left:0;top:0;pointer-events:none;fill:none;stroke:currentColor;stroke-width:1;opacity:.3;transition:opacity .4s}
+
+/* Faint continuous ring & axis */
+.arc{position:absolute;left:0;top:0;pointer-events:none;fill:none;stroke:currentColor;stroke-width:1;stroke-dasharray:none;opacity:.08;transition:opacity .4s}
 .tl .arc{opacity:0}
 .axis{position:absolute;pointer-events:none;height:1px;background:currentColor;opacity:0;transition:opacity .5s .3s}
-.tl .axis{opacity:.35}
-.tl .node{position:absolute;left:0;top:0;width:0;height:0;padding:0;border:0;background:none;cursor:pointer;transform-origin:0 0;transition:transform .95s cubic-bezier(.6,0,.2,1)}
-.node.notrans,.node.notrans *{transition:none}
-.dot{position:absolute;left:-17px;top:-17px;width:34px;height:34px;transition:transform .35s cubic-bezier(.3,1.5,.5,1)}
+.tl .axis{opacity:.12}
+
+/* Nodes sit directly at anchor points (no fly-in from center on dial) */
+.node{position:absolute;left:0;top:0;width:0;height:0;padding:0;border:0;background:none;cursor:pointer;transform-origin:0 0}
+.is-switching .node{transition:transform .85s cubic-bezier(.6,0,.2,1)}
+.node.notrans,.node.notrans *{transition:none!important}
+
+/* Subtle click into place on selection */
+.dot{position:absolute;left:-17px;top:-17px;width:34px;height:34px;transition:transform .2s cubic-bezier(.22,1,.36,1)}
 .dot svg,.flw svg{display:block;width:100%;height:100%}
-.node[aria-current=true] .dot{transform:scale(1.7)}
+.node:active .dot{transform:scale(.92)}
+.node[aria-current=true] .dot{transform:scale(1.55)}
 .node:focus-visible{outline:none}
 .node:focus-visible .dot{outline:2px solid currentColor;outline-offset:4px;border-radius:50%}
-.lab{--pad:24px;position:absolute;left:0;top:0;white-space:nowrap;font:400 var(--xs)/1.2 var(--sans);letter-spacing:.02em;text-align:center;transform:translate(calc(-50% + var(--ux,0)*(50% + var(--pad))),calc(-50% + var(--uy,0)*(50% + var(--pad))));transition:transform .95s cubic-bezier(.6,0,.2,1),opacity .4s}
-.node[aria-current=true] .lab{--pad:36px;font-weight:600}
+
+.lab{--pad:24px;position:absolute;left:0;top:0;white-space:nowrap;font:400 var(--xs)/1.2 var(--sans);letter-spacing:.02em;text-align:center;transform:translate(calc(-50% + var(--ux,0)*(50% + var(--pad))),calc(-50% + var(--uy,0)*(50% + var(--pad))));transition:transform .2s cubic-bezier(.22,1,.36,1),opacity .3s}
+.is-switching .lab{transition:transform .85s cubic-bezier(.6,0,.2,1),opacity .3s}
+.node[aria-current=true] .lab{--pad:34px;font-weight:600}
+
 .tl .dot{width:28px;height:28px;left:-14px;top:-14px}
 .tl .node[data-s=a] .lab{transform:translate(-50%,calc(-100% - 22px))}
 .tl .node[data-s=b] .lab{transform:translate(-50%,22px)}
-.tl .node[data-s=a][aria-current=true] .lab{transform:translate(-50%,calc(-100% - 32px))}
-.tl .node[data-s=b][aria-current=true] .lab{transform:translate(-50%,32px)}
+.tl .node[data-s=a][aria-current=true] .lab{transform:translate(-50%,calc(-100% - 30px))}
+.tl .node[data-s=b][aria-current=true] .lab{transform:translate(-50%,30px)}
 .poets.v .node .lab{text-align:left;transform:translate(24px,-50%)}
-.poets.v .node[aria-current=true] .lab{transform:translate(34px,-50%)}
+.poets.v .node[aria-current=true] .lab{transform:translate(32px,-50%)}
 .yr{display:none;opacity:.7}
 .tl .yr{display:block}
+
 .detail{align-self:center;justify-self:center;width:min(var(--hw,34rem),calc(100% - 3rem));padding:2rem 0;z-index:1;text-align:center;pointer-events:none}
 .detail :is(button,summary,a){pointer-events:auto}
 .poets.stk .detail{align-self:start;padding:1.5rem 0 3rem}
@@ -51,10 +66,13 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 .ur{font:400 1.5rem/2.2 var(--nast);direction:rtl}
 .nm{text-align:center;margin:0}
 .todo{opacity:.65;font-style:italic}
-.cp{margin:1rem 0 .5rem}
-.cp .tr{margin:0;font-size:clamp(.9rem,2.25vw,1.6rem);font-weight:700;line-height:1.25;letter-spacing:-.01em}
+
+/* Couplets scaled down ~50% */
+.cp{margin:.85rem 0 .5rem}
+.cp .tr{margin:0;font-size:clamp(.65rem,1.15vw,.85rem);font-weight:600;line-height:1.35;letter-spacing:0}
 .cp .tr span,.cp .u span{display:block}
-.cp .u{font:600 clamp(1.1rem,2vw,1.4rem)/2.2 var(--nast);direction:rtl;text-align:center;margin:.3rem 0}
+.cp .u{font:500 clamp(.75rem,1.1vw,.95rem)/2.1 var(--nast);direction:rtl;text-align:center;margin:.25rem 0}
+
 .gl{border-top:1px solid currentColor;padding-top:.6rem;margin:.6rem 0}
 .gl[hidden]{display:none}
 .gl p{margin:.2rem 0}
@@ -62,10 +80,10 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 .acts{display:flex;justify-content:center;gap:.5rem;margin-top:.6rem}
 .acts button{font:600 var(--xs)/1 var(--sans);letter-spacing:.04em;background:none;border:1px solid currentColor;border-radius:99px;padding:.5em 1em;cursor:pointer}
 .acts button[aria-expanded=true]{background:var(--fg);color:var(--bg)}
-.flash{animation:fl .6s}
-.pop{animation:pop .3s}
-@keyframes fl{from{opacity:.2;transform:translateY(6px)}to{opacity:1;transform:none}}
-@keyframes pop{50%{transform:scale(1.15)}}
+.flash{animation:fl .5s}
+.pop{animation:pop .25s}
+@keyframes fl{from{opacity:.2;transform:translateY(4px)}to{opacity:1;transform:none}}
+@keyframes pop{50%{transform:scale(1.12)}}
 .more{margin-top:1.2rem;text-align:left}
 details{border-top:1px solid currentColor}
 details:last-child{border-bottom:1px solid currentColor}
