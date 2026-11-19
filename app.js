@@ -18,7 +18,7 @@ const nodes=POETS.map((p,i)=>{
   const b=document.createElement('button');
   b.className='node';b.dataset.s=i%2?'b':'a';
   b.innerHTML='<span class="dot">'+flowerSVG(p.fl)+'</span><span class="lab"><span class="nm-short">'+p.short+'</span><span class="yr">'+p.y+'</span></span>';
-  b.setAttribute('aria-label',p.name+);
+  b.setAttribute('aria-label',p.name+', '+p.y);
   b.onclick=()=>setFocus(i);stage.append(b);return b;
 });
 
