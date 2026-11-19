@@ -1,6 +1,6 @@
 /* ---------- DATA: all the content lives here ---------- */
 const ERAS=[
- {n:'Early &amp; Deccan Era',span:'13th to 17th centuries',c:'#E23FA0',f:'#ffffff',desc:'Rooted in Hindavi and Rekhta, with early compositions in the 13th century. Urdu poetry flourished as a major tradition in the Deccan courts of Golconda and Bijapur in the 16th and 17th centuries.'},
+ {n:'Early &amp; Deccan Era',span:'13th to 17th centuries',c:'#CC2E8C',f:'#ffffff',desc:'Rooted in Hindavi and Rekhta, with early compositions in the 13th century. Urdu poetry flourished as a major tradition in the Deccan courts of Golconda and Bijapur in the 16th and 17th centuries.'},
  {n:'Classical Era',sub:'Delhi and Lucknow schools',span:'18th to 19th centuries',c:'#D93349',f:'#ffffff',desc:'Wali\u2019s arrival in Delhi around 1700 sparked the northern tradition. The Delhi school stressed emotional depth, mysticism and inner experience. After migration from Delhi, the Lucknow school turned to courtly refinement, verbal craft and the marsiya, or elegy.'},
  {n:'Modern &amp; Nationalist Era',span:'Late 19th to mid 20th century',c:'#2F7A3F',f:'#ffffff',desc:'Under colonial rule and rising political movements, themes widened to nationalism, reform, pan-Islamism and social critique.'},
  {n:'Post-Partition &amp; Contemporary Era',span:'Mid 20th century to present',c:'#EFB920',f:'#1b1218',desc:'After the 1947 Partition, Urdu poetry developed across India, Pakistan and the diaspora, taking in progressive, symbolic and personal themes.'}];
@@ -10,6 +10,8 @@ const PK='#E23FA0',RD='#D93349',YL='#EFB920',OR='#F28C28',CR='#FFF1E0',PU='#7B3F
 // Kept in birth-year order. b = birth year, used to place poets on the timeline.
 const POETS=[
  {id:'khusro',name:'Amir Khusro',short:'Khusro',ur:'امیر خسرو',b:1253,y:'1253–1325',era:0,works:['Persian divans','Khamsa','Hindavi riddles and songs (attributions uncertain)'],fl:{s:'point',n:8,w:.26,a:CR,b:OR,c:YL}},
+ {id:'quli',name:'Muhammad Quli Qutb Shah',short:'Quli Qutb Shah',ur:'محمد قلی قطب شاہ',b:1565,y:'1565–1612',era:0,works:['Kulliyat (the first complete Urdu divan)'],fl:{s:'round',n:10,w:.22,a:OR,b:YL,c:BR}},
+ {id:'nusrati',name:'Nusrati',short:'Nusrati',ur:'نصرتی',b:1600,y:'c. 1600–1674',era:0,works:['Gulshan-e-Ishq','Ali Nama'],fl:{s:'curl',n:5,a:YL,c:RD}},
  {id:'wali',name:'Wali Deccani',short:'Wali',ur:'ولی دکنی',b:1667,y:'c. 1667–1707',era:0,works:['Divan-e-Wali'],fl:{s:'round',n:5,w:.3,a:YL,c:OR}},
  {id:'mir',name:'Mir Taqi Mir',short:'Mir',ur:'میر تقی میر',b:1723,y:'1723–1810',era:1,works:['Six divans','Zikr-e-Mir (autobiography)','Nikat-ush-Shu\u2019ara'],fl:{s:'round',n:12,w:.14,a:CR,b:YL,c:BR}},
  {id:'nazeer',name:'Nazeer Akbarabadi',short:'Nazeer',ur:'نظیر اکبر آبادی',b:1735,y:'1735–1830',era:1,works:['Banjara-nama','Aadmi-nama'],fl:{s:'curl',n:7,a:PK,c:YL}},
@@ -20,8 +22,6 @@ const POETS=[
  {id:'iqbal',name:'Muhammad Iqbal',short:'Iqbal',ur:'علامہ اقبال',b:1877,y:'1877–1938',era:2,works:['Bang-e-Dra','Bal-e-Jibril','Shikwa and Jawab-e-Shikwa'],fl:{s:'point',n:6,w:.3,a:CR,b:PK,c:YL}},
  {id:'faiz',name:'Faiz Ahmed Faiz',short:'Faiz',ur:'فیض احمد فیض',b:1911,y:'1911–1984',era:3,works:['Naqsh-e-Faryadi','Dast-e-Saba','Zindan Nama'],fl:{s:'round',n:5,w:.3,a:PK,b:RD,c:CR}},
  {id:'kaifi',name:'Kaifi Azmi',short:'Kaifi',ur:'کیفی اعظمی',b:1919,y:'1919–2002',era:3,works:['Jhankaar','Awaara Sajde','Aurat (nazm)'],fl:{s:'curl',n:6,a:RD,b:CR,c:YL}},
- {id:'sahir',name:'Sahir Ludhianvi',short:'Sahir',ur:'ساحر لدھیانوی',b:1921,y:'1921–1980',era:3,works:['Talkhiyaan','Songs from Pyaasa'],fl:{s:'point',n:12,w:.2,a:PK,b:CR,c:RD}},
- {id:'jaun',name:'Jaun Elia',short:'Jaun Elia',ur:'جون ایلیا',b:1931,y:'1931–2002',era:3,works:['Shayad','Yaani'],fl:{s:'round',n:8,w:.2,a:PU,b:PK,c:YL}},
  {id:'nida',name:'Nida Fazli',short:'Nida Fazli',ur:'ندا فاضلی',b:1938,y:'1938–2016',era:3,works:['Lafzon Ke Pul','Khoya Hua Sa Kuchh'],fl:{s:'round',n:4,w:.34,a:RD,c:CR}},
  {id:'parveen',name:'Parveen Shakir',short:'Parveen Shakir',ur:'پروین شاکر',b:1952,y:'1952–1994',era:3,works:['Khushbu','Sad-barg'],fl:{s:'point',n:7,w:.3,a:PU,b:CR,c:YL}}];
 // TODO: check every couplet against Rekhta or the divan before publishing, then add src links.
