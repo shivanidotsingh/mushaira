@@ -48,12 +48,10 @@ function layout(){
 
 function paint(o){document.body.style.setProperty('--bg',o.c);document.body.style.setProperty('--fg',o.f)}
 const lines=a=>a.map(l=>'<span>'+l+'</span>').join('');
-const pname=id=>POETS.find(p=>p.id===id).name;
 
-// One couplet, used by the mic (small) and the Eras view (big).
-function cpl(c,big){
-  return '<div class="cp'+(big?' big':'')+'">'+(big?'<p class="by"><button class="who" data-p="'+c.p+'">'+pname(c.p)+'</button></p>':'')
-    +'<p class="tr">'+lines(c.tr)+'</p><p class="u" lang="ur" dir="rtl">'+lines(c.ur)+'</p>'
+// One couplet, shown at the mic.
+function cpl(c){
+  return '<div class="cp"><p class="tr">'+lines(c.tr)+'</p><p class="u" lang="ur" dir="rtl">'+lines(c.ur)+'</p>'
     +'<div class="gl" hidden><p>'+c.en+'</p><p class="words">'+c.w.map(w=>'<span><b>'+w[0]+'</b> '+w[1]+'</span>').join('')+'</p></div>'
     +'<div class="acts"><button data-act="mukarrar" aria-expanded="false">Mukarrar</button>'
     +'<button data-act="wah" data-id="'+c.id+'">Wah! <span>'+(WAH[c.id]||0)+'</span></button></div></div>';
@@ -67,12 +65,14 @@ function renderMic(){
 }
 
 function renderDetail(){
-  const p=POETS[focus];
+  const p=POETS[focus],e=ERAS[p.era];
   $('#hubName').textContent=p.name;$('#hubYears').textContent=p.y;
-  $('#detail').innerHTML='<h2>'+p.name+'</h2><p>'+p.y+'</p><p>'+ERAS[p.era].n+'</p>'
-    +'<p class="ur" lang="ur" dir="rtl">'+p.ur+'</p><h3>Notable works</h3><ul>'
-    +p.works.map(w=>'<li>'+w+'</li>').join('')+'</ul><p class="todo">Biography and links go here.</p>'
-    +'<h3>At the mic</h3><div id="mic"></div><p><button class="irshad" id="irshad">Irshad</button></p>';
+  document.querySelectorAll('#eranav button').forEach((b,k)=>b.setAttribute('aria-current',k===p.era));
+  $('#detail').innerHTML='<div class="in"><h2>'+p.name+'</h2><p>'+p.y+'</p><p class="ur" lang="ur" dir="rtl">'+p.ur+'</p>'
+    +'<div id="mic" aria-live="polite"></div><p><button class="irshad" id="irshad">Irshad</button></p>'
+    +'<h3>Notable works</h3><ul class="works">'+p.works.map(w=>'<li>'+w+'</li>').join('')+'</ul><p class="todo">Biography and links go here.</p>'
+    +'<h3>'+e.n+(e.sub?': '+e.sub:'')+'</h3><p>'+e.span+'</p>'+(e.desc?'<p>'+e.desc+'</p>':'')
+    +'<ul class="roll">'+POETS.filter(q=>q.era===p.era).map(q=>'<li><button class="who" data-p="'+q.id+'">'+flowerSVG(q.fl)+q.name+'</button></li>').join('')+'</ul></div>';
   renderMic();paint(ERAS[p.era]);
 }
 
@@ -83,21 +83,8 @@ function setFocus(j){
 }
 const step=d=>setFocus((focus+d+N)%N);
 
-function renderEras(){
-  $('#eras').innerHTML=ERAS.map((e,k)=>{
-    const ps=POETS.filter(p=>p.era===k),cs=COUPLETS.filter(c=>ps.some(p=>p.id===c.p));
-    return '<section class="era" style="--bg:'+e.c+';--fg:'+e.f+'"><div class="in"><h2>'+e.n+'</h2><p class="span">'+e.span+'</p>'
-      +(e.desc?'<p>'+e.desc+'</p>':'')
-      +'<ul class="roll">'+ps.map(p=>'<li><button class="who" data-p="'+p.id+'">'+flowerSVG(p.fl)+p.name+'</button></li>').join('')+'</ul>'
-      +(cs.length?cs.map(c=>cpl(c,true)).join(''):'<p class="todo">Couplets coming. Poets still in copyright get short excerpts and links.</p>')
-      +'</div></section>';
-  }).join('');
-}
-
 function setView(v){
   document.querySelectorAll('nav button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===v));
-  $('#eras').hidden=v!=='eras';$('#poets').hidden=v==='eras';
-  if(v==='eras'){renderEras();paint(ERAS[0]);return}
   if(v!==mode){
     if(v==='timeline'){ // settle angles to the shortest path, then unwind the circle into the line
       ang=ang.map(norm);nodes.forEach(n=>n.classList.add('notrans'));layout();
@@ -106,7 +93,7 @@ function setView(v){
       ang=POETS.map((_,i)=>norm((i-focus)*STEP-90));
       $('#poets .scroller').scrollLeft=0;
     }
-    mode=v;stage.classList.toggle('tl',v==='timeline');
+    mode=v;stage.classList.toggle('tl',v==='timeline');document.body.classList.toggle('is-tl',v==='timeline');
   }
   layout();renderDetail();
 }
@@ -119,7 +106,9 @@ stage.addEventListener('keydown',e=>{
 });
 document.addEventListener('click',e=>{
   const w=e.target.closest('.who');
-  if(w){setView(mode);setFocus(POETS.findIndex(p=>p.id===w.dataset.p));scrollTo(0,0);return}
+  if(w){setView(mode);setFocus(POETS.findIndex(p=>p.id===w.dataset.p));scrollTo({top:0,behavior:'smooth'});return}
+  const en=e.target.closest('#eranav button');
+  if(en){setFocus(POETS.findIndex(p=>p.era===+en.dataset.era));return}
   if(e.target.closest('#irshad')){
     const n=COUPLETS.filter(c=>c.p===POETS[focus].id).length;
     cur=(cur+1)%n;renderMic();return;
@@ -135,4 +124,5 @@ document.addEventListener('click',e=>{
   }
 });
 addEventListener('resize',layout);
+$('#eranav').innerHTML=ERAS.map((e,k)=>'<button data-era="'+k+'">'+e.n+'</button>').join('');
 layout();renderDetail();
