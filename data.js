@@ -26,21 +26,37 @@ const POETS=[
  {id:'parveen',name:'Parveen Shakir',short:'Parveen Shakir',ur:'پروین شاکر',b:1952,y:'1952–1994',era:3,works:['Khushbu','Sad-barg'],fl:{s:'point',n:7,w:.3,a:PU,b:CR,c:YL}}];
 // TODO: check every couplet against Rekhta or the divan before publishing, then add src links.
 // In-copyright poets (Faiz, Kaifi, Sahir, Jaun, Nida, Parveen): short excerpt + link only.
-// w = word-by-word meaning, shown by Mukarrar.
+// Each line in `tr` can be a string or an array of strings and {t, g} objects for hover glosses.
 const COUPLETS=[
- {id:'mir1',p:'mir',tr:['patta patta, boota boota, haal hamara jaane hai','jaane na jaane gul hi na jaane, baagh to saara jaane hai'],
+ {id:'mir1',p:'mir',
+  tr:[
+   [{t:'patta patta',g:'every leaf'},', ',{t:'boota boota',g:'every plant'},', haal hamara jaane hai'],
+   ['jaane na jaane ',{t:'gul',g:'flower / beloved'},' hi na jaane, baagh to saara jaane hai']
+  ],
   ur:['پتہ پتہ بوٹا بوٹا حال ہمارا جانے ہے','جانے نہ جانے گل ہی نہ جانے باغ تو سارا جانے ہے'],
   en:'Every leaf and every plant knows how I am. The flower, the beloved, may not know, but the whole garden does.',
-  w:[['patta','leaf'],['boota','plant'],['haal','condition'],['jaane hai','knows'],['gul','flower'],['baagh','garden'],['saara','whole']],src:''},
- {id:'ghalib1',p:'ghalib',tr:['hazaaron khwahishen aisi ke har khwahish pe dam nikle','bahut nikle mere armaan, lekin phir bhi kam nikle'],
+  src:''},
+ {id:'ghalib1',p:'ghalib',
+  tr:[
+   ['hazaaron khwahishen aisi ke har khwahish pe ',{t:'dam nikle',g:'breath leaves / one dies'}],
+   ['bahut nikle mere ',{t:'armaan',g:'longings, wishes'},', lekin phir bhi kam nikle']
+  ],
   ur:['ہزاروں خواہشیں ایسی کہ ہر خواہش پہ دم نکلے','بہت نکلے مرے ارمان لیکن پھر بھی کم نکلے'],
   en:'Thousands of desires, each one worth dying for. Many of my wishes came true, and still it was too few.',
-  w:[['khwahish','desire'],['dam nikle','the breath leaves'],['armaan','wish'],['nikle','came out, got fulfilled']],src:''},
- {id:'zafar1',p:'zafar',tr:['lagta nahin hai dil mera ujde dayaar mein','kis ki bani hai aalam-e-na-paedaar mein'],
+  src:''},
+ {id:'zafar1',p:'zafar',
+  tr:[
+   ['lagta nahin hai dil mera ',{t:'ujde dayaar',g:'ruined land'},' mein'],
+   ['kis ki bani hai ',{t:'aalam-e-na-paedaar',g:'ephemeral, temporary world'},' mein']
+  ],
   ur:['لگتا نہیں ہے دل مرا اجڑے دیار میں','کس کی بنی ہے عالمِ ناپائیدار میں'],
   en:'My heart finds no rest in this ruined land. But who ever built a lasting home in this temporary world?',
-  w:[['ujde dayaar','ruined land'],['bani','was built'],['aalam-e-na-paedaar','the world that does not last']],src:''},
- {id:'iqbal1',p:'iqbal',tr:['khudi ko kar buland itna ke har taqdeer se pehle','khuda bande se khud poochhe, bata teri raza kya hai'],
+  src:''},
+ {id:'iqbal1',p:'iqbal',
+  tr:[
+   [{t:'khudi',g:'selfhood'},' ko kar ',{t:'buland',g:'exalted, high'},' itna ke har ',{t:'taqdeer',g:'decree of fate'},' se pehle'],
+   ['khuda bande se khud poochhe, bata teri ',{t:'raza',g:'will, wish'},' kya hai']
+  ],
   ur:['خودی کو کر بلند اتنا کہ ہر تقدیر سے پہلے','خدا بندے سے خود پوچھے بتا تیری رضا کیا ہے'],
   en:'Raise your selfhood so high that before every decree of fate, God himself asks you: what do you want?',
-  w:[['khudi','selfhood'],['buland','high'],['taqdeer','fate'],['bande','servant, meaning a person'],['raza','wish']],src:''}];
+  src:''}];
