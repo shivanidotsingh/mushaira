@@ -6,33 +6,27 @@
 <title>Mushaira: a gathering of Urdu poets</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
-  <div class="eranav" id="eranav"></div>
-  <nav aria-label="Views">
+  <nav class="eranav" id="eranav" aria-label="Eras"></nav>
+  <div class="sw" role="group" aria-label="View">
     <button data-view="dial" aria-pressed="true">Dial</button>
+    <button id="sw" role="switch" aria-checked="false" aria-label="Timeline view"><i></i></button>
     <button data-view="timeline" aria-pressed="false">Timeline</button>
-  </nav>
+  </div>
 </header>
-<main>
-  <section id="poets" aria-label="Poets">
-    <div class="scroller">
-      <div class="stage" id="stage">
-        <div class="ring" aria-hidden="true"></div>
-        <div class="axis" aria-hidden="true"></div>
-        <span class="brk" id="brk" aria-hidden="true">axis compressed here</span>
-        <div class="hub" aria-hidden="true"><h2 id="hubName"></h2><p id="hubYears"></p></div>
-      </div>
+<main class="poets" id="poets">
+  <div class="scroller">
+    <div class="stage" id="stage">
+      <svg class="arc" id="arc" aria-hidden="true"></svg>
+      <div class="axis" id="axis" aria-hidden="true"></div>
+      <span class="brk" id="brk" aria-hidden="true">axis compressed before 1500</span>
     </div>
-    <div class="ctrl">
-      <button id="prev" aria-label="Previous poet">&lsaquo;</button>
-      <button id="next" aria-label="Next poet">&rsaquo;</button>
-    </div>
-    <section id="detail" class="sec"></section>
-  </section>
+  </div>
+  <section class="detail" id="detail"></section>
 </main>
 <script src="data.js"></script>
 <script src="app.js"></script>
