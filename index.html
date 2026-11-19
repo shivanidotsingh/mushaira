@@ -11,11 +11,10 @@
 </head>
 <body>
 <header>
-  <h1>Mushaira</h1>
+  <div class="eranav" id="eranav"></div>
   <nav aria-label="Views">
     <button data-view="dial" aria-pressed="true">Dial</button>
     <button data-view="timeline" aria-pressed="false">Timeline</button>
-    <button data-view="eras" aria-pressed="false">Eras</button>
   </nav>
 </header>
 <main>
@@ -32,9 +31,8 @@
       <button id="prev" aria-label="Previous poet">&lsaquo;</button>
       <button id="next" aria-label="Next poet">&rsaquo;</button>
     </div>
-    <article id="detail" class="panel" aria-live="polite"></article>
+    <section id="detail" class="sec"></section>
   </section>
-  <section id="eras" hidden></section>
 </main>
 <script src="data.js"></script>
 <script src="app.js"></script>
