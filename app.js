@@ -1,7 +1,7 @@
 /* Content lives in data.js. This file is the engine. */
 const $=s=>document.querySelector(s),N=POETS.length;
 const stage=$('#stage'),poets=$('#poets'),sc=$('.scroller');
-let focus=POETS.findIndex(p=>p.id==='mir'),mode='dial',cur=0;const WAH={};
+let focus=POETS.findIndex(p=>p.id==='mir'),mode='dial',cur=0,switchTimer;const WAH={};
 const norm=a=>((a+180)%360+360)%360-180;
 // Timeline x: 1253 sits at the far left; 1500-1960 fills the rest.
 const yearX=y=>y<1400?.03:.1+(y-1500)/460*.88;
@@ -98,10 +98,16 @@ function setFocus(j){focus=j;cur=0;layout();renderDetail()}
 const step=d=>setFocus((focus+d+N)%N);
 
 function setMode(v){
-  mode=v;document.body.classList.toggle('is-tl',v==='timeline');
+  if(mode===v)return;
+  mode=v;
+  clearTimeout(switchTimer);
+  document.body.classList.add('is-switching');
+  document.body.classList.toggle('is-tl',v==='timeline');
   $('#sw').setAttribute('aria-checked',v==='timeline');
   document.querySelectorAll('.sw [data-view]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===v));
-  sc.scrollLeft=0;layout();
+  sc.scrollLeft=0;
+  layout();
+  switchTimer=setTimeout(()=>document.body.classList.remove('is-switching'),900);
 }
 
 $('#sw').onclick=()=>setMode(mode==='dial'?'timeline':'dial');
