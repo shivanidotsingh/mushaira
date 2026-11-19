@@ -18,36 +18,49 @@ function flowerSVG(f){
 
 const nodes=POETS.map((p,i)=>{
   const b=document.createElement('button');
-  b.className='node';
-  b.innerHTML='<span class="dot">'+flowerSVG(p.fl)+'</span><span class="lab">'+p.short+'<span class="yr"> '+p.b+'</span></span>';
+  b.className='node';b.dataset.s=i%2?'b':'a';
+  b.innerHTML='<span class="dot">'+flowerSVG(p.fl)+'</span><span class="lab">'+p.short+'<span class="yr">'+p.b+'</span></span>';
   b.setAttribute('aria-label',p.name+', '+p.y);
   b.onclick=()=>setFocus(i);stage.append(b);return b;
 });
 
-// The dial is a C: poets sit on a 276-degree arc, open toward the content (right on desktop, down on phones).
+// Dial: the ring is bigger than the page, so flowers only use the part of it that is on the page.
+function ringAngles(cx,cy,R,l,t,r,b){
+  const ang=k=>270-k*.5,pt=k=>[cx+R*Math.cos(ang(k)*Math.PI/180),cy+R*Math.sin(ang(k)*Math.PI/180)];
+  const vis=Array.from({length:720},(_,k)=>{const[x,y]=pt(k);return x>=l&&x<=r&&y>=t&&y<=b});
+  const starts=vis.map((v,k)=>v&&!vis[(k+719)%720]?k:-1).filter(k=>k>=0);
+  if(!starts.length)return Array.from({length:N},(_,i)=>270-i*360/N);   // whole ring fits on the page
+  const k0=starts.reduce((m,k)=>pt(k)[1]<pt(m)[1]?k:m);                 // begin at the top-most visible end
+  const v=[];for(let j=0;j<720;j++){const k=(k0+j)%720;if(vis[k])v.push(ang(k))}
+  return Array.from({length:N},(_,i)=>v[Math.round(i*(v.length-1)/(N-1))]);
+}
+// Timeline: half true dates, half even steps, so no two flowers collide and nothing scrolls.
+const tpos=i=>.5*(POETS[i].b-POETS[0].b)/(POETS[N-1].b-POETS[0].b)+.5*i/(N-1);
+
 function layout(instant){
-  const cw=sc.clientWidth,mobile=cw<780,tl=mode==='timeline',off=mobile?90:0;
+  const cw=sc.clientWidth,mob=cw<780,tl=mode==='timeline',vert=tl&&cw<640;
   if(instant)nodes.forEach(n=>n.classList.add('notrans'));
-  poets.classList.toggle('stk',mobile||tl);poets.classList.toggle('tl',tl);
-  const W=tl?Math.max(cw,900):cw;let H,R,cx,cy;
-  if(tl){H=340;cy=170}
-  else if(mobile){R=Math.min(cw/2-60,190);H=2*R+90;cx=cw/2;cy=R+45}
-  else{H=Math.min(innerHeight*.82,720);R=Math.min(H/2-36,cw*.27);cx=Math.max(R+48,cw*.28);cy=H/2}
-  stage.style.width=W+'px';stage.style.height=H+'px';
-  $('#axis').style.top=cy+'px';
-  $('#brk').style.cssText='left:'+W*.12+'px;top:'+(cy+10)+'px';
-  if(!tl){
-    const P=a=>(R+2+R*Math.cos(a*Math.PI/180)).toFixed(1)+','+(R+2+R*Math.sin(a*Math.PI/180)).toFixed(1);
-    $('#arc').style.cssText='left:'+(cx-R-2)+'px;top:'+(cy-R-2)+'px;width:'+(2*R+4)+'px;height:'+(2*R+4)+'px';
-    $('#arc').innerHTML='<path d="M'+P(-42+off)+' A'+R+' '+R+' 0 1 0 '+P(-318+off)+'"/>';
-  }
+  poets.classList.toggle('stk',tl);poets.classList.toggle('tl',tl);poets.classList.toggle('v',vert);
+  let H,R=0;const cx=cw/2;
+  if(tl)H=vert?(N-1)*44+80:200;
+  else if(mob){R=cw*.7;H=2*R+70}
+  else{H=Math.min(innerHeight*.82,720);R=Math.min(cw*.36,H*.62)}
+  const cy=H/2;
+  stage.style.height=H+'px';
+  $('#detail').style.setProperty('--hw',tl?'34rem':Math.min(544,R*1.1)+'px');
+  $('#axis').style.cssText=vert?'left:40px;top:36px;width:1px;height:'+(H-72)+'px':'left:0;right:0;top:'+cy+'px';
+  const arc=$('#arc');arc.setAttribute('viewBox','0 0 '+cw+' '+H);arc.style.cssText='width:'+cw+'px;height:'+H+'px';
+  arc.innerHTML=tl?'':'<circle cx="'+cx+'" cy="'+cy+'" r="'+R+'"/>';
+  const A=tl?[]:ringAngles(cx,cy,R,30,30,cw-30,H-30);
   nodes.forEach((n,i)=>{
     if(tl){
-      n.style.transform='translate(0px,'+cy+'px) rotate(0deg) translate('+yearX(POETS[i].b)*W+'px,'+[-76,0,76][i%3]+'px) rotate(0deg)';
+      const t=tpos(i);
+      n.style.transform=vert?'translate(40px,0px) rotate(0deg) translate(0px,'+(36+(H-72)*t)+'px) rotate(0deg)'
+        :'translate(0px,'+cy+'px) rotate(0deg) translate('+(64+(cw-128)*t)+'px,0px) rotate(0deg)';
     }else{
-      const a=norm(-42+off-i*276/(N-1)),r=a*Math.PI/180;
+      const a=norm(A[i]),r=a*Math.PI/180,s=mob?-1:1; // labels sit outside the ring (inside on phones)
       n.style.transform='translate('+cx+'px,'+cy+'px) rotate('+a+'deg) translate('+R+'px,0px) rotate('+-a+'deg)';
-      n.style.setProperty('--ux',-Math.cos(r));n.style.setProperty('--uy',-Math.sin(r));
+      n.style.setProperty('--ux',s*Math.cos(r));n.style.setProperty('--uy',s*Math.sin(r));
     }
     n.setAttribute('aria-current',i===focus);
   });
@@ -67,17 +80,17 @@ function renderMic(){
     +'<button data-act="wah" data-id="'+c.id+'">Wah! <span>'+(WAH[c.id]||0)+'</span></button></div></div>';
 }
 
-// Everything about the selected poet lives here, in the opening of the C.
+// Everything about the selected poet lives here, inside the ring.
 function renderDetail(){
   const p=POETS[focus],e=ERAS[p.era];
   document.querySelectorAll('#eranav button').forEach((b,k)=>b.setAttribute('aria-current',k===p.era));
   $('#detail').innerHTML='<div class="flw">'+flowerSVG(p.fl)+'</div>'
     +'<p class="sm">'+e.n+(e.sub?', '+e.sub:'')+'</p><h2>'+p.name+'</h2><p class="sm">'+p.y+'</p>'
     +'<p class="ur nm" lang="ur" dir="rtl">'+p.ur+'</p><div id="mic"></div>'
-    +'<h3>Notable works</h3><ul class="works sm">'+p.works.map(w=>'<li>'+w+'</li>').join('')+'</ul>'
-    +'<p class="sm todo">Biography and links go here.</p>'
-    +'<h3>'+e.n+'</h3><p class="sm">'+e.span+'. '+e.desc+'</p>'
-    +'<ul class="roll">'+POETS.filter(q=>q.era===p.era).map(q=>'<li><button class="who" data-p="'+q.id+'">'+flowerSVG(q.fl)+q.name+'</button></li>').join('')+'</ul>';
+    +'<div class="more"><details><summary>Notable works</summary><ul class="works sm">'+p.works.map(w=>'<li>'+w+'</li>').join('')+'</ul></details>'
+    +'<details><summary>Biography</summary><p class="sm todo">Biography and links go here.</p></details>'
+    +'<details><summary>The era</summary><p class="sm">'+e.span+'. '+e.desc+'</p>'
+    +'<ul class="roll">'+POETS.filter(q=>q.era===p.era).map(q=>'<li><button class="who" data-p="'+q.id+'">'+flowerSVG(q.fl)+q.name+'</button></li>').join('')+'</ul></details></div>';
   renderMic();paint(e);
 }
 
