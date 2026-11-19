@@ -1,22 +1,22 @@
 /* ---------- DATA: all the content lives here ---------- */
 const ERAS=[
- {n:'Origins',span:'c. 1250 to 1830',c:'#E23FA0',f:'#ffffff',desc:''},
- {n:'Courts and the fall of Delhi',span:'1768 to 1869',c:'#D93349',f:'#ffffff',desc:''},
- {n:'After 1857',span:'1831 to 1938',c:'#2F7A3F',f:'#ffffff',desc:''},
- {n:'Progressives and after',span:'1911 to 2016',c:'#EFB920',f:'#1b1218',desc:''}];
+ {n:'Early &amp; Deccan Era',span:'13th to 17th centuries',c:'#E23FA0',f:'#ffffff',desc:'Rooted in Hindavi and Rekhta, with early compositions in the 13th century. Urdu poetry flourished as a major tradition in the Deccan courts of Golconda and Bijapur in the 16th and 17th centuries.'},
+ {n:'Classical Era',sub:'Delhi and Lucknow schools',span:'18th to 19th centuries',c:'#D93349',f:'#ffffff',desc:'Wali\u2019s arrival in Delhi around 1700 sparked the northern tradition. The Delhi school stressed emotional depth, mysticism and inner experience. After migration from Delhi, the Lucknow school turned to courtly refinement, verbal craft and the marsiya, or elegy.'},
+ {n:'Modern &amp; Nationalist Era',span:'Late 19th to mid 20th century',c:'#2F7A3F',f:'#ffffff',desc:'Under colonial rule and rising political movements, themes widened to nationalism, reform, pan-Islamism and social critique.'},
+ {n:'Post-Partition &amp; Contemporary Era',span:'Mid 20th century to present',c:'#EFB920',f:'#1b1218',desc:'After the 1947 Partition, Urdu poetry developed across India, Pakistan and the diaspora, taking in progressive, symbolic and personal themes.'}];
 // Flower recipe: s = petal shape (round | point | curl), n = petals, w = petal width,
 // a = outer petals, b = inner petals (optional), c = centre.
-const PK='#E23FA0',RD='#D93349',YL='#EFB920',OR='#F28C28',CR='#FFF1E0',PU='#7B3FA0',BR='#6b3a1f';
+const PK='#E23FA0',RD='#D93349',YL='#EFB920',OR='#F28C28',CR='#FFF1E0',PU='#7B3FA0',BR='#6b3a1f',GN='#3E9B4F';
 // Kept in birth-year order. b = birth year, used to place poets on the timeline.
 const POETS=[
  {id:'khusro',name:'Amir Khusro',short:'Khusro',ur:'امیر خسرو',b:1253,y:'1253–1325',era:0,works:['Persian divans','Khamsa','Hindavi riddles and songs (attributions uncertain)'],fl:{s:'point',n:8,w:.26,a:CR,b:OR,c:YL}},
  {id:'wali',name:'Wali Deccani',short:'Wali',ur:'ولی دکنی',b:1667,y:'c. 1667–1707',era:0,works:['Divan-e-Wali'],fl:{s:'round',n:5,w:.3,a:YL,c:OR}},
- {id:'mir',name:'Mir Taqi Mir',short:'Mir',ur:'میر تقی میر',b:1723,y:'1723–1810',era:0,works:['Six divans','Zikr-e-Mir (autobiography)','Nikat-ush-Shu\u2019ara'],fl:{s:'round',n:12,w:.14,a:CR,b:YL,c:BR}},
- {id:'nazeer',name:'Nazeer Akbarabadi',short:'Nazeer',ur:'نظیر اکبر آبادی',b:1735,y:'1735–1830',era:0,works:['Banjara-nama','Aadmi-nama'],fl:{s:'curl',n:7,a:OR,c:CR}},
- {id:'mahlaqa',name:'Mah Laqa Bai Chanda',short:'Mah Laqa',ur:'ماہ لقا بائی چندا',b:1768,y:'1768–1824',era:1,works:['Gulzar-e-Mah Laqa'],fl:{s:'point',n:10,w:.22,a:PK,b:CR,c:YL}},
+ {id:'mir',name:'Mir Taqi Mir',short:'Mir',ur:'میر تقی میر',b:1723,y:'1723–1810',era:1,works:['Six divans','Zikr-e-Mir (autobiography)','Nikat-ush-Shu\u2019ara'],fl:{s:'round',n:12,w:.14,a:CR,b:YL,c:BR}},
+ {id:'nazeer',name:'Nazeer Akbarabadi',short:'Nazeer',ur:'نظیر اکبر آبادی',b:1735,y:'1735–1830',era:1,works:['Banjara-nama','Aadmi-nama'],fl:{s:'curl',n:7,a:PK,c:YL}},
+ {id:'mahlaqa',name:'Mah Laqa Bai Chanda',short:'Mah Laqa',ur:'ماہ لقا بائی چندا',b:1768,y:'1768–1824',era:1,works:['Gulzar-e-Mah Laqa'],fl:{s:'point',n:10,w:.22,a:GN,b:CR,c:YL}},
  {id:'zafar',name:'Bahadur Shah Zafar',short:'Zafar',ur:'بہادر شاہ ظفر',b:1775,y:'1775–1862',era:1,works:['Divan'],fl:{s:'round',n:6,w:.28,a:YL,b:CR,c:BR}},
  {id:'ghalib',name:'Mirza Ghalib',short:'Ghalib',ur:'مرزا غالب',b:1797,y:'1797–1869',era:1,works:['Urdu divan','Dastanbuy','Letters'],fl:{s:'curl',n:9,a:CR,b:PK,c:YL}},
- {id:'daagh',name:'Daagh Dehlvi',short:'Daagh',ur:'داغ دہلوی',b:1831,y:'1831–1905',era:2,works:['Gulzar-e-Daagh','Aftab-e-Daagh','Mahtab-e-Daagh','Yadgar-e-Daagh'],fl:{s:'round',n:16,w:.1,a:YL,c:BR}},
+ {id:'daagh',name:'Daagh Dehlvi',short:'Daagh',ur:'داغ دہلوی',b:1831,y:'1831–1905',era:1,works:['Gulzar-e-Daagh','Aftab-e-Daagh','Mahtab-e-Daagh','Yadgar-e-Daagh'],fl:{s:'round',n:16,w:.1,a:YL,c:BR}},
  {id:'iqbal',name:'Muhammad Iqbal',short:'Iqbal',ur:'علامہ اقبال',b:1877,y:'1877–1938',era:2,works:['Bang-e-Dra','Bal-e-Jibril','Shikwa and Jawab-e-Shikwa'],fl:{s:'point',n:6,w:.3,a:CR,b:PK,c:YL}},
  {id:'faiz',name:'Faiz Ahmed Faiz',short:'Faiz',ur:'فیض احمد فیض',b:1911,y:'1911–1984',era:3,works:['Naqsh-e-Faryadi','Dast-e-Saba','Zindan Nama'],fl:{s:'round',n:5,w:.3,a:PK,b:RD,c:CR}},
  {id:'kaifi',name:'Kaifi Azmi',short:'Kaifi',ur:'کیفی اعظمی',b:1919,y:'1919–2002',era:3,works:['Jhankaar','Awaara Sajde','Aurat (nazm)'],fl:{s:'curl',n:6,a:RD,b:CR,c:YL}},
