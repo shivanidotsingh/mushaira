@@ -22,6 +22,15 @@ const nodes=POETS.map((p,i)=>{
   b.onclick=()=>setFocus(i);stage.append(b);return b;
 });
 
+function syncNodeLabels(){
+  nodes.forEach((n,i)=>{
+    const p=POETS[i];
+    const isAct=i===focus&&mode==='dial';
+    const sn=n.querySelector('.nm-short');
+    if(sn)sn.textContent=isAct?p.name:p.short;
+  });
+}
+
 function baseAngles(){
   return Array.from({length:N},(_,i)=>-90+i*360/N);
 }
@@ -96,6 +105,14 @@ function renderCouplets(){
   ).join('')+'</div>';
 }
 
+function renderWorkTag(w){
+  if(w&&typeof w==='object'&&w.url){
+    return '<li><a href="'+esc(w.url)+'" target="_blank" rel="noopener noreferrer">'+esc(w.title)+'</a></li>';
+  }
+  const label=w&&typeof w==='object'?w.title:w;
+  return '<li>'+esc(label)+'</li>';
+}
+
 function renderDetail(){
   const p=POETS[focus],e=ERAS[p.era];
   document.querySelectorAll('#eranav button').forEach((b,k)=>b.setAttribute('aria-current',k===p.era));
@@ -103,7 +120,7 @@ function renderDetail(){
   $('#detail').innerHTML='<div class="flw">'+flowerSVG(p.fl)+'</div>'
     +renderCouplets()
     +'<h2>'+p.name+' <span class="h-yr">'+p.y+'</span></h2>'
-    +'<ul class="tags"><li class="tag-era">'+eraLabel+'</li>'+p.works.map(w=>'<li>'+w+'</li>').join('')+'</ul>';
+    +'<ul class="tags"><li class="tag-era">'+eraLabel+'</li>'+p.works.map(renderWorkTag).join('')+'</ul>';
   paint(e);
 }
 
@@ -112,6 +129,7 @@ function setFocus(j){
   focus=j;
   cur=0;
   layout(false);
+  syncNodeLabels();
   renderDetail();
 }
 const step=d=>setFocus((focus+d+N)%N);
@@ -126,6 +144,7 @@ function setMode(v){
   document.querySelectorAll('.sw [data-view]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===v));
   sc.scrollLeft=0;
   layout(false);
+  syncNodeLabels();
   switchTimer=setTimeout(()=>document.body.classList.remove('is-switching'),900);
 }
 
@@ -141,4 +160,4 @@ document.addEventListener('click',e=>{
 });
 addEventListener('resize',()=>layout(true));
 $('#eranav').innerHTML=ERAS.map((e,k)=>'<button data-era="'+k+'">'+e.n+'</button>').join('');
-layout(true);renderDetail();
+layout(true);syncNodeLabels();renderDetail();
