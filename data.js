@@ -6,6 +6,7 @@ const ERAS=[
  {n:'Post-Partition &amp; Contemporary Era',span:'Mid 20th century to present',c:'#EFB920',f:'#1b1218',desc:'After the 1947 Partition, Urdu poetry developed across India, Pakistan and the diaspora, taking in progressive, symbolic and personal themes.'}];
 // Flower recipe: s = petal shape (round | point | curl), n = petals, w = petal width,
 // a = outer petals, b = inner petals (optional), c = centre.
+// Works can be a string or {title, url} once a verified link is added.
 const PK='#E23FA0',RD='#D93349',YL='#EFB920',OR='#F28C28',CR='#FFF1E0',PU='#7B3FA0',BR='#6b3a1f',GN='#3E9B4F';
 // Kept in birth-year order. b = birth year, used to place poets on the timeline.
 const POETS=[
@@ -26,13 +27,29 @@ const POETS=[
  {id:'parveen',name:'Parveen Shakir',short:'Parveen',ur:'پروین شاکر',b:1952,y:'1952–1994',era:3,works:['Khushbu','Sad-barg'],fl:{s:'point',n:7,w:.3,a:PU,b:CR,c:YL}}];
 // Each line in `tr` can be a string or an array of strings and {t, g} objects for hover glosses.
 const COUPLETS=[
- {id:'mir1',p:'mir',
+ {id:'khusro1',p:'khusro',
   tr:[
-   [{t:'patta patta',g:'every leaf'},', ',{t:'boota boota',g:'every plant'},', haal hamara jaane hai'],
-   ['jaane na jaane ',{t:'gul',g:'flower / beloved'},' hi na jaane, baagh to saara jaane hai']
+   ['za-haal-e-miskeen makun ',{t:'taghaful',g:'indifference, neglect'}],
+   [{t:'duraaye naina',g:'hide your eyes'},' banaaye batiyan']
   ],
-  ur:['پتہ پتہ بوٹا بوٹا حال ہمارا جانے ہے','جانے نہ جانے گل ہی نہ جانے باغ تو سارا جانے ہے'],
-  en:'Every leaf and every plant knows how I am. The flower, the beloved, may not know, but the whole garden does.',
+  ur:['ز حالِ مسکیں مکن تغافل','دُرائے نیناں بنائے بتیاں'],
+  en:'Do not be indifferent to my pitiable state; you hide your eyes and make up excuses.',
+  src:''},
+ {id:'quli1',p:'quli',
+  tr:[
+   ['piya baaj pyala piya jaaye na'],
+   ['piya baaj ek ',{t:'til',g:'a moment / sesame seed'},' jiya jaaye na']
+  ],
+  ur:['پیا باج پیالہ پیا جائے نا','پیا باج اک تل جیا جائے نا'],
+  en:'Without the beloved, the cup cannot be drunk; without the beloved, one cannot live even a moment.',
+  src:''},
+ {id:'nusrati1',p:'nusrati',
+  tr:[
+   ['ishq ki aag se dil jal gaya'],
+   ['raat din ',{t:'chashm',g:'eyes'},' se khoon beh gaya']
+  ],
+  ur:['عشق کی آگ سے دل جل گیا','رات دن چشم سے خوں بہہ گیا'],
+  en:'The heart burned in the fire of love, and day and night blood flowed from the eyes.',
   src:''},
  {id:'wali1',p:'wali',
   tr:[
@@ -41,6 +58,30 @@ const COUPLETS=[
   ],
   ur:['یاد کرنا ہر گھڑی اس یار کا','ہے وظیفہ مجھ دلِ بیمار کا'],
   en:'Remembering that beloved every moment is the daily litany of my sick heart.',
+  src:''},
+ {id:'mir1',p:'mir',
+  tr:[
+   [{t:'patta patta',g:'every leaf'},', ',{t:'boota boota',g:'every plant'},', haal hamara jaane hai'],
+   ['jaane na jaane ',{t:'gul',g:'flower / beloved'},' hi na jaane, baagh to saara jaane hai']
+  ],
+  ur:['پتہ پتہ بوٹا بوٹا حال ہمارا جانے ہے','جانے نہ جانے گل ہی نہ جانے باغ تو سارا جانے ہے'],
+  en:'Every leaf and every plant knows how I am. The flower, the beloved, may not know, but the whole garden does.',
+  src:''},
+ {id:'nazeer1',p:'nazeer',
+  tr:[
+   ['jab aadmi kisi ka ',{t:'talabgaar',g:'seeker, yearner'},' ho gaya'],
+   ['har cheez us ke waaste ',{t:'dushwaar',g:'difficult, arduous'},' ho gaya']
+  ],
+  ur:['جب آدمی کسی کا طلبگار ہو گیا','ہر چیز اس کے واسطے دشوار ہو گیا'],
+  en:'Once a person becomes a seeker/yearner for someone, every single thing becomes hard for them.',
+  src:''},
+ {id:'mahlaqa1',p:'mahlaqa',
+  tr:[
+   ['dekho to haal-e-dil mera ae ',{t:'jaan-e-mehfil',g:'life of the gathering'}],
+   ['kyun kar kati hai umr meri tere bin ',{t:'sanam',g:'beloved'}]
+  ],
+  ur:['دیکھو تو حالِ دل مرا اے جانِ محفل','کیوں کر کٹی ہے عمر مری ترے بن صنم'],
+  en:'Look at the state of my heart, O life of the gathering—how my life has passed without you, beloved.',
   src:''},
  {id:'zafar1',p:'zafar',
   tr:[
@@ -81,6 +122,14 @@ const COUPLETS=[
   ],
   ur:['دل ناامید تو نہیں ناکام ہی تو ہے','لمبی ہے غم کی شام مگر شام ہی تو ہے'],
   en:'The heart isn\'t hopeless, only disappointed/unfulfilled; the evening of grief is long, yet it is still only an evening.',
+  src:''},
+ {id:'kaifi1',p:'kaifi',
+  tr:[
+   [{t:'aurat',g:'woman'},' ne janam diya mardon ko'],
+   ['mardon ne use ',{t:'bazaar',g:'marketplace'},' diya']
+  ],
+  ur:['عورت نے جنم دیا مردوں کو','مردوں نے اسے بازار دیا'],
+  en:'Woman gave birth to men, and men gave her the marketplace.',
   src:''},
  {id:'nida1',p:'nida',
   tr:[
