@@ -17,12 +17,11 @@ function flowerSVG(f){
 const nodes=POETS.map((p,i)=>{
   const b=document.createElement('button');
   b.className='node';b.dataset.s=i%2?'b':'a';
-  b.innerHTML='<span class="dot">'+flowerSVG(p.fl)+'</span><span class="lab">'+p.short+'<span class="yr">'+p.b+'</span></span>';
+  b.innerHTML='<span class="dot">'+flowerSVG(p.fl)+'</span><span class="lab"><span class="nm-short">'+p.short+'</span><span class="yr">'+p.y+'</span></span>';
   b.setAttribute('aria-label',p.name+', '+p.y);
   b.onclick=()=>setFocus(i);stage.append(b);return b;
 });
 
-// Even angles around the circle, starting with index 0 at the top (-90 deg).
 function baseAngles(){
   return Array.from({length:N},(_,i)=>-90+i*360/N);
 }
@@ -37,8 +36,7 @@ function alignDial(instant){
     dialRot=target;
     return;
   }
-  const delta=norm(target-dialRot);
-  dialRot+=delta;
+  dialRot+=norm(target-dialRot);
 }
 
 function layout(instant){
@@ -101,12 +99,11 @@ function renderCouplets(){
 function renderDetail(){
   const p=POETS[focus],e=ERAS[p.era];
   document.querySelectorAll('#eranav button').forEach((b,k)=>b.setAttribute('aria-current',k===p.era));
-  const eyebrow=e.n+(e.sub?', '+e.sub:'')+' · '+p.y;
+  const eraLabel=e.n+(e.sub?', '+e.sub:'')+' · '+p.y;
   $('#detail').innerHTML='<div class="flw">'+flowerSVG(p.fl)+'</div>'
-    +'<p class="sm eyebrow">'+eyebrow+'</p>'
-    +'<h2>'+p.name+'</h2>'
     +renderCouplets()
-    +'<ul class="tags">'+p.works.map(w=>'<li>'+w+'</li>').join('')+'</ul>';
+    +'<h2>'+p.name+' <span class="h-yr">'+p.y+'</span></h2>'
+    +'<ul class="tags"><li class="tag-era">'+eraLabel+'</li>'+p.works.map(w=>'<li>'+w+'</li>').join('')+'</ul>';
   paint(e);
 }
 
