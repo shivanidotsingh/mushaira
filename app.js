@@ -1,10 +1,10 @@
 /* Content lives in data.js. This file is the engine. */
-const $=s=>document.querySelector(s),N=POETS.length,STEP=360/N;
-const stage=$('#stage'),norm=a=>((a+180)%360+360)%360-180;
-let focus=2,mode='dial',cur=-1;const WAH={};
-let ang=POETS.map((_,i)=>norm((i-focus)*STEP-90));
-// Timeline x: 1253 sits at the far left; 1650-1960 fills the rest.
-const yearX=y=>y<1400?.04:.13+(y-1650)/310*.84;
+const $=s=>document.querySelector(s),N=POETS.length;
+const stage=$('#stage'),poets=$('#poets'),sc=$('.scroller');
+let focus=POETS.findIndex(p=>p.id==='mir'),mode='dial',cur=0;const WAH={};
+const norm=a=>((a+180)%360+360)%360-180;
+// Timeline x: 1253 sits at the far left; 1500-1960 fills the rest.
+const yearX=y=>y<1400?.03:.1+(y-1500)/460*.88;
 
 function flowerSVG(f){
   const R=44,x=R*f.w;
@@ -19,99 +19,91 @@ function flowerSVG(f){
 const nodes=POETS.map((p,i)=>{
   const b=document.createElement('button');
   b.className='node';
-  b.innerHTML='<span class="dot">'+flowerSVG(p.fl)+'</span><span class="lab">'+p.short+'</span>';
+  b.innerHTML='<span class="dot">'+flowerSVG(p.fl)+'</span><span class="lab">'+p.short+'<span class="yr"> '+p.b+'</span></span>';
   b.setAttribute('aria-label',p.name+', '+p.y);
   b.onclick=()=>setFocus(i);stage.append(b);return b;
 });
 
-function layout(){
-  const tl=mode==='timeline',cw=stage.parentElement.clientWidth,H=stage.clientHeight;
-  const W=tl?Math.max(cw,900):cw;
-  stage.style.width=W+'px';
-  const R=Math.min(W/2-90,H/2-30);
-  stage.style.setProperty('--R',R+'px');
-  $('#brk').style.left=W*.1+'px';
+// The dial is a C: poets sit on a 276-degree arc, open toward the content (right on desktop, down on phones).
+function layout(instant){
+  const cw=sc.clientWidth,mobile=cw<780,tl=mode==='timeline',off=mobile?90:0;
+  if(instant)nodes.forEach(n=>n.classList.add('notrans'));
+  poets.classList.toggle('stk',mobile||tl);poets.classList.toggle('tl',tl);
+  const W=tl?Math.max(cw,900):cw;let H,R,cx,cy;
+  if(tl){H=340;cy=170}
+  else if(mobile){R=Math.min(cw/2-60,190);H=2*R+90;cx=cw/2;cy=R+45}
+  else{H=Math.min(innerHeight*.82,720);R=Math.min(H/2-36,cw*.27);cx=Math.max(R+48,cw*.28);cy=H/2}
+  stage.style.width=W+'px';stage.style.height=H+'px';
+  $('#axis').style.top=cy+'px';
+  $('#brk').style.cssText='left:'+W*.12+'px;top:'+(cy+10)+'px';
+  if(!tl){
+    const P=a=>(R+2+R*Math.cos(a*Math.PI/180)).toFixed(1)+','+(R+2+R*Math.sin(a*Math.PI/180)).toFixed(1);
+    $('#arc').style.cssText='left:'+(cx-R-2)+'px;top:'+(cy-R-2)+'px;width:'+(2*R+4)+'px;height:'+(2*R+4)+'px';
+    $('#arc').innerHTML='<path d="M'+P(-42+off)+' A'+R+' '+R+' 0 1 0 '+P(-318+off)+'"/>';
+  }
   nodes.forEach((n,i)=>{
     if(tl){
-      n.style.transform='rotate(0deg) translate('+(yearX(POETS[i].b)*W-W/2)+'px,0px) rotate(0deg)';
-      n.style.setProperty('--ly',['-3em','2.6em','4.6em'][i%3]);
+      n.style.transform='translate(0px,'+cy+'px) rotate(0deg) translate('+yearX(POETS[i].b)*W+'px,'+[-76,0,76][i%3]+'px) rotate(0deg)';
     }else{
-      const a=ang[i];
-      n.style.transform='rotate('+a+'deg) translate('+R+'px,0px) rotate('+-a+'deg)';
-      n.classList.toggle('l',Math.cos(a*Math.PI/180)<-.01);
+      const a=norm(-42+off-i*276/(N-1)),r=a*Math.PI/180;
+      n.style.transform='translate('+cx+'px,'+cy+'px) rotate('+a+'deg) translate('+R+'px,0px) rotate('+-a+'deg)';
+      n.style.setProperty('--ux',-Math.cos(r));n.style.setProperty('--uy',-Math.sin(r));
     }
-    const d=Math.min((i-focus+N)%N,(focus-i+N)%N);
-    n.style.setProperty('--w',Math.max(300,900-d*90));
     n.setAttribute('aria-current',i===focus);
   });
+  if(instant){void stage.offsetWidth;nodes.forEach(n=>n.classList.remove('notrans'))}
 }
 
 function paint(o){document.body.style.setProperty('--bg',o.c);document.body.style.setProperty('--fg',o.f)}
 const lines=a=>a.map(l=>'<span>'+l+'</span>').join('');
 
-// One couplet, shown at the mic.
-function cpl(c){
-  return '<div class="cp"><p class="tr">'+lines(c.tr)+'</p><p class="u" lang="ur" dir="rtl">'+lines(c.ur)+'</p>'
-    +'<div class="gl" hidden><p>'+c.en+'</p><p class="words">'+c.w.map(w=>'<span><b>'+w[0]+'</b> '+w[1]+'</span>').join('')+'</p></div>'
-    +'<div class="acts"><button data-act="mukarrar" aria-expanded="false">Mukarrar</button>'
+function renderMic(){
+  const cs=COUPLETS.filter(c=>c.p===POETS[focus].id),c=cs[cur];
+  $('#mic').innerHTML=!c?'<p class="sm todo">No couplets yet.</p>'
+    :'<div class="cp"><p class="tr">'+lines(c.tr)+'</p><p class="u" lang="ur" dir="rtl">'+lines(c.ur)+'</p>'
+    +'<div class="gl sm" hidden><p>'+c.en+'</p><p class="words">'+c.w.map(w=>'<span><b>'+w[0]+'</b> '+w[1]+'</span>').join('')+'</p></div>'
+    +'<div class="acts">'+(cs.length>1?'<button id="irshad">Irshad</button>':'')
+    +'<button data-act="mukarrar" aria-expanded="false">Mukarrar</button>'
     +'<button data-act="wah" data-id="'+c.id+'">Wah! <span>'+(WAH[c.id]||0)+'</span></button></div></div>';
 }
 
-function renderMic(){
-  const cs=COUPLETS.filter(c=>c.p===POETS[focus].id);
-  $('#mic').innerHTML=!cs.length?'<p class="todo">No couplets yet.</p>'
-    :cur<0?'<p class="todo">Say irshad to invite the first couplet.</p>':cpl(cs[cur]);
-  $('#irshad').disabled=!cs.length;
-}
-
+// Everything about the selected poet lives here, in the opening of the C.
 function renderDetail(){
   const p=POETS[focus],e=ERAS[p.era];
-  $('#hubName').textContent=p.name;$('#hubYears').textContent=p.y;
   document.querySelectorAll('#eranav button').forEach((b,k)=>b.setAttribute('aria-current',k===p.era));
-  $('#detail').innerHTML='<div class="in"><h2>'+p.name+'</h2><p>'+p.y+'</p><p class="ur" lang="ur" dir="rtl">'+p.ur+'</p>'
-    +'<div id="mic" aria-live="polite"></div><p><button class="irshad" id="irshad">Irshad</button></p>'
-    +'<h3>Notable works</h3><ul class="works">'+p.works.map(w=>'<li>'+w+'</li>').join('')+'</ul><p class="todo">Biography and links go here.</p>'
-    +'<h3>'+e.n+(e.sub?': '+e.sub:'')+'</h3><p>'+e.span+'</p>'+(e.desc?'<p>'+e.desc+'</p>':'')
-    +'<ul class="roll">'+POETS.filter(q=>q.era===p.era).map(q=>'<li><button class="who" data-p="'+q.id+'">'+flowerSVG(q.fl)+q.name+'</button></li>').join('')+'</ul></div>';
-  renderMic();paint(ERAS[p.era]);
+  $('#detail').innerHTML='<div class="flw">'+flowerSVG(p.fl)+'</div>'
+    +'<p class="sm">'+e.n+(e.sub?', '+e.sub:'')+'</p><h2>'+p.name+'</h2><p class="sm">'+p.y+'</p>'
+    +'<p class="ur nm" lang="ur" dir="rtl">'+p.ur+'</p><div id="mic"></div>'
+    +'<h3>Notable works</h3><ul class="works sm">'+p.works.map(w=>'<li>'+w+'</li>').join('')+'</ul>'
+    +'<p class="sm todo">Biography and links go here.</p>'
+    +'<h3>'+e.n+'</h3><p class="sm">'+e.span+'. '+e.desc+'</p>'
+    +'<ul class="roll">'+POETS.filter(q=>q.era===p.era).map(q=>'<li><button class="who" data-p="'+q.id+'">'+flowerSVG(q.fl)+q.name+'</button></li>').join('')+'</ul>';
+  renderMic();paint(e);
 }
 
-function setFocus(j){
-  let d=(j-focus+N)%N;if(d>N/2)d-=N;
-  ang=ang.map(a=>a-d*STEP);focus=j;cur=-1;
-  layout();renderDetail();
-}
+function setFocus(j){focus=j;cur=0;layout();renderDetail()}
 const step=d=>setFocus((focus+d+N)%N);
 
-function setView(v){
-  document.querySelectorAll('nav button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===v));
-  if(v!==mode){
-    if(v==='timeline'){ // settle angles to the shortest path, then unwind the circle into the line
-      ang=ang.map(norm);nodes.forEach(n=>n.classList.add('notrans'));layout();
-      void stage.offsetWidth;nodes.forEach(n=>n.classList.remove('notrans'));
-    }else{
-      ang=POETS.map((_,i)=>norm((i-focus)*STEP-90));
-      $('#poets .scroller').scrollLeft=0;
-    }
-    mode=v;stage.classList.toggle('tl',v==='timeline');document.body.classList.toggle('is-tl',v==='timeline');
-  }
-  layout();renderDetail();
+function setMode(v){
+  mode=v;document.body.classList.toggle('is-tl',v==='timeline');
+  $('#sw').setAttribute('aria-checked',v==='timeline');
+  document.querySelectorAll('.sw [data-view]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===v));
+  sc.scrollLeft=0;layout();
 }
 
-document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>setView(b.dataset.view));
-$('#prev').onclick=()=>step(-1);$('#next').onclick=()=>step(1);
+$('#sw').onclick=()=>setMode(mode==='dial'?'timeline':'dial');
+document.querySelectorAll('.sw [data-view]').forEach(b=>b.onclick=()=>setMode(b.dataset.view));
 stage.addEventListener('keydown',e=>{
   const k=e.key;if(!['ArrowRight','ArrowDown','ArrowLeft','ArrowUp'].includes(k))return;
   e.preventDefault();step(k==='ArrowRight'||k==='ArrowDown'?1:-1);nodes[focus].focus();
 });
 document.addEventListener('click',e=>{
   const w=e.target.closest('.who');
-  if(w){setView(mode);setFocus(POETS.findIndex(p=>p.id===w.dataset.p));scrollTo({top:0,behavior:'smooth'});return}
+  if(w){setFocus(POETS.findIndex(p=>p.id===w.dataset.p));scrollTo({top:0,behavior:'smooth'});return}
   const en=e.target.closest('#eranav button');
   if(en){setFocus(POETS.findIndex(p=>p.era===+en.dataset.era));return}
   if(e.target.closest('#irshad')){
-    const n=COUPLETS.filter(c=>c.p===POETS[focus].id).length;
-    cur=(cur+1)%n;renderMic();return;
+    cur=(cur+1)%COUPLETS.filter(c=>c.p===POETS[focus].id).length;renderMic();return;
   }
   const b=e.target.closest('[data-act]');if(!b)return;
   if(b.dataset.act==='mukarrar'){ // repeat the couplet and show its meaning
@@ -123,6 +115,6 @@ document.addEventListener('click',e=>{
     b.classList.remove('pop');void b.offsetWidth;b.classList.add('pop');
   }
 });
-addEventListener('resize',layout);
+addEventListener('resize',()=>layout(true));
 $('#eranav').innerHTML=ERAS.map((e,k)=>'<button data-era="'+k+'">'+e.n+'</button>').join('');
-layout();renderDetail();
+layout(true);renderDetail();
