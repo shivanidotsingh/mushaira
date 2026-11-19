@@ -1,7 +1,7 @@
 /* Content lives in data.js. This file is the engine. */
 const $=s=>document.querySelector(s),N=POETS.length;
 const stage=$('#stage'),poets=$('#poets'),sc=$('.scroller');
-let focus=POETS.findIndex(p=>p.id==='mir'),mode='dial',switchTimer;
+let focus=POETS.findIndex(p=>p.id==='mir'),mode='dial',cur=0,switchTimer,dialRot=0;
 const norm=a=>((a+180)%360+360)%360-180;
 
 function flowerSVG(f){
@@ -22,18 +22,24 @@ const nodes=POETS.map((p,i)=>{
   b.onclick=()=>setFocus(i);stage.append(b);return b;
 });
 
-// Dial: the ring is bigger than the page, so flowers only use the part of it that is on the page.
-function ringAngles(cx,cy,R,l,t,r,b){
-  const ang=k=>270-k*.5,pt=k=>[cx+R*Math.cos(ang(k)*Math.PI/180),cy+R*Math.sin(ang(k)*Math.PI/180)];
-  const vis=Array.from({length:720},(_,k)=>{const[x,y]=pt(k);return x>=l&&x<=r&&y>=t&&y<=b});
-  const starts=vis.map((v,k)=>v&&!vis[(k+719)%720]?k:-1).filter(k=>k>=0);
-  if(!starts.length)return Array.from({length:N},(_,i)=>270-i*360/N);
-  const k0=starts.reduce((m,k)=>pt(k)[1]<pt(m)[1]?k:m);
-  const v=[];for(let j=0;j<720;j++){const k=(k0+j)%720;if(vis[k])v.push(ang(k))}
-  return Array.from({length:N},(_,i)=>v[Math.round(i*(v.length-1)/(N-1))]);
+// Even angles around the circle, starting with index 0 at the top (-90 deg).
+function baseAngles(){
+  return Array.from({length:N},(_,i)=>-90+i*360/N);
 }
+
 // Timeline: half true dates, half even steps, so no two flowers collide and nothing scrolls.
 const tpos=i=>.5*(POETS[i].b-POETS[0].b)/(POETS[N-1].b-POETS[0].b)+.5*i/(N-1);
+
+function alignDial(instant){
+  const base=baseAngles();
+  const target=-90-base[focus];
+  if(instant){
+    dialRot=target;
+    return;
+  }
+  const delta=norm(target-dialRot);
+  dialRot+=delta;
+}
 
 function layout(instant){
   const cw=sc.clientWidth,mob=cw<780,tl=mode==='timeline',vert=tl&&cw<640;
@@ -41,22 +47,26 @@ function layout(instant){
   poets.classList.toggle('stk',tl);poets.classList.toggle('tl',tl);poets.classList.toggle('v',vert);
   let H,R=0;const cx=cw/2;
   if(tl)H=vert?(N-1)*44+80:200;
-  else if(mob){R=cw*.7;H=2*R+70}
-  else{H=Math.min(innerHeight*.82,720);R=Math.min(cw*.36,H*.62)}
-  const cy=H/2;
+  else if(mob){R=Math.min(cw*.42,175);H=2*R+110}
+  else{H=Math.min(innerHeight*.84,740);R=Math.min(cw*.34,H*.42)}
+  const cy=tl?H/2:Math.max(R+48,H*.54);
   stage.style.height=H+'px';
-  $('#detail').style.setProperty('--hw',tl?'34rem':Math.min(544,R*1.1)+'px');
+  $('#detail').style.setProperty('--hw',tl?'34rem':Math.min(544,R*1.45)+'px');
   $('#axis').style.cssText=vert?'left:40px;top:36px;width:1px;height:'+(H-72)+'px':'left:0;right:0;top:'+cy+'px';
   const arc=$('#arc');arc.setAttribute('viewBox','0 0 '+cw+' '+H);arc.style.cssText='width:'+cw+'px;height:'+H+'px';
   arc.innerHTML=tl?'':'<circle cx="'+cx+'" cy="'+cy+'" r="'+R+'"/>';
-  const A=tl?[]:ringAngles(cx,cy,R,30,30,cw-30,H-30);
+
+  if(!tl)alignDial(instant);
+  const A=tl?[]:baseAngles().map(a=>a+dialRot);
+
   nodes.forEach((n,i)=>{
     if(tl){
       const t=tpos(i);
       n.style.transform=vert?'translate(40px,0px) rotate(0deg) translate(0px,'+(36+(H-72)*t)+'px) rotate(0deg)'
         :'translate(0px,'+cy+'px) rotate(0deg) translate('+(64+(cw-128)*t)+'px,0px) rotate(0deg)';
+      n.style.setProperty('--ux',0);n.style.setProperty('--uy',0);
     }else{
-      const a=norm(A[i]),r=a*Math.PI/180,s=mob?-1:1;
+      const a=A[i],r=a*Math.PI/180,s=mob?-1:1;
       n.style.transform='translate('+cx+'px,'+cy+'px) rotate('+a+'deg) translate('+R+'px,0px) rotate('+-a+'deg)';
       n.style.setProperty('--ux',s*Math.cos(r));n.style.setProperty('--uy',s*Math.sin(r));
     }
@@ -100,7 +110,13 @@ function renderDetail(){
   paint(e);
 }
 
-function setFocus(j){focus=j;layout();renderDetail()}
+function setFocus(j){
+  if(j===focus)return;
+  focus=j;
+  cur=0;
+  layout(false);
+  renderDetail();
+}
 const step=d=>setFocus((focus+d+N)%N);
 
 function setMode(v){
@@ -112,7 +128,7 @@ function setMode(v){
   $('#sw').setAttribute('aria-checked',v==='timeline');
   document.querySelectorAll('.sw [data-view]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===v));
   sc.scrollLeft=0;
-  layout();
+  layout(false);
   switchTimer=setTimeout(()=>document.body.classList.remove('is-switching'),900);
 }
 
