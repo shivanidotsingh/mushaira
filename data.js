@@ -209,7 +209,7 @@ const COUPLETS=[
   src:'https://www.rekhta.org/ebooks/detail/bang-e-dra-ma-farhang-allama-iqbal-ebooks'},
  {id:'firaq1',p:'firaq',
   tr:[
-   ['ek ',{t:'muddat',g:'an age, a long stretch of time'},' se teri ',{t:'yad',g:'memory, remembrance'},' bhi aai na hamein'],
+   ['ek ',{t:'muddat',g:'an age, a long stretch of time'},' se teri ',{t:'yaad',g:'memory, remembrance'},' bhi aai na hamein'],
    ['aur ham bhul gae hon tujhe aisa bhi nahin']
   ],
   ur:['اک مدت سے تری یاد بھی آئی نہ ہمیں','اور ہم بھول گئے ہوں تجھے ایسا بھی نہیں'],
@@ -225,12 +225,12 @@ const COUPLETS=[
   src:'https://www.rekhta.org/ebooks/detail/naqsh-e-faryadi-faiz-ahmad-faiz-ebooks-5'},
  {id:'kaifi1',p:'kaifi',
   tr:[
-   [{t:'aurat',g:'woman'},' ne janam diya mardon ko'],
-   ['mardon ne use ',{t:'bazaar',g:'marketplace'},' diya']
+   ['tum itna jo ',{t:'muskura',g:'smile'},' rahe ho'],
+   ['kya ',{t:'gham',g:'sorrow, grief'},' hai jis ko chhupa rahe ho']
   ],
-  ur:['عورت نے جنم دیا مردوں کو','مردوں نے اسے بازار دیا'],
-  en:'Woman gave birth to men, and men gave her the marketplace.',
-  src:'https://en.wikipedia.org/wiki/Kaifi_Azmi'},
+  ur:['تم اتنا جو مسکرا رہے ہو','کیا غم ہے جس کو چھپا رہے ہو'],
+  en:'Why are you smiling like this—what sorrow are you trying to hide?',
+  src:'https://www.rekhta.org/poets/kaifi-azmi/ghazals'},
  {id:'nida1',p:'nida',
   tr:[
    ['kabhi kisi ko ',{t:'mukammal',g:'complete, whole'},' ',{t:'jahan',g:'world'},' nahin milta'],
