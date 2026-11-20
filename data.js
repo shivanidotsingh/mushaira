@@ -10,6 +10,7 @@ const PK='#E23FA0',RD='#D93349',YL='#EFB920',OR='#F28C28',CR='#FFF1E0',PU='#7B3F
 // Kept in birth-year order. b = birth year, used to place poets on the timeline.
 const POETS=[
  {id:'khusro',name:'Amir Khusro',short:'Khusro',ur:'امیر خسرو',b:1253,y:'1253–1325',era:0,
+  bio:'Born in Patiali and based at the Delhi Sultanate courts, Amir Khusro was a Sufi disciple of Nizamuddin Auliya, musician, and polymath. Writing across Persian and early Hindavi, he laid foundational bridges between Indo-Persian courtly verse and local vernacular song.',
   works:[
    {title:'Persian divans',url:'https://www.rekhta.org/poets/ameer-khusrau/all'},
    {title:'Khamsa',url:'https://www.rekhta.org/poets/ameer-khusrau/all'},
@@ -17,22 +18,26 @@ const POETS=[
   ],
   fl:{s:'point',n:8,w:.26,a:CR,b:OR,c:YL}},
  {id:'quli',name:'Muhammad Quli Qutb Shah',short:'Quli',ur:'محمد قلی قطب شاہ',b:1565,y:'1565–1612',era:0,
+  bio:'The fifth ruler of the Qutb Shahi dynasty of Golconda and founder of Hyderabad, Muhammad Quli Qutb Shah composed the first full-fledged divan in Dakhni Urdu. His verse celebrates royal festivals, Deccani seasons, and earthly devotion in a vivid local idiom.',
   works:[
    {title:'Kulliyat (the first complete Urdu divan)',url:'https://archive.org/details/KulliyatESultanMuhammadQuliQutbShah'}
   ],
   fl:{s:'round',n:10,w:.22,a:OR,b:YL,c:BR}},
  {id:'nusrati',name:'Nusrati',short:'Nusrati',ur:'نصرتی',b:1600,y:'c. 1600–1674',era:0,
+  bio:'Poet laureate at the Adil Shahi court of Bijapur under Ali Adil Shah II, Mulla Nusrati elevated Dakhni narrative poetry to grand epic scale. His masnavis weave Persianate romance and Deccani martial history with rich, jewel-like imagery.',
   works:[
    {title:'Gulshan-e-Ishq',url:'https://www.rekhta.org/ebooks/detail/masnavi-gulshan-e-ishq-mulla-nusrati-ebooks-1'},
    {title:'Ali Nama',url:'https://blog.rekhta.org/gulshan-e-ishq/'}
   ],
   fl:{s:'curl',n:5,a:YL,c:RD}},
  {id:'wali',name:'Wali Deccani',short:'Wali',ur:'ولی دکنی',b:1667,y:'c. 1667–1707',era:0,
+  bio:'Born in Aurangabad and trained in Gujarat, Wali bridged the southern Dakhni tradition and northern Delhi literary circles. When his divan reached Delhi around 1700, it sparked an explosion of ghazal writing in Urdu rather than Persian.',
   works:[
    {title:'Divan-e-Wali',url:'https://archive.org/details/divaniwali'}
   ],
   fl:{s:'round',n:5,w:.3,a:YL,c:OR}},
  {id:'mir',name:'Mir Taqi Mir',short:'Mir',ur:'میر تقی میر',b:1723,y:'1723–1810',era:1,
+  bio:'Shaped by childhood loss in Agra and the repeated sacking of Mughal Delhi before spending his final decades in Lucknow, Mir defined the emotional core of the classical Urdu ghazal. Known as Khuda-e-Sukhan, he turned heartbreak and ruined cities into spare, devastating speech.',
   works:[
    {title:'Six divans',url:'https://en.wikipedia.org/wiki/Mir_Taqi_Mir'},
    {title:'Zikr-e-Mir (autobiography)',url:'https://archive.org/details/zikrimir'},
@@ -40,22 +45,26 @@ const POETS=[
   ],
   fl:{s:'round',n:12,w:.14,a:CR,b:YL,c:BR}},
  {id:'nazeer',name:'Nazeer Akbarabadi',short:'Nazeer',ur:'نظیر اکبر آبادی',b:1735,y:'1735–1830',era:1,
+  bio:'Refusing royal patronage in Agra, Nazeer lived among ordinary artisans, street performers, and festival crowds. Considered the father of the Urdu nazm, he wrote democratic, street-level poems on human mortality, seasons, and everyday survival.',
   works:[
    {title:'Banjara-nama',url:'https://en.wikipedia.org/wiki/Banjaranama'},
    {title:'Aadmi-nama',url:'https://www.rekhta.org/poets/nazeer-akbarabadi/all'}
   ],
   fl:{s:'curl',n:7,a:PK,c:YL}},
  {id:'mahlaqa',name:'Mah Laqa Bai Chanda',short:'Mah Laqa',ur:'ماہ لقا بائی چندا',b:1768,y:'1768–1824',era:1,
+  bio:'A celebrated courtesan, diplomat, and patron of the arts at the Nizam\u2019s court in Hyderabad, Mah Laqa Bai Chanda became the first woman poet to publish a complete Urdu divan. Her ghazals blend Shi\u2019i devotion with courtly grace and musical poise.',
   works:[
    {title:'Gulzar-e-Mah Laqa',url:'https://artsandculture.google.com/story/mah-laqa-chanda-rekhta-foundation/8AUBe_1QvRv_Jg?hl=en'}
   ],
   fl:{s:'point',n:10,w:.22,a:GN,b:CR,c:YL}},
  {id:'zafar',name:'Bahadur Shah Zafar',short:'Zafar',ur:'بہادر شاہ ظفر',b:1775,y:'1775–1862',era:1,
+  bio:'The last Mughal emperor of Delhi, Zafar presided over a twilight court that nurtured Ghalib and Zauq even as British power closed in. Following the 1857 uprising, he was exiled to Rangoon, where his late ghazals became elegies for a vanished world.',
   works:[
    {title:'Divan',url:'https://www.rekhta.org/poets/bahadur-shah-zafar/ghazals'}
   ],
   fl:{s:'round',n:6,w:.28,a:YL,b:CR,c:BR}},
  {id:'ghalib',name:'Mirza Ghalib',short:'Ghalib',ur:'مرزا غالب',b:1797,y:'1797–1869',era:1,
+  bio:'Born in Agra and rooted in Delhi through the collapse of Mughal rule in 1857, Ghalib reshaped Urdu poetry with metaphysical wit, skepticism, and self-irony. His razor-sharp letters also modernized Urdu prose into a conversational art.',
   works:[
    {title:'Urdu divan',url:'https://www.rekhta.org/poets/mirza-ghalib/ghazals'},
    {title:'Dastanbuy',url:'https://www.rekhta.org/ebooks/detail/dastanbuy-khwaja-ahmad-faruqi-ebooks'},
@@ -63,6 +72,7 @@ const POETS=[
   ],
   fl:{s:'curl',n:9,a:CR,b:PK,c:YL}},
  {id:'daagh',name:'Daagh Dehlvi',short:'Daagh',ur:'داغ دہلوی',b:1831,y:'1831–1905',era:1,
+  bio:'Raised in Delhi\u2019s Red Fort and later serving at the courts of Rampur and the Nizam of Hyderabad, Daagh was famed for pure, idiomatic Delhi speech. His sparkling, unadorned ghazals drew hundreds of disciples across India, including a young Iqbal.',
   works:[
    {title:'Gulzar-e-Daagh',url:'https://en.wikipedia.org/wiki/Daagh_Dehlvi'},
    {title:'Aftab-e-Daagh',url:'https://en.wikipedia.org/wiki/Daagh_Dehlvi'},
@@ -71,6 +81,7 @@ const POETS=[
   ],
   fl:{s:'round',n:16,w:.1,a:YL,c:BR}},
  {id:'iqbal',name:'Muhammad Iqbal',short:'Iqbal',ur:'علامہ اقبال',b:1877,y:'1877–1938',era:2,
+  bio:'Born in Sialkot and educated in Lahore, Cambridge, and Munich, Iqbal transformed Urdu and Persian poetry into a vehicle for philosophical renewal. Through his concept of Khudi (selfhood), he urged spiritual awakening and anti-colonial confidence.',
   works:[
    {title:'Bang-e-Dra',url:'https://www.rekhta.org/ebooks/detail/bang-e-dra-ma-farhang-allama-iqbal-ebooks'},
    {title:'Bal-e-Jibril',url:'https://en.wikipedia.org/wiki/The_Call_of_the_Marching_Bell'},
@@ -78,6 +89,7 @@ const POETS=[
   ],
   fl:{s:'point',n:6,w:.3,a:CR,b:PK,c:YL}},
  {id:'faiz',name:'Faiz Ahmed Faiz',short:'Faiz',ur:'فیض احمد فیض',b:1911,y:'1911–1984',era:3,
+  bio:'A leading voice of the Progressive Writers\u2019 Movement, journalist, and frequent political prisoner in post-Partition Pakistan, Faiz fused classical romantic imagery with anti-authoritarian resistance. In his verse, longing for the beloved and longing for justice become one.',
   works:[
    {title:'Naqsh-e-Faryadi',url:'https://www.rekhta.org/ebooks/detail/naqsh-e-faryadi-faiz-ahmad-faiz-ebooks-5'},
    {title:'Dast-e-Saba',url:'https://en.wikipedia.org/wiki/Faiz_Ahmad_Faiz'},
@@ -85,6 +97,7 @@ const POETS=[
   ],
   fl:{s:'round',n:5,w:.3,a:PK,b:RD,c:CR}},
  {id:'kaifi',name:'Kaifi Azmi',short:'Kaifi',ur:'کیفی اعظمی',b:1919,y:'1919–2002',era:3,
+  bio:'Born in Azamgarh, Kaifi Azmi left seminary studies to join the Communist Party and trade-union organizing in Bombay. Alongside acclaimed Hindi film lyrics, he wrote fiery progressive nazms championing working-class dignity and women\u2019s emancipation.',
   works:[
    {title:'Jhankaar',url:'https://en.wikipedia.org/wiki/Kaifi_Azmi'},
    {title:'Awaara Sajde',url:'https://en.wikipedia.org/wiki/Kaifi_Azmi'},
@@ -92,18 +105,19 @@ const POETS=[
   ],
   fl:{s:'curl',n:6,a:RD,b:CR,c:YL}},
  {id:'nida',name:'Nida Fazli',short:'Nida',ur:'ندا فاضلی',b:1938,y:'1938–2016',era:3,
+  bio:'Born in Delhi and raised in Gwalior before moving to Mumbai after his family migrated during Partition, Nida Fazli stripped Urdu poetry of heavy ornamentation. His ghazals and dohas speak in quiet, everyday language about displacement, humanism, and urban solitude.',
   works:[
    {title:'Lafzon Ke Pul',url:'https://www.rekhta.org/poets/nida-fazli/all'},
    {title:'Khoya Hua Sa Kuchh',url:'https://www.rekhta.org/poets/nida-fazli/all'}
   ],
   fl:{s:'round',n:4,w:.34,a:RD,c:CR}},
  {id:'parveen',name:'Parveen Shakir',short:'Parveen',ur:'پروین شاکر',b:1952,y:'1952–1994',era:3,
+  bio:'Born in Karachi and working as an educator and civil servant in Islamabad, Parveen Shakir brought an unmistakably female interiority into the modern Urdu ghazal. Her debut collection Khushbu broke new ground with candid vulnerability, tenderness, and lyrical grace.',
   works:[
    {title:'Khushbu',url:'https://en.wikipedia.org/wiki/Khushbu_(poetry)'},
    {title:'Sad-barg',url:'https://www.rekhta.org/poets/parveen-shakir/all'}
   ],
   fl:{s:'point',n:7,w:.3,a:PU,b:CR,c:YL}}];
-// Each line in `tr` can be a string or an array of strings and {t, g} objects for hover glosses.
 const COUPLETS=[
  {id:'khusro1',p:'khusro',
   tr:[
