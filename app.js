@@ -49,17 +49,18 @@ function alignDial(instant){
 }
 
 function layout(instant){
-  const cw=sc.clientWidth,tl=mode==='timeline'||cw<768,vert=cw<768;
+  const cw=sc.clientWidth,mob=cw<768,tl=!mob&&mode==='timeline';
   if(instant)nodes.forEach(n=>n.classList.add('notrans'));
   document.body.classList.toggle('is-tl',tl);
-  poets.classList.toggle('stk',tl);poets.classList.toggle('tl',tl);poets.classList.toggle('v',vert);
+  poets.classList.toggle('stk',tl);poets.classList.toggle('tl',tl);poets.classList.remove('v');
   let H,R=0;const cx=cw/2;
-  if(tl)H=vert?(N-1)*44+80:200;
+  if(tl)H=200;
+  else if(mob){H=Math.min(innerHeight*.72,460);R=Math.min(cw*.38,H*.38)}
   else{H=Math.min(innerHeight*.82,720);R=Math.min(cw*.36,H*.41)}
-  const cy=tl?H/2:Math.max(R+48,H*.54);
+  const cy=tl?H/2:Math.max(R+36,H*.52);
   stage.style.height=H+'px';
-  $('#detail').style.setProperty('--hw',tl?'34rem':Math.min(544,R*1.45)+'px');
-  $('#axis').style.cssText=vert?'left:40px;top:36px;width:1px;height:'+(H-72)+'px':'left:0;right:0;top:'+cy+'px';
+  $('#detail').style.setProperty('--hw',tl?'34rem':mob?(R*1.25)+'px':Math.min(544,R*1.45)+'px');
+  $('#axis').style.cssText='left:0;right:0;top:'+cy+'px';
   const arc=$('#arc');arc.setAttribute('viewBox','0 0 '+cw+' '+H);arc.style.cssText='width:'+cw+'px;height:'+H+'px';
   arc.innerHTML=tl?'':'<circle cx="'+cx+'" cy="'+cy+'" r="'+R+'"/>';
 
@@ -69,13 +70,12 @@ function layout(instant){
   nodes.forEach((n,i)=>{
     if(tl){
       const t=tpos(i);
-      n.style.transform=vert?'translate(40px,0px) rotate(0deg) translate(0px,'+(36+(H-72)*t)+'px) rotate(0deg)'
-        :'translate(0px,'+cy+'px) rotate(0deg) translate('+(64+(cw-128)*t)+'px,0px) rotate(0deg)';
+      n.style.transform='translate(0px,'+cy+'px) rotate(0deg) translate('+(64+(cw-128)*t)+'px,0px) rotate(0deg)';
       n.style.setProperty('--ux',0);n.style.setProperty('--uy',0);
     }else{
-      const a=A[i],r=a*Math.PI/180,s=1;
+      const a=A[i],r=a*Math.PI/180;
       n.style.transform='translate('+cx+'px,'+cy+'px) rotate('+a+'deg) translate('+R+'px,0px) rotate('+-a+'deg)';
-      n.style.setProperty('--ux',s*Math.cos(r));n.style.setProperty('--uy',s*Math.sin(r));
+      n.style.setProperty('--ux',Math.cos(r));n.style.setProperty('--uy',Math.sin(r));
     }
     n.setAttribute('aria-current',i===focus);
   });
@@ -118,6 +118,7 @@ function renderDetail(){
   document.querySelectorAll('#eranav button').forEach((b,k)=>b.setAttribute('aria-current',k===p.era));
   $('#detail').innerHTML=renderCouplets()
     +'<h2>'+p.name+'</h2>'
+    +'<p class="mob-note">View on desktop for the full Mushaira &amp; Timeline experience</p>'
     +(p.bio?'<p class="bio">'+esc(p.bio)+'</p>':'')
     +'<ul class="tags">'+p.works.map(renderWorkTag).join('')+'</ul>';
   paint(e);
@@ -149,7 +150,6 @@ function setMode(v){
 
 $('#sw').onclick=()=>setMode(mode==='mushaira'?'timeline':'mushaira');
 document.querySelectorAll('.sw [data-view]').forEach(b=>b.onclick=()=>setMode(b.dataset.view));
-
 stage.addEventListener('keydown',e=>{
   const k=e.key;if(!['ArrowRight','ArrowDown','ArrowLeft','ArrowUp'].includes(k))return;
   e.preventDefault();step(k==='ArrowRight'||k==='ArrowDown'?1:-1);nodes[focus].focus();
