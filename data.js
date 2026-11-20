@@ -194,12 +194,12 @@ const COUPLETS=[
  
  {id:'wali1',p:'wali',
   tr:[
-   ['yaad karna har ghadi us yaar ka'],
-   ['hai ',{t:'wazeefa',g:'daily litany, devotional recitation'},' mujh dil-e-bimaar ka']
+   ['raah-e-',{t:'mazmoon-e-taaza',g:'fresh theme, new meaning'},' band nahin'],
+   ['ta ',{t:'qayamat',g:'end of time, resurrection'},' khula hai ',{t:'baab-e-sukhan',g:'door of speech, poetry'}]
   ],
-  ur:['یاد کرنا ہر گھڑی اس یار کا','ہے وظیفہ مجھ دلِ بیمار کا'],
-  en:'Remembering that beloved every moment is the daily litany of my sick heart.',
-  src:'https://archive.org/details/divaniwali'},
+  ur:['راہِ مضمونِ تازہ بند نہیں','تا قیامت کھلا ہے بابِ سخن'],
+  en:'The path to fresh meaning is never closed; until the end of time, the door of poetry stands open.',
+  src:'https://www.rekhta.org/poets/wali-dakni/couplets'},
  
  {id:'mir1',p:'mir',
   tr:[
