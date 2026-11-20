@@ -206,14 +206,16 @@ const COUPLETS=[
   ur:['جب آدمی کسی کا طلبگار ہو گیا','ہر چیز اس کے واسطے دشوار ہو گیا'],
   en:'Once a person becomes a seeker/yearner for someone, every single thing becomes hard for them.',
   src:'https://www.rekhta.org/poets/nazeer-akbarabadi/all'},
+
  {id:'mahlaqa1',p:'mahlaqa',
   tr:[
-   ['dekho to haal-e-dil mera ae ',{t:'jaan-e-mehfil',g:'life of the gathering'}],
-   ['kyun kar kati hai umr meri tere bin ',{t:'sanam',g:'beloved'}]
+   [{t:'gul',g:'flower, rose'},' ke hone ki ',{t:'tawaqqo',g:'hope, expectation'},' pe jiye baiThi hai'],
+   ['har ',{t:'kali',g:'bud'},' ',{t:'jaan',g:'life'},' ko ',{t:'mutthi',g:'fist'},' mein liye baiThi hai']
   ],
-  ur:['دیکھو تو حالِ دل مرا اے جانِ محفل','کیوں کر کٹی ہے عمر مری ترے بن صنم'],
-  en:'Look at the state of my heart, O life of the gathering—how my life has passed without you, beloved.',
-  src:'https://artsandculture.google.com/story/mah-laqa-chanda-rekhta-foundation/8AUBe_1QvRv_Jg?hl=en'},
+  ur:['گل کے ہونے کی توقع پہ جیے بیٹھی ہے','ہر کلی جاں کو مٹھی میں لیے بیٹھی ہے'],
+  en:'Hoping someday to become a flower, every bud sits holding its life in its fist.',
+  src:'https://www.rekhta.org/poets/mah-laqa-chanda/couplets'},
+ 
  {id:'zafar1',p:'zafar',
   tr:[
    ['lagta nahin hai dil mera ',{t:'ujde dayaar',g:'ruined land'},' mein'],
