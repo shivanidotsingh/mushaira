@@ -29,9 +29,9 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 .axis{position:absolute;pointer-events:none;height:1px;background:currentColor;opacity:0;transition:opacity .5s .3s}
 .tl .axis{opacity:.12}
 
-/* Nodes sit directly at anchor points — direct, un-dramatic transition */
-.node{position:absolute;left:0;top:0;width:0;height:0;padding:0;border:0;background:none;cursor:pointer;transform-origin:0 0;transition:transform .45s ease-out}
-.is-switching .node{transition:transform .45s ease-out}
+/* Nodes sit directly at anchor points — no movement transition */
+.node{position:absolute;left:0;top:0;width:0;height:0;padding:0;border:0;background:none;cursor:pointer;transform-origin:0 0;transition:none}
+.is-switching .node{transition:none}
 .node.notrans,.node.notrans *,.node.notrans .lab{transition:none!important}
 
 /* Subtle click into place on selection */
@@ -42,8 +42,8 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 .node:focus-visible{outline:none}
 .node:focus-visible .dot{outline:2px solid currentColor;outline-offset:4px;border-radius:50%}
 
-.lab{--pad:24px;position:absolute;left:0;top:0;white-space:nowrap;font:400 var(--xs)/1.2 var(--sans);letter-spacing:.02em;text-align:center;transform:translate(calc(-50% + var(--ux,0)*(50% + var(--pad))),calc(-50% + var(--uy,0)*(50% + var(--pad))));transition:transform .45s ease-out,opacity .25s ease-out}
-.is-switching .lab{transition:transform .45s ease-out,opacity .25s ease-out}
+.lab{--pad:24px;position:absolute;left:0;top:0;white-space:nowrap;font:400 var(--xs)/1.2 var(--sans);letter-spacing:.02em;text-align:center;transform:translate(calc(-50% + var(--ux,0)*(50% + var(--pad))),calc(-50% + var(--uy,0)*(50% + var(--pad))));transition:none}
+.is-switching .lab{transition:none}
 .node[aria-current=true] .lab{--pad:34px;font-weight:600}
 
 /* Years appear with the name when clicked/selected (and in timeline mode) */
@@ -57,19 +57,19 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 .poets.v .node .lab{text-align:left;transform:translate(24px,-50%)}
 .poets.v .node[aria-current=true] .lab{transform:translate(32px,-50%)}
 
-/* Keep poet title centered in circle & hold its vertical anchor while bio drops down */
-.detail{position:relative;align-self:center;justify-self:center;width:min(var(--hw,34rem),calc(100% - 3rem));padding:4.8rem 0 3rem;z-index:1;text-align:center;pointer-events:none}
+/* Anchor detail from top so h2 stays put while bio folds below it */
+.detail{position:relative;align-self:start;justify-self:center;width:min(var(--hw,34rem),calc(100% - 3rem));padding:clamp(8.5rem,22vh,13.5rem) 0 3rem;z-index:1;text-align:center;pointer-events:none;transition:none}
 .detail :is(button,a,.gloss){pointer-events:auto}
-.poets.stk .detail{align-self:center;padding:4.8rem 0 3rem}
+.poets.stk .detail{align-self:start;padding:2.5rem 0 3rem}
 
-/* Avoid repeating the active poet's flower when already on the dial stage */
+/* Avoid repeating the active poet's flower when already on the mushaira stage */
 .poets:not(.tl) .detail .flw{display:none}
-.tl .detail .flw{position:absolute;left:50%;transform:translateX(-50%);top:.5rem;margin:0}
+.tl .detail .flw{position:relative;margin:0 auto .55rem}
 
 .flw{width:64px;height:64px;margin:0 auto .55rem}
-.detail h2{margin:.75rem 0 .45rem;font-size:clamp(1.5rem,3vw,2.35rem);font-weight:800;line-height:1.05;letter-spacing:-.02em}
+.detail h2{margin:.75rem 0 .45rem;font-size:clamp(1.5rem,3vw,2.35rem);font-weight:800;line-height:1.05;letter-spacing:-.02em;transition:none}
 
-/* Bio drops down smoothly below h2 without shifting h2 upward */
+/* Bio drops down smoothly below h2 without pulling h2 upward */
 .bio{overflow:hidden;max-height:0;opacity:0;margin:0 auto;font:400 var(--s)/1.6 var(--sans);width:min(30rem,100%);transition:max-height .4s ease-out,opacity .35s ease-out,margin .4s ease-out}
 .tl .bio,.is-tl .bio{max-height:14rem;opacity:.9;margin:.75rem auto 1.15rem}
 
@@ -98,7 +98,7 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 @media (max-width:640px){.poets:not(.tl) .node:not([aria-current=true]) .lab{opacity:0}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
-/* Mobile: no dial circle — force single-column vertical timeline */
+/* Mobile: no circle — force single-column vertical timeline */
 @media (max-width:767px){
   header .sw{display:none}
   .poets{display:flex;flex-direction:column}
