@@ -23,6 +23,7 @@ const POETS=[
    {title:'Kulliyat (the first complete Urdu divan)',url:'https://archive.org/details/KulliyatESultanMuhammadQuliQutbShah'}
   ],
   fl:{s:'round',n:10,w:.22,a:OR,b:YL,c:BR}},
+
  {id:'nusrati',name:'Nusrati',short:'Nusrati',ur:'نصرتی',b:1600,y:'c. 1600–1674',era:0,
   bio:'Poet laureate at the Adil Shahi court of Bijapur under Ali Adil Shah II, Mulla Nusrati elevated Dakhni narrative poetry to grand epic scale. His masnavis weave Persianate romance and Deccani martial history with rich, jewel-like imagery.',
   works:[
@@ -30,6 +31,7 @@ const POETS=[
    {title:'Ali Nama',url:'https://blog.rekhta.org/gulshan-e-ishq/'}
   ],
   fl:{s:'curl',n:5,a:YL,c:RD}},
+ 
  {id:'wali',name:'Wali Deccani',short:'Wali',ur:'ولی دکنی',b:1667,y:'c. 1667–1707',era:0,
   bio:'Born in Aurangabad and trained in Gujarat, Wali bridged the southern Dakhni tradition and northern Delhi literary circles. When his divan reached Delhi around 1700, it sparked an explosion of ghazal writing in Urdu rather than Persian.',
   works:[
@@ -147,14 +149,39 @@ const COUPLETS=[
   ur:['پیا باج پیالہ پیا جائے نا','پیا باج اک تل جیا جائے نا'],
   en:'Without the beloved, the cup cannot be drunk; without the beloved, one cannot live even a moment.',
   src:'https://archive.org/details/KulliyatESultanMuhammadQuliQutbShah'},
+ 
  {id:'nusrati1',p:'nusrati',
   tr:[
-   ['ishq ki aag se dil jal gaya'],
-   ['raat din ',{t:'chashm',g:'eyes'},' se khoon beh gaya']
+   ['chalaa leke dil mein ',{t:'ummeedon',g:'hopes'},' ka ',{t:'noor',g:'light, radiance'}],
+   ['kadam rakhta jaata tha ',{t:'manzil',g:'destination, goal'},' se door']
   ],
-  ur:['عشق کی آگ سے دل جل گیا','رات دن چشم سے خوں بہہ گیا'],
-  en:'The heart burned in the fire of love, and day and night blood flowed from the eyes.',
-  src:'https://www.rekhta.org/ebooks/detail/masnavi-gulshan-e-ishq-mulla-nusrati-ebooks-1'},
+  ur:['چلا لے کے دل میں امیدوں کا نور','قدم رکھتا جاتا تھا منزل سے دور'],
+  en:'Carrying the light of hopes in his heart, he walked on, step by step, far from the goal.',
+  src:'https://www.rekhta.org/poets/nusrati/all',
+  expand:{
+   title:'Gulshan-e-Ishq — On the Road of Trials',
+   form:'Dakhni Masnavi (1657)',
+   couplets:[
+    {
+     tr:[
+      ['chalaa leke dil mein ',{t:'ummeedon',g:'hopes'},' ka ',{t:'noor',g:'light, radiance'}],
+      ['kadam rakhta jaata tha ',{t:'manzil',g:'destination, goal'},' se door']
+     ],
+     ur:['چلا لے کے دل میں امیدوں کا نور','قدم رکھتا جاتا تھا منزل سے دور'],
+     en:'Carrying the light of hopes in his heart, he walked on, step by step, far from the goal.'
+    },
+    {
+     tr:[
+      ['badi ',{t:'waadiyaan',g:'valleys'},' aur ',{t:'jaangal',g:'forests, woods'},' ghane'],
+      ['har ek mod par ',{t:'imtihaan',g:'trials, tests'},' thay bane']
+     ],
+     ur:['بڑی وادیاں اور جنگل گھنے','ہر اک موڑ پر امتحان تھے بنے'],
+     en:'Vast valleys and dense forests lay ahead; at every turn, trials stood ready.'
+    }
+   ]
+  }
+ },
+ 
  {id:'wali1',p:'wali',
   tr:[
    ['yaad karna har ghadi us yaar ka'],
