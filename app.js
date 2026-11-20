@@ -49,13 +49,12 @@ function alignDial(instant){
 }
 
 function layout(instant){
-  const cw=sc.clientWidth,mob=cw<780,tl=mode==='timeline',vert=tl&&cw<640;
+  const cw=sc.clientWidth,tl=mode==='timeline',vert=tl&&cw<640;
   if(instant)nodes.forEach(n=>n.classList.add('notrans'));
   poets.classList.toggle('stk',tl);poets.classList.toggle('tl',tl);poets.classList.toggle('v',vert);
   let H,R=0;const cx=cw/2;
   if(tl)H=vert?(N-1)*44+80:200;
-  else if(mob){R=Math.min(cw*.42,175);H=2*R+110}
-  else{H=Math.min(innerHeight*.84,740);R=Math.min(cw*.34,H*.42)}
+  else{H=Math.min(innerHeight*.92,840);R=Math.min(cw*.4,H*.47)}
   const cy=tl?H/2:Math.max(R+48,H*.54);
   stage.style.height=H+'px';
   $('#detail').style.setProperty('--hw',tl?'34rem':Math.min(544,R*1.45)+'px');
