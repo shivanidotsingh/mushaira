@@ -88,6 +88,13 @@ const POETS=[
    {title:'Shikwa and Jawab-e-Shikwa',url:'https://en.wikipedia.org/wiki/The_Call_of_the_Marching_Bell'}
   ],
   fl:{s:'point',n:6,w:.3,a:CR,b:PK,c:YL}},
+ {id:'firaq',name:'Firaq Gorakhpuri',short:'Firaq',ur:'فراق گورکھپوری',b:1896,y:'1896–1982',era:2,
+  bio:'Born Raghupati Sahay in Gorakhpur, Firaq left the Indian Civil Service to join the independence movement and later taught English literature at Allahabad University. He infused the classical ghazal with Indian aesthetics, tender intimacy, and quiet philosophical melancholy.',
+  works:[
+   {title:'Gul-e-Naghma',url:'https://www.rekhta.org/poets/firaq-gorakhpuri/all'},
+   {title:'Ruh-e-Kainat',url:'https://www.rekhta.org/poets/firaq-gorakhpuri/all'}
+  ],
+  fl:{s:'point',n:7,w:.3,a:PU,b:CR,c:YL}},
  {id:'faiz',name:'Faiz Ahmed Faiz',short:'Faiz',ur:'فیض احمد فیض',b:1911,y:'1911–1984',era:3,
   bio:'A leading voice of the Progressive Writers\u2019 Movement, journalist, and frequent political prisoner in post-Partition Pakistan, Faiz fused classical romantic imagery with anti-authoritarian resistance. In his verse, longing for the beloved and longing for justice become one.',
   works:[
@@ -110,14 +117,7 @@ const POETS=[
    {title:'Lafzon Ke Pul',url:'https://www.rekhta.org/poets/nida-fazli/all'},
    {title:'Khoya Hua Sa Kuchh',url:'https://www.rekhta.org/poets/nida-fazli/all'}
   ],
-  fl:{s:'round',n:4,w:.34,a:RD,c:CR}},
- {id:'parveen',name:'Parveen Shakir',short:'Parveen',ur:'پروین شاکر',b:1952,y:'1952–1994',era:3,
-  bio:'Born in Karachi and working as an educator and civil servant in Islamabad, Parveen Shakir brought an unmistakably female interiority into the modern Urdu ghazal. Her debut collection Khushbu broke new ground with candid vulnerability, tenderness, and lyrical grace.',
-  works:[
-   {title:'Khushbu',url:'https://en.wikipedia.org/wiki/Khushbu_(poetry)'},
-   {title:'Sad-barg',url:'https://www.rekhta.org/poets/parveen-shakir/all'}
-  ],
-  fl:{s:'point',n:7,w:.3,a:PU,b:CR,c:YL}}];
+  fl:{s:'round',n:4,w:.34,a:RD,c:CR}}];
 const COUPLETS=[
  {id:'khusro1',p:'khusro',
   tr:[
@@ -207,6 +207,14 @@ const COUPLETS=[
   ur:['خودی کو کر بلند اتنا کہ ہر تقدیر سے پہلے','خدا بندے سے خود پوچھے بتا تیری رضا کیا ہے'],
   en:'Raise your selfhood so high that before every decree of fate, God himself asks you: what do you want?',
   src:'https://www.rekhta.org/ebooks/detail/bang-e-dra-ma-farhang-allama-iqbal-ebooks'},
+ {id:'firaq1',p:'firaq',
+  tr:[
+   ['ek ',{t:'muddat',g:'an age, a long stretch of time'},' se teri ',{t:'yad',g:'memory, remembrance'},' bhi aai na hamein'],
+   ['aur ham bhul gae hon tujhe aisa bhi nahin']
+  ],
+  ur:['اک مدت سے تری یاد بھی آئی نہ ہمیں','اور ہم بھول گئے ہوں تجھے ایسا بھی نہیں'],
+  en:'For a long time now, not even a memory of you has come to me—and yet it is not as though I have forgotten you.',
+  src:'https://www.rekhta.org/poets/firaq-gorakhpuri/ghazals'},
  {id:'faiz1',p:'faiz',
   tr:[
    ['dil na-umeed to nahin nakaam hi to hai'],
@@ -225,17 +233,9 @@ const COUPLETS=[
   src:'https://en.wikipedia.org/wiki/Kaifi_Azmi'},
  {id:'nida1',p:'nida',
   tr:[
-   ['safar mein dhoop to hogi jo chal sako to chalo'],
-   ['sabhi hain ',{t:'bheer',g:'crowd'},' mein tum bhi nikal sako to chalo']
+   ['kabhi kisi ko ',{t:'mukammal',g:'complete, whole'},' ',{t:'jahan',g:'world'},' nahin milta'],
+   ['kahin ',{t:'zamin',g:'earth, ground'},' kahin ',{t:'aasman',g:'sky, heaven'},' nahin milta']
   ],
-  ur:['سفر میں دھوپ تو ہوگی جو چل سکو تو چلو','سبھی ہیں بھیڑ میں تم بھی نکل سکو تو چalo'],
-  en:'There will be harsh sun on the journey—walk if you can; everyone is lost in the crowd—step out if you can.',
-  src:'https://www.rekhta.org/poets/nida-fazli/ghazals'},
- {id:'parveen1',p:'parveen',
-  tr:[
-   ['kaise kah doon ke mujhe chhor diya hai us ne'],
-   ['baat to sach hai magar baat hai ',{t:'ruswai',g:'disgrace, notoriety'},' ki']
-  ],
-  ur:['کیسے کہہ دوں کہ مجھے چھوڑ دیا ہے اس نے','بات تو سچ ہے مگر بات ہے رسوائی کی'],
-  en:'How can I say he has left me? It is true, yet it brings disgrace.',
-  src:'https://www.rekhta.org/poets/parveen-shakir/all'}];
+  ur:['کبھی کسی کو مکمل جہاں نہیں ملتا','کہیں زمین کہیں آسماں نہیں ملتا'],
+  en:'No one ever gets a complete world; somewhere the earth is missing, somewhere the sky.',
+  src:'https://www.rekhta.org/poets/nida-fazli/ghazals'}];
