@@ -90,6 +90,7 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 /* Era and book tags */
 .tags{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:.35rem;padding:0;margin:.75rem 0 0}
 .tags li{font:400 var(--xs)/1.3 var(--sans);border:1px solid currentColor;border-radius:99px;padding:.22rem .65rem;opacity:.85}
+.tags li a{color:currentColor;text-decoration:underline;text-underline-offset:2px}
 .tags .tag-era{font-weight:600;opacity:.95}
 
 @media (max-width:640px){.poets:not(.tl) .node:not([aria-current=true]) .lab{opacity:0}}
