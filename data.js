@@ -200,14 +200,16 @@ const COUPLETS=[
   ur:['یاد کرنا ہر گھڑی اس یار کا','ہے وظیفہ مجھ دلِ بیمار کا'],
   en:'Remembering that beloved every moment is the daily litany of my sick heart.',
   src:'https://archive.org/details/divaniwali'},
+ 
  {id:'mir1',p:'mir',
   tr:[
-   [{t:'patta patta',g:'every leaf'},', ',{t:'boota boota',g:'every plant'},', haal hamara jaane hai'],
-   ['jaane na jaane ',{t:'gul',g:'flower / beloved'},' hi na jaane, baagh to saara jaane hai']
+   ['ham ko un se hai ',{t:'wafa',g:'loyalty, faithfulness'},' ki ',{t:'ummeed',g:'hope, expectation'}],
+   ['jo nahin jaante wafa kya hai']
   ],
-  ur:['پتہ پتہ بوٹا بوٹا حال ہمارا جانے ہے','جانے نہ جانے گل ہی نہ جانے باغ تو سارا جانے ہے'],
-  en:'Every leaf and every plant knows how I am. The flower, the beloved, may not know, but the whole garden does.',
-  src:'https://en.wikipedia.org/wiki/Mir_Taqi_Mir'},
+  ur:['ہم کو ان سے ہے وفا کی امید','جو نہیں جانتے وفا کیا ہے'],
+  en:'We hold out hope for loyalty from those who don\u2019t even know what loyalty is.',
+  src:'https://www.rekhta.org/poets/mir-taqi-mir/ghazals'},
+ 
  {id:'nazeer1',p:'nazeer',
   tr:[
    ['jab aadmi kisi ka ',{t:'talabgaar',g:'seeker, yearner'},' ho gaya'],
