@@ -98,3 +98,13 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 
 @media (max-width:640px){.poets:not(.tl) .node:not([aria-current=true]) .lab{opacity:0}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* Mobile: no dial circle — force single-column vertical timeline */
+@media (max-width:767px){
+  header .sw{display:none}
+  .poets{display:flex;flex-direction:column}
+  .poets .arc{display:none}
+  .poets .axis{opacity:.12}
+  .poets .detail{width:calc(100% - 2.5rem);padding:1.25rem 0 3rem}
+  .poets .bio{display:block}
+}
