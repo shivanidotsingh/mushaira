@@ -118,7 +118,7 @@ function renderDetail(){
   document.querySelectorAll('#eranav button').forEach((b,k)=>b.setAttribute('aria-current',k===p.era));
   $('#detail').innerHTML=renderCouplets()
     +'<h2>'+p.name+'</h2>'
-    +'<p class="mob-note">View on desktop for the full Mushaira &amp; Timeline experience</p>'
+    +'<p class="mob-note">View on desktop for the full experience</p>'
     +(p.bio?'<p class="bio">'+esc(p.bio)+'</p>':'')
     +'<ul class="tags">'+p.works.map(renderWorkTag).join('')+'</ul>';
   paint(e);
