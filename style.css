@@ -71,7 +71,7 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 .flw{width:64px;height:64px;margin:0 auto .55rem}
 .detail h2{margin:.75rem 0 .45rem;font-size:clamp(1.5rem,3vw,2.35rem);font-weight:800;line-height:1.05;letter-spacing:-.02em}
 .bio{display:none;font:400 var(--s)/1.6 var(--sans);width:min(30rem,100%);margin:.75rem auto 1.15rem;opacity:.9}
-.tl .bio{display:block}
+.tl .bio,.is-tl .bio{display:block}
 
 .h-yr{font:400 var(--s)/1 var(--sans);opacity:.78;letter-spacing:0;vertical-align:middle}
 .sm{font:400 var(--s)/1.5 var(--sans);margin:.2rem 0}
@@ -104,7 +104,8 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
   header .sw{display:none}
   .poets{display:flex;flex-direction:column}
   .poets .arc{display:none}
-  .poets .axis{opacity:.12}
+  .poets .axis,.poets.v .axis{opacity:.12}
+  .poets.v .node .lab{white-space:normal;max-width:calc(100vw - 88px)}
   .poets .detail{width:calc(100% - 2.5rem);padding:1.25rem 0 3rem}
   .poets .bio{display:block}
 }
