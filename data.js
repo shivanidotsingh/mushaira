@@ -161,10 +161,8 @@ const COUPLETS=[
 
  {id:'kabir1',p:'kabir',
   tr:[
-   ['haman hain ',{t:'ishq',g:'love, devotion'},' ',{t:'mastaana',g:'intoxicated, blissfully absorbed'}],
-   ['haman ko ',{t:'hoshiyaari',g:'worldly cleverness, caution'},' kya?'],
-   ['rahein aazaad ya ',{t:'jag',g:'the world'},' se'],
-   ['haman duniya se ',{t:'yaari',g:'friendship, worldly attachment'},' kya?']
+   ['haman hain ',{t:'ishq',g:'love, devotion'},' ',{t:'mastaana',g:'intoxicated, blissfully absorbed'},', haman ko ',{t:'hoshiyaari',g:'worldly cleverness, caution'},' kya?'],
+   ['rahein aazaad ya ',{t:'jag',g:'the world'},' se, haman duniya se ',{t:'yaari',g:'friendship, worldly attachment'},' kya?']
   ],
   ur:['ہمن ہیں عشق مستانہ ہمن کو ہوشیاری کیا','رہیں آزاد یا جگ سے ہمن دنیا سے یاری کیا'],
   en:'I am intoxicated with love—what use have I for worldly caution? Let me remain free of the world—what business do I have befriending it?',
