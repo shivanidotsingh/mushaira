@@ -10,7 +10,7 @@ function flowerSVG(f){
     :f.s==='curl'?'M0 0C'+R*.5+' '+-R*.2+' '+R*.4+' '+-R*.85+' 0 '+-R+'C'+-R*.15+' '+-R*.6+' '+-R*.2+' '+-R*.3+' 0 0Z'
     :'M0 0C'+x*2.2+' '+-R*.1+' '+x*2.2+' '+-R*.95+' 0 '+-R+'C'+-x*2.2+' '+-R*.95+' '+-x*2.2+' '+-R*.1+' 0 0Z';
   const ring=(fill,s,off)=>Array.from({length:f.n},(_,i)=>'<path d="'+d+'" fill="'+fill+'" transform="rotate('+(i*360/f.n+off)+') scale('+s+')"/>').join('');
-  return '<svg viewBox="-50 -50 100 100" aria-hidden="true"><g stroke="#1b1218" stroke-width="3.5" stroke-linejoin="round">'
+  return '<svg viewBox="-50 -50 100 100" aria-hidden="true"><g stroke="#1b1218" stroke-width="1.6" stroke-linejoin="round">'
     +ring(f.a,1,0)+(f.b?ring(f.b,.62,180/f.n):'')+'<circle r="'+R*.2+'" fill="'+f.c+'"/></g></svg>';
 }
 
@@ -120,6 +120,7 @@ function renderDetail(){
   $('#detail').innerHTML='<div class="flw">'+flowerSVG(p.fl)+'</div>'
     +renderCouplets()
     +'<h2>'+p.name+'</h2>'
+    +(p.bio?'<p class="bio">'+esc(p.bio)+'</p>':'')
     +'<ul class="tags"><li class="tag-era">'+eraLabel+'</li>'+p.works.map(renderWorkTag).join('')+'</ul>';
   paint(e);
 }
