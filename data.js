@@ -201,14 +201,16 @@ const COUPLETS=[
   ur:['ہزاروں خواہشیں ایسی کہ ہر خواہش پہ دم نکلے','بہت نکلے مرے ارمان لیکن پھر بھی کم نکلے'],
   en:'Thousands of desires, each one worth dying for. Many of my wishes came true, and still it was too few.',
   src:'https://www.rekhta.org/poets/mirza-ghalib/ghazals'},
+ 
  {id:'daagh1',p:'daagh',
   tr:[
-   ['khoob parda hai ke ',{t:'chilman',g:'bamboo screen / curtain'},' se lage baithe hain'],
-   ['saaf chhupte bhi nahin saamne aate bhi nahin']
+   [{t:'lutf',g:'delight, pleasure'},' vo ',{t:'ishq',g:'love, passion'},' mein paaye hain ke ',{t:'jee',g:'heart, soul'},' jaanta hai'],
+   [{t:'ranj',g:'sorrow, grief'},' bhi itne uthaaye hain ke ',{t:'jee',g:'heart, soul'},' jaanta hai']
   ],
-  ur:['خوب پردہ ہے کہ چلمن سے لگے بیٹھے ہیں','صاف چھپتے بھی نہیں سامنے آتے بھی نہیں'],
-  en:'What a clever veil—sitting right beside the screen, neither hiding completely nor coming fully into view.',
-  src:'https://en.wikipedia.org/wiki/Daagh_Dehlvi'},
+  ur:['لطف وہ عشق میں پائے ہیں کہ جی جانتا ہے','رنج بھی اتنے اٹھائے ہیں کہ جی جانتا ہے'],
+  en:'Such delights have I found in love that only my heart knows; and such sorrows have I borne that only my heart knows.',
+  src:'https://www.rekhta.org/poets/daagh-dehlvi/ghazals'},
+ 
  {id:'iqbal1',p:'iqbal',
   tr:[
    [{t:'khudi',g:'selfhood'},' ko kar ',{t:'buland',g:'exalted, high'},' itna ke har ',{t:'taqdeer',g:'decree of fate'},' se pehle'],
