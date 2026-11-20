@@ -230,10 +230,12 @@ const COUPLETS=[
  
  {id:'zafar1',p:'zafar',
   tr:[
-   ['na thi haal ki jab hamein apne ',{t:'khabar',g:'awareness, news'},' rahe dekhte auron ke ',{t:'aib',g:'flaws, faults'},' o ',{t:'hunar',g:'skills, merits'}],
-   ['padi apni ',{t:'buraiyon',g:'shortcomings, faults'},' par jo ',{t:'nazar',g:'gaze, sight'},' to nigah mein koi bura na raha']
+   ['na thi haal ki jab hamein apni ',{t:'khabar',g:'awareness, news'}],
+   ['rahe dekhte auron ke ',{t:'aib',g:'flaws, faults'},' o ',{t:'hunar',g:'skills, merits'}],
+   ['padi apni ',{t:'buraiyon',g:'shortcomings, faults'},' par jo ',{t:'nazar',g:'gaze, sight'}],
+   ['to nigah mein koi bura na raha']
   ],
-  ur:['نہ تھی حال کی جب ہمیں اپنے خبر رہے دیکھتے اوروں کے عیب و ہنر','پڑی اپنی برائیوں پر جو نظر تو نگاہ میں کوئی برا نہ رہا'],
+  ur:['نہ تھی حال کی جب ہمیں اپنی خبر رہے دیکھتے اوروں کے عیب و ہنر','پڑی اپنی برائیوں پر جو نظر تو نگاہ میں کوئی برا نہ رہا'],
   en:'When I had no real awareness of my own state, I watched others\u2019 flaws and merits; once my gaze fell on my own shortcomings, no one else looked bad to me.',
   src:'https://www.rekhta.org/poets/bahadur-shah-zafar/ghazals'},
  
