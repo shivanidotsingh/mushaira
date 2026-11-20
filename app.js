@@ -116,12 +116,11 @@ function renderWorkTag(w){
 function renderDetail(){
   const p=POETS[focus],e=ERAS[p.era];
   document.querySelectorAll('#eranav button').forEach((b,k)=>b.setAttribute('aria-current',k===p.era));
-  const eraLabel=e.n+(e.sub?', '+e.sub:'');
   $('#detail').innerHTML='<div class="flw">'+flowerSVG(p.fl)+'</div>'
     +renderCouplets()
     +'<h2>'+p.name+'</h2>'
     +(p.bio?'<p class="bio">'+esc(p.bio)+'</p>':'')
-    +'<ul class="tags"><li class="tag-era">'+eraLabel+'</li>'+p.works.map(renderWorkTag).join('')+'</ul>';
+    +'<ul class="tags">'+p.works.map(renderWorkTag).join('')+'</ul>';
   paint(e);
 }
 
