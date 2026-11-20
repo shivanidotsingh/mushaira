@@ -116,8 +116,7 @@ function renderWorkTag(w){
 function renderDetail(){
   const p=POETS[focus],e=ERAS[p.era];
   document.querySelectorAll('#eranav button').forEach((b,k)=>b.setAttribute('aria-current',k===p.era));
-  $('#detail').innerHTML='<div class="flw">'+flowerSVG(p.fl)+'</div>'
-    +renderCouplets()
+  $('#detail').innerHTML=renderCouplets()
     +'<h2>'+p.name+'</h2>'
     +(p.bio?'<p class="bio">'+esc(p.bio)+'</p>':'')
     +'<ul class="tags">'+p.works.map(renderWorkTag).join('')+'</ul>';
