@@ -88,6 +88,16 @@ const POETS=[
    {title:'Shikwa and Jawab-e-Shikwa',url:'https://en.wikipedia.org/wiki/The_Call_of_the_Marching_Bell'}
   ],
   fl:{s:'point',n:6,w:.3,a:CR,b:PK,c:YL}},
+ 
+ {id:'jigar',name:'Jigar Moradabadi',short:'Jigar',ur:'جگر مرادآبادی',b:1890,y:'1890–1960',era:2,
+  bio:'Born in Moradabad and celebrated across mushairas of the early twentieth century, Jigar bridged classical ghazal lyricism with modern emotional candor. Known as Taj-ul-Shu\u2019ara, he wrote with unguarded intensity about love, humility, and human reckoning.',
+  works:[
+   {title:'Atish-e-Gul',url:'https://www.rekhta.org/poets/jigar-moradabadi/all'},
+   {title:'Shola-e-Toor',url:'https://www.rekhta.org/poets/jigar-moradabadi/all'},
+   {title:'Dagh-e-Jigar',url:'https://www.rekhta.org/poets/jigar-moradabadi/all'}
+  ],
+  fl:{s:'round',n:8,w:.24,a:OR,b:CR,c:RD}},
+ 
  {id:'firaq',name:'Firaq Gorakhpuri',short:'Firaq',ur:'فراق گورکھپوری',b:1896,y:'1896–1982',era:2,
   bio:'Born Raghupati Sahay in Gorakhpur, Firaq left the Indian Civil Service to join the independence movement and later taught English literature at Allahabad University. He infused the classical ghazal with Indian aesthetics, tender intimacy, and quiet philosophical melancholy.',
   works:[
@@ -207,6 +217,16 @@ const COUPLETS=[
   ur:['خودی کو کر بلند اتنا کہ ہر تقدیر سے پہلے','خدا بندے سے خود پوچھے بتا تیری رضا کیا ہے'],
   en:'Raise your selfhood so high that before every decree of fate, God himself asks you: what do you want?',
   src:'https://www.rekhta.org/ebooks/detail/bang-e-dra-ma-farhang-allama-iqbal-ebooks'},
+
+ {id:'jigar1',p:'jigar',
+  tr:[
+   ['ye ',{t:'ishq',g:'love, passion'},' nahin aasaan itna hi samajh lijiye'],
+   ['ik aag ka ',{t:'dariya',g:'river'},' hai aur doob ke jaana hai']
+  ],
+  ur:['یہ عشق نہیں آساں اتنا ہی سمجھ لیجیے','اک آگ کا دریا ہے اور ڈوب کے جانا ہے'],
+  en:'Love is not easy—understand just this much: it is a river of fire, and one must go through it by drowning.',
+  src:'https://www.rekhta.org/poets/jigar-moradabadi/ghazals'},
+ 
  {id:'firaq1',p:'firaq',
   tr:[
    ['ek ',{t:'muddat',g:'an age, a long stretch of time'},' se teri ',{t:'yaad',g:'memory, remembrance'},' bhi aai na hamein'],
