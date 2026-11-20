@@ -29,9 +29,10 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 .axis{position:absolute;pointer-events:none;height:1px;background:currentColor;opacity:0;transition:opacity .5s .3s}
 .tl .axis{opacity:.12}
 
-/* Nodes sit directly at anchor points — no movement transition */
-.node{position:absolute;left:0;top:0;width:0;height:0;padding:0;border:0;background:none;cursor:pointer;transform-origin:0 0;transition:none}
-.is-switching .node{transition:none}
+/* Soft dial rotation when clicking poets; instant when switching to/from timeline */
+.node{position:absolute;left:0;top:0;width:0;height:0;padding:0;border:0;background:none;cursor:pointer;transform-origin:0 0}
+.poets:not(.tl) .node{transition:transform .65s cubic-bezier(.22,1,.36,1)}
+.poets.tl .node,.is-switching .node{transition:none}
 .node.notrans,.node.notrans *,.node.notrans .lab{transition:none!important}
 
 /* Subtle click into place on selection */
@@ -42,8 +43,9 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 .node:focus-visible{outline:none}
 .node:focus-visible .dot{outline:2px solid currentColor;outline-offset:4px;border-radius:50%}
 
-.lab{--pad:24px;position:absolute;left:0;top:0;white-space:nowrap;font:400 var(--xs)/1.2 var(--sans);letter-spacing:.02em;text-align:center;transform:translate(calc(-50% + var(--ux,0)*(50% + var(--pad))),calc(-50% + var(--uy,0)*(50% + var(--pad))));transition:none}
-.is-switching .lab{transition:none}
+.lab{--pad:24px;position:absolute;left:0;top:0;white-space:nowrap;font:400 var(--xs)/1.2 var(--sans);letter-spacing:.02em;text-align:center;transform:translate(calc(-50% + var(--ux,0)*(50% + var(--pad))),calc(-50% + var(--uy,0)*(50% + var(--pad))))}
+.poets:not(.tl) .lab{transition:transform .65s cubic-bezier(.22,1,.36,1),opacity .25s}
+.poets.tl .lab,.is-switching .lab{transition:none}
 .node[aria-current=true] .lab{--pad:34px;font-weight:600}
 
 /* Years appear with the name when clicked/selected (and in timeline mode) */
@@ -57,21 +59,19 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 .poets.v .node .lab{text-align:left;transform:translate(24px,-50%)}
 .poets.v .node[aria-current=true] .lab{transform:translate(32px,-50%)}
 
-/* Anchor detail from top so h2 stays put while bio folds below it */
-.detail{position:relative;align-self:start;justify-self:center;width:min(var(--hw,34rem),calc(100% - 3rem));padding:clamp(8.5rem,22vh,13.5rem) 0 3rem;z-index:1;text-align:center;pointer-events:none;transition:none}
+/* Centered inside the circle just like before */
+.detail{position:relative;align-self:center;justify-self:center;width:min(var(--hw,34rem),calc(100% - 3rem));padding:4.8rem 0 3rem;z-index:1;text-align:center;pointer-events:none}
 .detail :is(button,a,.gloss){pointer-events:auto}
-.poets.stk .detail{align-self:start;padding:2.5rem 0 3rem}
+.poets.stk .detail{align-self:start;padding:1.5rem 0 3rem}
 
-/* Avoid repeating the active poet's flower when already on the mushaira stage */
+/* Avoid repeating the active poet's flower when already on the dial stage */
 .poets:not(.tl) .detail .flw{display:none}
 .tl .detail .flw{position:relative;margin:0 auto .55rem}
 
 .flw{width:64px;height:64px;margin:0 auto .55rem}
-.detail h2{margin:.75rem 0 .45rem;font-size:clamp(1.5rem,3vw,2.35rem);font-weight:800;line-height:1.05;letter-spacing:-.02em;transition:none}
-
-/* Bio drops down smoothly below h2 without pulling h2 upward */
-.bio{overflow:hidden;max-height:0;opacity:0;margin:0 auto;font:400 var(--s)/1.6 var(--sans);width:min(30rem,100%);transition:max-height .4s ease-out,opacity .35s ease-out,margin .4s ease-out}
-.tl .bio,.is-tl .bio{max-height:14rem;opacity:.9;margin:.75rem auto 1.15rem}
+.detail h2{margin:.75rem 0 .45rem;font-size:clamp(1.5rem,3vw,2.35rem);font-weight:800;line-height:1.05;letter-spacing:-.02em}
+.bio{display:none;font:400 var(--s)/1.6 var(--sans);width:min(30rem,100%);margin:.75rem auto 1.15rem;opacity:.9}
+.tl .bio,.is-tl .bio{display:block}
 
 .h-yr{font:400 var(--s)/1 var(--sans);opacity:.78;letter-spacing:0;vertical-align:middle}
 .sm{font:400 var(--s)/1.5 var(--sans);margin:.2rem 0}
@@ -106,5 +106,5 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
   .poets .axis,.poets.v .axis{opacity:.12}
   .poets.v .node .lab{white-space:normal;max-width:calc(100vw - 88px)}
   .poets .detail{width:calc(100% - 2.5rem);padding:1.25rem 0 3rem}
-  .poets .bio{max-height:14rem;opacity:.9;margin:.75rem auto 1.15rem}
+  .poets .bio{display:block}
 }
