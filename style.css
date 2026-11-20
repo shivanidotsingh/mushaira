@@ -40,8 +40,7 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 .dot svg{display:block;width:100%;height:100%}
 .node:active .dot{transform:scale(.92)}
 .node[aria-current=true] .dot{transform:scale(1.55)}
-.node:focus-visible{outline:none}
-.node:focus-visible .dot{outline:2px solid currentColor;outline-offset:4px;border-radius:50%}
+
 
 .lab{--pad:24px;position:absolute;left:0;top:0;white-space:nowrap;font:400 var(--xs)/1.2 var(--sans);letter-spacing:.02em;text-align:center;transform:translate(calc(-50% + var(--ux,0)*(50% + var(--pad))),calc(-50% + var(--uy,0)*(50% + var(--pad))))}
 .poets:not(.tl) .lab{transition:transform .65s cubic-bezier(.22,1,.36,1),opacity .25s}
