@@ -131,12 +131,14 @@ const POETS=[
 const COUPLETS=[
  {id:'khusro1',p:'khusro',
   tr:[
-   ['za-haal-e-miskeen makun ',{t:'taghaful',g:'indifference, neglect'}],
-   [{t:'duraaye naina',g:'hide your eyes'},' banaaye batiyan']
+   [{t:'chhaap',g:'mark, seal, identity'},' ',{t:'tilak',g:'sacred mark / adornment'},' sab chheeni re mose ',{t:'naina',g:'eyes'},' milaike'],
+   ['prem bhatti ka ',{t:'madhva',g:'wine, draught'},' pilaike'],
+   [{t:'matwali',g:'intoxicated, entranced'},' kar leeni re mose naina milaike']
   ],
-  ur:['ز حالِ مسکیں مکن تغافل','دُرائے نیناں بنائے بتیاں'],
-  en:'Do not be indifferent to my pitiable state; you hide your eyes and make up excuses.',
+  ur:['چھاپ تلک سب چھینی رے موسے نیناں ملائکے','پریم بھٹی کا مدوا پلائکے','متوالی کر لینی رے موسے نیناں ملائکے'],
+  en:'By meeting my eyes, you have taken away every mark and identity; making me drink the wine of love’s furnace, you have left me intoxicated.',
   src:'https://www.rekhta.org/poets/ameer-khusrau/all'},
+ 
  {id:'quli1',p:'quli',
   tr:[
    ['piya baaj pyala piya jaaye na'],
