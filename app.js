@@ -17,7 +17,7 @@ function flowerSVG(f){
 const nodes=POETS.map((p,i)=>{
   const b=document.createElement('button');
   b.className='node';b.dataset.s=i%2?'b':'a';
-  b.innerHTML='<span class="dot">'+flowerSVG(p.fl)+'</span><span class="lab"><span class="nm-short">'+p.short+'</span></span>';
+  b.innerHTML='<span class="dot">'+flowerSVG(p.fl)+'</span><span class="lab"><span class="nm-short">'+p.short+'</span><span class="yr">'+p.y+'</span></span>';
   b.setAttribute('aria-label',p.name+', '+p.y);
   b.onclick=()=>setFocus(i);stage.append(b);return b;
 });
@@ -119,7 +119,7 @@ function renderDetail(){
   const eraLabel=e.n+(e.sub?', '+e.sub:'');
   $('#detail').innerHTML='<div class="flw">'+flowerSVG(p.fl)+'</div>'
     +renderCouplets()
-    +'<h2>'+p.name+' <span class="h-yr">'+p.y+'</span></h2>'
+    +'<h2>'+p.name+'</h2>'
     +'<ul class="tags"><li class="tag-era">'+eraLabel+'</li>'+p.works.map(renderWorkTag).join('')+'</ul>';
   paint(e);
 }
