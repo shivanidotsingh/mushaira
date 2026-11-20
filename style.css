@@ -1,5 +1,5 @@
 @font-face{font-family:Nazm;src:url(Nazm-Variable.ttf) format("truetype");font-weight:250 1000;font-display:swap}
-:root{--bg:#CC2E8C;--fg:#fff;--serif:Nazm,Georgia,serif;--nast:"Noto Nastaliq Urdu",serif;--sans:Inter,system-ui,sans-serif;--xs:.75rem;--s:.8125rem}
+:root{--bg:#CC2E8C;--fg:#fff;--serif:Nazm,Georgia,serif;--nast:"Noto Nastaliq Urdu",serif;--sans:Inter,system-ui,sans-serif;--xs:.75rem;--s:.8125rem;--tl-y:24px}
 *{box-sizing:border-box}
 body{margin:0;min-height:100vh;background:var(--bg);color:var(--fg);font:400 1rem/1.5 var(--serif);transition:background .6s,color .6s}
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9;opacity:.2;mix-blend-mode:multiply;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
@@ -26,7 +26,7 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 /* Faint continuous ring & axis */
 .arc{position:absolute;left:0;top:0;pointer-events:none;fill:none;stroke:currentColor;stroke-width:1;stroke-dasharray:none;opacity:.08;transition:opacity .4s}
 .tl .arc{opacity:0}
-.axis{position:absolute;pointer-events:none;height:1px;background:currentColor;opacity:0;transition:opacity .5s .3s}
+.axis{position:absolute;pointer-events:none;height:1px;background:currentColor;transform:translateY(var(--tl-y));opacity:0;transition:opacity .5s .3s}
 .tl .axis{opacity:.12}
 
 /* Nodes sit directly at anchor points — soft dial rotation, instant mode switch */
