@@ -1,7 +1,7 @@
 /* Content lives in data.js. This file is the engine. */
 const $=s=>document.querySelector(s),N=POETS.length;
 const stage=$('#stage'),poets=$('#poets'),sc=$('.scroller');
-let focus=POETS.findIndex(p=>p.id==='ghalib'),mode='mushaira',cur=0,switchTimer,dialRot=0;
+let focus=POETS.findIndex(p=>p.id==='ghalib'),mode='mushaira',switchTimer,dialRot=0;
 const norm=a=>((a+180)%360+360)%360-180;
 
 function flowerSVG(f){
@@ -53,14 +53,17 @@ function layout(instant){
   if(instant)nodes.forEach(n=>n.classList.add('notrans'));
   document.body.classList.toggle('is-tl',tl);
   poets.classList.toggle('stk',tl);poets.classList.toggle('tl',tl);poets.classList.remove('v');
+
+  const tlShift=tl?(parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--tl-y'))||0):0;
   let H,R=0;const cx=cw/2;
-  if(tl)H=200;
-  else if(mob){H=Math.min(innerHeight*.72,460);R=Math.min(cw*.38,H*.38)}
-  else{H=Math.min(innerHeight*.82,720);R=Math.min(cw*.36,H*.41)}
-  const cy=tl?H/2:Math.max(R+36,H*.52);
+  if(tl)H=200+Math.max(0,tlShift);
+  else if(mob){H=Math.min(innerHeight*.73,475);R=Math.min(cw*.40,H*.40)}
+  else{H=Math.min(innerHeight*.84,740);R=Math.min(cw*.38,H*.435)}
+
+  const cy=tl?H/2+tlShift:Math.max(R+36,H*.52);
   stage.style.height=H+'px';
   $('#detail').style.setProperty('--hw',tl?'34rem':mob?(R*1.25)+'px':Math.min(544,R*1.45)+'px');
-  $('#axis').style.cssText='left:0;right:0;top:'+cy+'px';
+  $('#axis').style.cssText='left:0;right:0;top:'+(cy-tlShift)+'px';
   const arc=$('#arc');arc.setAttribute('viewBox','0 0 '+cw+' '+H);arc.style.cssText='width:'+cw+'px;height:'+H+'px';
   arc.innerHTML=tl?'':'<circle cx="'+cx+'" cy="'+cy+'" r="'+R+'"/>';
 
@@ -117,7 +120,7 @@ function renderDetail(){
   const p=POETS[focus],e=ERAS[p.era];
   document.querySelectorAll('#eranav button').forEach((b,k)=>b.setAttribute('aria-current',k===p.era));
   $('#detail').innerHTML=renderCouplets()
-    +'<h2>'+p.name+'</h2>'
+    +'<h2>'+esc(p.name)+'</h2>'
     +'<p class="mob-note">View on desktop for the full experience</p>'
     +(p.bio?'<p class="bio">'+esc(p.bio)+'</p>':'')
     +'<ul class="tags">'+p.works.map(renderWorkTag).join('')+'</ul>';
@@ -127,7 +130,6 @@ function renderDetail(){
 function setFocus(j){
   if(j===focus)return;
   focus=j;
-  cur=0;
   layout(false);
   syncNodeLabels();
   renderDetail();
@@ -142,7 +144,7 @@ function setMode(v){
   document.body.classList.toggle('is-tl',v==='timeline');
   $('#sw').setAttribute('aria-checked',v==='timeline');
   document.querySelectorAll('.sw [data-view]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===v));
-  sc.scrollLeft=0;
+  if(sc)sc.scrollLeft=0;
   layout(false);
   syncNodeLabels();
   switchTimer=setTimeout(()=>document.body.classList.remove('is-switching'),460);
