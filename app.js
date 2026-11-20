@@ -55,7 +55,7 @@ function layout(instant){
   poets.classList.toggle('stk',tl);poets.classList.toggle('tl',tl);poets.classList.toggle('v',vert);
   let H,R=0;const cx=cw/2;
   if(tl)H=vert?(N-1)*44+80:200;
-  else{H=Math.min(innerHeight*.92,840);R=Math.min(cw*.4,H*.47)}
+  else{H=Math.min(innerHeight*.82,720);R=Math.min(cw*.36,H*.41)}
   const cy=tl?H/2:Math.max(R+48,H*.54);
   stage.style.height=H+'px';
   $('#detail').style.setProperty('--hw',tl?'34rem':Math.min(544,R*1.45)+'px');
