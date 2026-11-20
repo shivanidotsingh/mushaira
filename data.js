@@ -115,6 +115,7 @@ const POETS=[
    {title:'Zindan Nama',url:'https://en.wikipedia.org/wiki/Faiz_Ahmad_Faiz'}
   ],
   fl:{s:'round',n:5,w:.3,a:PK,b:RD,c:CR}},
+ 
  {id:'kaifi',name:'Kaifi Azmi',short:'Kaifi',ur:'کیفی اعظمی',b:1919,y:'1919–2002',era:3,
   bio:'Born in Azamgarh, Kaifi Azmi left seminary studies to join the Communist Party and trade-union organizing in Bombay. Alongside acclaimed Hindi film lyrics, he wrote fiery progressive nazms championing working-class dignity and women\u2019s emancipation.',
   works:[
@@ -123,6 +124,15 @@ const POETS=[
    {title:'Aurat (nazm)',url:'https://en.wikipedia.org/wiki/Kaifi_Azmi'}
   ],
   fl:{s:'curl',n:6,a:RD,b:CR,c:YL}},
+
+ {id:'shahryar',name:'Shahryar',short:'Shahryar',ur:'شہریار',b:1936,y:'1936–2012',era:3,
+  bio:'Born in Aanwala and based in Aligarh, Kunwar Akhlaq Muhammad Khan \u201cShahryar\u201d brought a refined, haunting modern sensibility to the Urdu ghazal. His verses reached wide audiences through films like Umrao Jaan, where delicate longing meets memorable melody.',
+  works:[
+   {title:'Khwab Ka Dar Band Hai',url:'https://www.rekhta.org/poets/shahryar/all'},
+   {title:'Umrao Jaan (film lyrics)',url:'https://www.rekhta.org/poets/shahryar/all'}
+  ],
+  fl:{s:'point',n:7,w:.25,a:YL,b:PK,c:CR}},
+ 
  {id:'nida',name:'Nida Fazli',short:'Nida',ur:'ندا فاضلی',b:1938,y:'1938–2016',era:3,
   bio:'Born in Delhi and raised in Gwalior before moving to Mumbai after his family migrated during Partition, Nida Fazli stripped Urdu poetry of heavy ornamentation. His ghazals and dohas speak in quiet, everyday language about displacement, humanism, and urban solitude.',
   works:[
@@ -284,6 +294,16 @@ const COUPLETS=[
   ur:['تم اتنا جو مسکرا رہے ہو','کیا غم ہے جس کو چھپا رہے ہو'],
   en:'Why are you smiling like this—what sorrow are you trying to hide?',
   src:'https://www.rekhta.org/poets/kaifi-azmi/ghazals'},
+ 
+{id:'shahryar1',p:'shahryar',
+  tr:[
+   [{t:'dil',g:'heart'},' ',{t:'cheez',g:'thing'},' kya hai aap meri ',{t:'jaan',g:'life'},' lijiye'],
+   ['bas ek baar mera kaha maan lijiye']
+  ],
+  ur:['دل چیز کیا ہے آپ میری جان لیجیے','بس ایک بار مرا کہا مان لیجیے'],
+  en:'What is a heart\u2014take my very life instead; just once, agree to what I ask.',
+  src:'https://www.rekhta.org/poets/shahryar/all'},
+ 
  {id:'nida1',p:'nida',
   tr:[
    ['kabhi kisi ko ',{t:'mukammal',g:'complete, whole'},' ',{t:'jahan',g:'world'},' nahin milta'],
