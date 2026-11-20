@@ -49,8 +49,9 @@ function alignDial(instant){
 }
 
 function layout(instant){
-  const cw=sc.clientWidth,tl=mode==='timeline',vert=tl&&cw<640;
+  const cw=sc.clientWidth,tl=mode==='timeline'||cw<768,vert=cw<768;
   if(instant)nodes.forEach(n=>n.classList.add('notrans'));
+  document.body.classList.toggle('is-tl',tl);
   poets.classList.toggle('stk',tl);poets.classList.toggle('tl',tl);poets.classList.toggle('v',vert);
   let H,R=0;const cx=cw/2;
   if(tl)H=vert?(N-1)*44+80:200;
@@ -72,7 +73,7 @@ function layout(instant){
         :'translate(0px,'+cy+'px) rotate(0deg) translate('+(64+(cw-128)*t)+'px,0px) rotate(0deg)';
       n.style.setProperty('--ux',0);n.style.setProperty('--uy',0);
     }else{
-      const a=A[i],r=a*Math.PI/180,s=mob?-1:1;
+      const a=A[i],r=a*Math.PI/180,s=1;
       n.style.transform='translate('+cx+'px,'+cy+'px) rotate('+a+'deg) translate('+R+'px,0px) rotate('+-a+'deg)';
       n.style.setProperty('--ux',s*Math.cos(r));n.style.setProperty('--uy',s*Math.sin(r));
     }
