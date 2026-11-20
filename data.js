@@ -17,6 +17,14 @@ const POETS=[
    {title:'Hindavi riddles and songs (attributions uncertain)',url:'https://www.rekhta.org/poets/ameer-khusrau/all'}
   ],
   fl:{s:'point',n:8,w:.26,a:CR,b:OR,c:YL}},
+
+ {id:'kabir',name:'Kabir',short:'Kabir',ur:'کبیر',b:1400,y:'c. 1398–1518',era:0,
+  bio:'A fifteenth-century Sant mystic and weaver in northern India whose vernacular verses cut through ritual and worldly calculation. His songs speak in an unguarded, ecstatic register of inner devotion and freedom from social pretension.',
+  works:[
+   {title:'Bijak (sabads, ramainis and sakhis)',url:'https://www.rekhta.org/poets/kabir/couplets'}
+  ],
+  fl:{s:'curl',n:6,w:.24,a:CR,b:OR,c:YL}},
+ 
  {id:'quli',name:'Muhammad Quli Qutb Shah',short:'Quli',ur:'محمد قلی قطب شاہ',b:1565,y:'1565–1612',era:0,
   bio:'The fifth ruler of the Qutb Shahi dynasty of Golconda and founder of Hyderabad, Muhammad Quli Qutb Shah composed the first full-fledged divan in Dakhni Urdu. His verse celebrates royal festivals, Deccani seasons, and earthly devotion in a vivid local idiom.',
   works:[
@@ -150,6 +158,17 @@ const COUPLETS=[
   ur:['چھاپ تلک سب چھینی رے موسے نیناں ملائکے','پریم بھٹی کا مدوا پلائکے','متوالی کر لینی رے موسے نیناں ملائکے'],
   en:'By meeting my eyes, you have taken away every mark and identity; making me drink the wine of love’s furnace, you have left me intoxicated.',
   src:'https://www.rekhta.org/poets/ameer-khusrau/all'},
+
+ {id:'kabir1',p:'kabir',
+  tr:[
+   ['haman hain ',{t:'ishq',g:'love, devotion'},' ',{t:'mastaana',g:'intoxicated, blissfully absorbed'}],
+   ['haman ko ',{t:'hoshiyaari',g:'worldly cleverness, caution'},' kya?'],
+   ['rahein aazaad ya ',{t:'jag',g:'the world'},' se'],
+   ['haman duniya se ',{t:'yaari',g:'friendship, worldly attachment'},' kya?']
+  ],
+  ur:['ہمن ہیں عشق مستانہ ہمن کو ہوشیاری کیا','رہیں آزاد یا جگ سے ہمن دنیا سے یاری کیا'],
+  en:'I am intoxicated with love—what use have I for worldly caution? Let me remain free of the world—what business do I have befriending it?',
+  src:'https://www.rekhta.org/poets/kabir/couplets'},
  
  {id:'quli1',p:'quli',
   tr:[
