@@ -21,7 +21,7 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 .poets{display:grid;grid-template-columns:minmax(0,1fr);padding:0 0 3rem}
 .scroller,.detail{grid-area:1/1}
 .poets.stk .detail{grid-area:2/1}
-.stage{position:relative;overflow:hidden}
+.stage{position:relative;overflow:visible}
 
 /* Faint continuous ring & axis */
 .arc{position:absolute;left:0;top:0;pointer-events:none;fill:none;stroke:currentColor;stroke-width:1;stroke-dasharray:none;opacity:.08;transition:opacity .4s}
