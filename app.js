@@ -1,7 +1,7 @@
 /* Content lives in data.js. This file is the engine. */
 const $=s=>document.querySelector(s),N=POETS.length;
 const stage=$('#stage'),poets=$('#poets'),sc=$('.scroller');
-let focus=POETS.findIndex(p=>p.id==='mir'),mode='mushaira',cur=0,switchTimer,dialRot=0;
+let focus=POETS.findIndex(p=>p.id==='ghalib'),mode='mushaira',cur=0,switchTimer,dialRot=0;
 const norm=a=>((a+180)%360+360)%360-180;
 
 function flowerSVG(f){
