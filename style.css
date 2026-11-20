@@ -92,13 +92,18 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 @media (max-width:640px){.poets:not(.tl) .node:not([aria-current=true]) .lab{opacity:0}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
-/* Mobile: no circle — force single-column vertical timeline */
+.mob-note{display:none}
+
+/* Mobile: keep the 15-flower circle and show a calm desktop notice in the center */
 @media (max-width:767px){
   header .sw{display:none}
-  .poets{display:flex;flex-direction:column}
-  .poets .arc{display:none}
-  .poets .axis,.poets.v .axis{opacity:.12}
-  .poets.v .node .lab{white-space:normal;max-width:calc(100vw - 88px)}
-  .poets .detail{width:calc(100% - 2.5rem);padding:1.25rem 0 3rem}
-  .poets .bio{display:block}
+  .dot{width:22px;height:22px;left:-11px;top:-11px}
+  .node[aria-current=true] .dot{transform:scale(1.4)}
+  .poets:not(.tl) .node .lab{opacity:0;pointer-events:none}
+  .poets .detail{padding:0}
+  .poets .detail .cps,
+  .poets .detail .bio,
+  .poets .detail .tags{display:none}
+  .poets .detail h2{margin:0 0 .45rem;font-size:clamp(1.1rem,4.8vw,1.45rem)}
+  .poets .detail .mob-note{display:block;margin:0 auto;max-width:13rem;font:400 .72rem/1.4 var(--sans);opacity:.78}
 }
