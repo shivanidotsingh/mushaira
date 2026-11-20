@@ -146,7 +146,7 @@ function setMode(v){
   sc.scrollLeft=0;
   layout(false);
   syncNodeLabels();
-  switchTimer=setTimeout(()=>document.body.classList.remove('is-switching'),900);
+  switchTimer=setTimeout(()=>document.body.classList.remove('is-switching'),460);
 }
 
 $('#sw').onclick=()=>setMode(mode==='dial'?'timeline':'dial');
