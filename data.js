@@ -24,7 +24,7 @@ const POETS=[
   ],
   fl:{s:'round',n:10,w:.22,a:OR,b:YL,c:BR}},
 
- {id:'nusrati',name:'Nusrati',short:'Nusrati',ur:'نصرتی',b:1600,y:'c. 1600–1674',era:0,
+ {id:'nusrati',name:'Muhammad Nusrat',short:'Nusrati',ur:'نصرتی',b:1600,y:'c. 1600–1674',era:0,
   bio:'Poet laureate at the Adil Shahi court of Bijapur under Ali Adil Shah II, Mulla Nusrati elevated Dakhni narrative poetry to grand epic scale. His masnavis weave Persianate romance and Deccani martial history with rich, jewel-like imagery.',
   works:[
    {title:'Gulshan-e-Ishq',url:'https://www.rekhta.org/ebooks/detail/masnavi-gulshan-e-ishq-mulla-nusrati-ebooks-1'},
