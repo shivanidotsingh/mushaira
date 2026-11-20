@@ -140,16 +140,17 @@ function setMode(v){
   clearTimeout(switchTimer);
   document.body.classList.add('is-switching');
   document.body.classList.toggle('is-tl',v==='timeline');
-   $('#sw').onclick=()=>setMode(mode==='mushaira'?'timeline':'mushaira');
-  document.querySelectorAll('.sw [data-view]').forEach(b=>b.onclick=()=>setMode(b.dataset.view));
+  $('#sw').setAttribute('aria-checked',v==='timeline');
+  document.querySelectorAll('.sw [data-view]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===v));
   sc.scrollLeft=0;
   layout(false);
   syncNodeLabels();
   switchTimer=setTimeout(()=>document.body.classList.remove('is-switching'),460);
 }
 
-$('#sw').onclick=()=>setMode(mode==='dial'?'timeline':'dial');
+$('#sw').onclick=()=>setMode(mode==='mushaira'?'timeline':'mushaira');
 document.querySelectorAll('.sw [data-view]').forEach(b=>b.onclick=()=>setMode(b.dataset.view));
+
 stage.addEventListener('keydown',e=>{
   const k=e.key;if(!['ArrowRight','ArrowDown','ArrowLeft','ArrowUp'].includes(k))return;
   e.preventDefault();step(k==='ArrowRight'||k==='ArrowDown'?1:-1);nodes[focus].focus();
