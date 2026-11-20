@@ -1,5 +1,5 @@
 @font-face{font-family:Nazm;src:url(Nazm-Variable.ttf) format("truetype");font-weight:250 1000;font-display:swap}
-:root{--bg:#CC2E8C;--fg:#fff;--serif:Nazm,Georgia,serif;--nast:"Noto Nastaliq Urdu",serif;--sans:Inter,system-ui,sans-serif;--xs:.75rem;--s:.8125rem;--tl-y:24px}
+:root{--bg:#CC2E8C;--fg:#fff;--serif:Nazm,Georgia,serif;--nast:"Noto Nastaliq Urdu",serif;--sans:Inter,system-ui,sans-serif;--xs:.75rem;--s:.8125rem;--tl-y:24px;--tl-gap:2.25rem}
 *{box-sizing:border-box}
 body{margin:0;min-height:100vh;background:var(--bg);color:var(--fg);font:400 1rem/1.5 var(--serif);transition:background .6s,color .6s}
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9;opacity:.2;mix-blend-mode:multiply;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
@@ -61,7 +61,7 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 /* Centered inside the circle just like before */
 .detail{position:relative;align-self:center;justify-self:center;width:min(var(--hw,34rem),calc(100% - 3rem));padding:4.8rem 0 3rem;z-index:1;text-align:center;pointer-events:none}
 .detail :is(button,a,.gloss){pointer-events:auto}
-.poets.stk .detail{align-self:start;padding:1.5rem 0 3rem}
+.poets.stk .detail{align-self:start;padding:var(--tl-gap) 0 3rem}
 
 .detail h2{margin:1.25rem 0 .45rem;font-size:clamp(1.5rem,3vw,2.35rem);font-weight:800;line-height:1.05;letter-spacing:-.02em}
 .bio{display:none;font:400 var(--s)/1.6 var(--sans);width:min(30rem,100%);margin:.75rem auto 1.15rem;opacity:.9}
