@@ -2,7 +2,6 @@
 const $=s=>document.querySelector(s),N=POETS.length;
 const stage=$('#stage'),poets=$('#poets'),sc=$('.scroller'),detailEl=$('#detail');
 let focus=POETS.findIndex(p=>p.id==='ghalib'),mode='mushaira',dialRot=0;
-let modeTimer,detailTimer;
 const norm=a=>((a+180)%360+360)%360-180;
 
 function flowerSVG(f){
@@ -51,7 +50,11 @@ function alignDial(instant){
 
 function layout(instant){
   const cw=sc.clientWidth,mob=cw<768,tl=!mob&&mode==='timeline';
-  if(instant)nodes.forEach(n=>n.classList.add('notrans'));
+  if(instant){
+    nodes.forEach(n=>n.classList.add('notrans'));
+    stage.classList.add('notrans');
+    $('#axis').classList.add('notrans');
+  }
   document.body.classList.toggle('is-tl',tl);
   poets.classList.toggle('stk',tl);poets.classList.toggle('tl',tl);poets.classList.remove('v');
 
@@ -83,7 +86,12 @@ function layout(instant){
     }
     n.setAttribute('aria-current',i===focus);
   });
-  if(instant){void stage.offsetWidth;nodes.forEach(n=>n.classList.remove('notrans'))}
+  if(instant){
+    void stage.offsetWidth;
+    nodes.forEach(n=>n.classList.remove('notrans'));
+    stage.classList.remove('notrans');
+    $('#axis').classList.remove('notrans');
+  }
 }
 
 function paint(o){document.body.style.setProperty('--bg',o.c);document.body.style.setProperty('--fg',o.f)}
@@ -117,7 +125,7 @@ function renderWorkTag(w){
   return '<li>'+esc(label)+'</li>';
 }
 
-function writeDetailHTML(){
+function renderDetail(){
   const p=POETS[focus],e=ERAS[p.era];
   document.querySelectorAll('#eranav button').forEach((b,k)=>b.setAttribute('aria-current',k===p.era));
   const isTl=mode==='timeline';
@@ -132,26 +140,12 @@ function writeDetailHTML(){
   paint(e);
 }
 
-function renderDetail(soft=false){
-  if(!soft){
-    detailEl.classList.remove('fading');
-    writeDetailHTML();
-    return;
-  }
-  clearTimeout(detailTimer);
-  detailEl.classList.add('fading');
-  detailTimer=setTimeout(()=>{
-    writeDetailHTML();
-    requestAnimationFrame(()=>detailEl.classList.remove('fading'));
-  },180);
-}
-
 function setFocus(j){
   if(j===focus)return;
   focus=j;
   layout(false);
   syncNodeLabels();
-  renderDetail(true);
+  renderDetail();
 }
 const step=d=>setFocus((focus+d+N)%N);
 
@@ -159,14 +153,9 @@ function setMode(v){
   if(mode===v||innerWidth<768)return;
   mode=v;
   if(sc)sc.scrollLeft=0;
-  clearTimeout(modeTimer);
-  stage.classList.add('fading');
-  renderDetail(true);
-  modeTimer=setTimeout(()=>{
-    layout(true);
-    syncNodeLabels();
-    requestAnimationFrame(()=>stage.classList.remove('fading'));
-  },220);
+  layout(false);
+  syncNodeLabels();
+  renderDetail();
 }
 
 $('#detail').addEventListener('click',e=>{
@@ -206,4 +195,4 @@ document.addEventListener('click',e=>{
 
 addEventListener('resize',()=>layout(true));
 $('#eranav').innerHTML=ERAS.map((e,k)=>'<button data-era="'+k+'">'+e.n+'</button>').join('');
-layout(true);syncNodeLabels();renderDetail(false);
+layout(true);syncNodeLabels();renderDetail();
