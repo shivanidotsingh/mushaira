@@ -1,19 +1,20 @@
 @font-face{font-family:Nazm;src:url(Nazm-Variable.ttf) format("truetype");font-weight:250 1000;font-display:swap}
 :root{--bg:#CC2E8C;--fg:#fff;--serif:Nazm,Georgia,serif;--nast:"Noto Nastaliq Urdu",serif;--sans:Inter,system-ui,sans-serif;--xs:.75rem;--s:.8125rem;--tl-y:24px;--tl-gap:3.25rem}
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;overflow-x:clip;background:var(--bg);color:var(--fg);font:400 1rem/1.5 var(--serif);transition:background .5s ease,color .5s ease}
+body{margin:0;min-height:100vh;overflow-x:clip;background:var(--bg);color:var(--fg);font:400 1rem/1.5 var(--serif);transition:background .55s ease,color .55s ease}
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9;opacity:.2;mix-blend-mode:multiply;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
 button{font:inherit;color:inherit}
 button:focus-visible{outline:2px solid currentColor;outline-offset:3px}
 header{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.1rem 1.5rem;min-height:3.5rem}
 .eranav{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem 1.1rem;visibility:visible;opacity:1}
-.eranav button{font:400 var(--xs)/1.4 var(--sans);letter-spacing:normal;background:none;border:1px solid transparent;border-radius:99px;padding:.18rem .65rem;cursor:pointer;transition:border-color .2s,background .2s}
+.eranav button{font:400 var(--xs)/1.4 var(--sans);letter-spacing:normal;background:none;border:1px solid transparent;border-radius:99px;padding:.18rem .65rem;cursor:pointer;transition:border-color .25s ease,background .25s ease}
 .eranav button[aria-current=true]{font-weight:600;border-color:currentColor;background:color-mix(in srgb,currentColor 10%,transparent)}
 
 .poets{display:grid;grid-template-columns:minmax(0,1fr);padding:0 0 3rem}
 .scroller,.detail{grid-area:1/1}
 .poets.stk .detail{grid-area:2/1}
-.stage{position:relative;overflow:visible}
+.stage{position:relative;overflow:visible;transition:opacity .28s ease}
+.stage.fading{opacity:0}
 
 /* Circle ring & timeline axis */
 .arc{position:absolute;left:0;top:0;pointer-events:auto;cursor:pointer;fill:none;stroke:currentColor;stroke-width:14;stroke-opacity:0;transition:opacity .35s ease}
@@ -26,16 +27,16 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 .tl .axis::before{content:"";position:absolute;left:0;right:0;top:-14px;bottom:-14px}
 .tl .axis:hover{opacity:.45}
 
-/* Clean, steady node & label motion */
-.node{position:absolute;left:0;top:0;width:0;height:0;padding:0;border:0;background:none;cursor:pointer;transform-origin:0 0;transition:transform .5s cubic-bezier(.22,1,.36,1)}
-.node.notrans,.node.notrans *,.node.notrans .lab{transition:none!important}
+/* Dial rotation stays smooth; mode switches fade via .stage.fading */
+.node{position:absolute;left:0;top:0;width:0;height:0;padding:0;border:0;background:none;cursor:pointer;transform-origin:0 0;transition:transform .55s cubic-bezier(.22,1,.36,1)}
+.node.notrans,.node.notrans *,.node.notrans .lab,.stage.instant{transition:none!important}
 
-.dot{position:absolute;left:-17px;top:-17px;width:34px;height:34px;transition:transform .2s ease}
+.dot{position:absolute;left:-17px;top:-17px;width:34px;height:34px;transition:transform .25s ease}
 .dot svg{display:block;width:100%;height:100%}
 .node:active .dot{transform:scale(.94)}
 .node[aria-current=true] .dot{transform:scale(1.55)}
 
-.lab{--pad:24px;position:absolute;left:0;top:0;white-space:nowrap;font:400 var(--xs)/1.2 var(--sans);letter-spacing:.02em;text-align:center;transform:translate(calc(-50% + var(--ux,0)*(50% + var(--pad))),calc(-50% + var(--uy,0)*(50% + var(--pad))));transition:transform .5s cubic-bezier(.22,1,.36,1),opacity .2s ease}
+.lab{--pad:24px;position:absolute;left:0;top:0;white-space:nowrap;font:400 var(--xs)/1.2 var(--sans);letter-spacing:.02em;text-align:center;transform:translate(calc(-50% + var(--ux,0)*(50% + var(--pad))),calc(-50% + var(--uy,0)*(50% + var(--pad))));transition:transform .55s cubic-bezier(.22,1,.36,1),opacity .25s ease}
 .node[aria-current=true] .lab{--pad:34px;font-weight:600}
 
 /* Years appear with the name when clicked/selected (and in timeline mode) */
@@ -49,8 +50,9 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 .poets.v .node .lab{text-align:left;transform:translate(24px,-50%)}
 .poets.v .node[aria-current=true] .lab{transform:translate(32px,-50%)}
 
-/* Centered inside the circle just like before */
-.detail{position:relative;align-self:center;justify-self:center;width:min(var(--hw,34rem),calc(100% - 3rem));padding:4.8rem 0 3rem;z-index:1;text-align:center;pointer-events:none;transition:opacity .25s ease}
+/* Softly cross-faded detail column */
+.detail{position:relative;align-self:center;justify-self:center;width:min(var(--hw,34rem),calc(100% - 3rem));padding:4.8rem 0 3rem;z-index:1;text-align:center;pointer-events:none;opacity:1;transition:opacity .26s ease}
+.detail.fading{opacity:0}
 .detail :is(button,a,.gloss){pointer-events:auto}
 .poets.stk .detail{align-self:start;padding:var(--tl-gap) 0 3rem}
 
