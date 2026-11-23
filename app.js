@@ -17,7 +17,6 @@ function flowerSVG(f){
 const nodes=POETS.map((p,i)=>{
   const b=document.createElement('button');
   b.className='node';b.dataset.s=i%2?'b':'a';
-  b.style.setProperty('--i',i);
   b.innerHTML='<span class="dot">'+flowerSVG(p.fl)+'</span><span class="lab"><span class="nm-short">'+p.short+'</span><span class="yr">'+p.y+'</span></span>';
   b.setAttribute('aria-label',p.name+', '+p.y);
   b.onclick=()=>setFocus(i);stage.append(b);return b;
@@ -150,22 +149,18 @@ function setMode(v){
   renderDetail();
 }
 
-// Arrow button below pills toggles timeline / circle
 $('#detail').addEventListener('click',e=>{
   if(e.target.closest('.unfold'))setMode(mode==='mushaira'?'timeline':'mushaira');
 });
 
-// Clicking the circle ring expands into timeline
 $('#arc').addEventListener('click',()=>{
   if(mode==='mushaira')setMode('timeline');
 });
 
-// Clicking the timeline string snaps back to circle
 $('#axis').addEventListener('click',()=>{
   if(mode==='timeline')setMode('mushaira');
 });
 
-// Deliberate downward scroll in circle mode unfolds into timeline
 let wheelAcc=0,wheelReset;
 window.addEventListener('wheel',e=>{
   if(mode!=='mushaira'||innerWidth<768)return;
