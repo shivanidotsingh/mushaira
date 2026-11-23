@@ -1,7 +1,8 @@
 /* Content lives in data.js. This file is the engine. */
 const $=s=>document.querySelector(s),N=POETS.length;
-const stage=$('#stage'),poets=$('#poets'),sc=$('.scroller');
+const stage=$('#stage'),poets=$('#poets'),sc=$('.scroller'),detailEl=$('#detail');
 let focus=POETS.findIndex(p=>p.id==='ghalib'),mode='mushaira',dialRot=0;
+let modeTimer,detailTimer;
 const norm=a=>((a+180)%360+360)%360-180;
 
 function flowerSVG(f){
@@ -62,7 +63,7 @@ function layout(instant){
 
   const cy=tl?H/2+tlShift:Math.max(R+36,H*.52);
   stage.style.height=H+'px';
-  $('#detail').style.setProperty('--hw',tl?'34rem':mob?(R*1.25)+'px':Math.min(544,R*1.45)+'px');
+  detailEl.style.setProperty('--hw',tl?'34rem':mob?(R*1.25)+'px':Math.min(544,R*1.45)+'px');
   $('#axis').style.cssText='left:0;right:0;top:'+(cy-tlShift)+'px';
   const arc=$('#arc');arc.setAttribute('viewBox','0 0 '+cw+' '+H);arc.style.cssText='width:'+cw+'px;height:'+H+'px';
   arc.innerHTML=tl?'':'<circle cx="'+cx+'" cy="'+cy+'" r="'+R+'"/>';
@@ -116,11 +117,11 @@ function renderWorkTag(w){
   return '<li>'+esc(label)+'</li>';
 }
 
-function renderDetail(){
+function writeDetailHTML(){
   const p=POETS[focus],e=ERAS[p.era];
   document.querySelectorAll('#eranav button').forEach((b,k)=>b.setAttribute('aria-current',k===p.era));
   const isTl=mode==='timeline';
-  $('#detail').innerHTML=renderCouplets()
+  detailEl.innerHTML=renderCouplets()
     +'<h2>'+esc(p.name)+'</h2>'
     +'<p class="mob-note">View on desktop for the full experience</p>'
     +(p.bio?'<p class="bio">'+esc(p.bio)+'</p>':'')
@@ -131,12 +132,26 @@ function renderDetail(){
   paint(e);
 }
 
+function renderDetail(soft=false){
+  if(!soft){
+    detailEl.classList.remove('fading');
+    writeDetailHTML();
+    return;
+  }
+  clearTimeout(detailTimer);
+  detailEl.classList.add('fading');
+  detailTimer=setTimeout(()=>{
+    writeDetailHTML();
+    requestAnimationFrame(()=>detailEl.classList.remove('fading'));
+  },180);
+}
+
 function setFocus(j){
   if(j===focus)return;
   focus=j;
   layout(false);
   syncNodeLabels();
-  renderDetail();
+  renderDetail(true);
 }
 const step=d=>setFocus((focus+d+N)%N);
 
@@ -144,9 +159,14 @@ function setMode(v){
   if(mode===v||innerWidth<768)return;
   mode=v;
   if(sc)sc.scrollLeft=0;
-  layout(false);
-  syncNodeLabels();
-  renderDetail();
+  clearTimeout(modeTimer);
+  stage.classList.add('fading');
+  renderDetail(true);
+  modeTimer=setTimeout(()=>{
+    layout(true);
+    syncNodeLabels();
+    requestAnimationFrame(()=>stage.classList.remove('fading'));
+  },220);
 }
 
 $('#detail').addEventListener('click',e=>{
@@ -186,4 +206,4 @@ document.addEventListener('click',e=>{
 
 addEventListener('resize',()=>layout(true));
 $('#eranav').innerHTML=ERAS.map((e,k)=>'<button data-era="'+k+'">'+e.n+'</button>').join('');
-layout(true);syncNodeLabels();renderDetail();
+layout(true);syncNodeLabels();renderDetail(false);
