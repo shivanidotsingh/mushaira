@@ -7,14 +7,12 @@ button{font:inherit;color:inherit}
 button:focus-visible{outline:2px solid currentColor;outline-offset:3px}
 header{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.1rem 1.5rem;min-height:3.5rem}
 .eranav{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem 1.1rem;visibility:visible;opacity:1}
-.eranav button{font:400 var(--xs)/1.4 var(--sans);letter-spacing:normal;background:none;border:1px solid transparent;border-radius:99px;padding:.18rem .65rem;cursor:pointer;transition:border-color .25s ease,background .25s ease}
+.eranav button{font:400 var(--xs)/1.4 var(--sans);letter-spacing:normal;background:none;border:1px solid transparent;border-radius:99px;padding:.18rem .65rem;cursor:pointer;transition:border-color .2s ease,background .2s ease}
 .eranav button[aria-current=true]{font-weight:600;border-color:currentColor;background:color-mix(in srgb,currentColor 10%,transparent)}
 
 .poets{display:grid;grid-template-columns:minmax(0,1fr);padding:0 0 3rem}
 .scroller,.detail{grid-area:1/1}
-.poets.stk .detail{grid-area:2/1}
-.stage{position:relative;overflow:visible;transition:opacity .28s ease}
-.stage.fading{opacity:0}
+.stage{position:relative;overflow:visible;transition:height .55s cubic-bezier(.22,1,.36,1)}
 
 /* Circle ring & timeline axis */
 .arc{position:absolute;left:0;top:0;pointer-events:auto;cursor:pointer;fill:none;stroke:currentColor;stroke-width:14;stroke-opacity:0;transition:opacity .35s ease}
@@ -22,16 +20,16 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 .arc:hover circle{stroke-opacity:.25}
 .tl .arc{opacity:0;pointer-events:none}
 
-.axis{position:absolute;pointer-events:none;height:1px;background:currentColor;transform:translateY(var(--tl-y));opacity:0;transition:opacity .35s ease}
+.axis{position:absolute;pointer-events:none;height:1px;background:currentColor;transform:translateY(var(--tl-y));opacity:0;transition:top .55s cubic-bezier(.22,1,.36,1),opacity .35s ease}
 .tl .axis{opacity:.18;pointer-events:auto;cursor:pointer}
 .tl .axis::before{content:"";position:absolute;left:0;right:0;top:-14px;bottom:-14px}
 .tl .axis:hover{opacity:.45}
 
-/* Dial rotation stays smooth; mode switches fade via .stage.fading */
+/* Simultaneous, smooth node & label motion — no stagger, no dancing */
 .node{position:absolute;left:0;top:0;width:0;height:0;padding:0;border:0;background:none;cursor:pointer;transform-origin:0 0;transition:transform .55s cubic-bezier(.22,1,.36,1)}
-.node.notrans,.node.notrans *,.node.notrans .lab,.stage.instant{transition:none!important}
+.node.notrans,.node.notrans *,.node.notrans .lab,.stage.notrans,.axis.notrans{transition:none!important}
 
-.dot{position:absolute;left:-17px;top:-17px;width:34px;height:34px;transition:transform .25s ease}
+.dot{position:absolute;left:-17px;top:-17px;width:34px;height:34px;transition:width .35s ease,height .35s ease,left .35s ease,top .35s ease,transform .22s ease}
 .dot svg{display:block;width:100%;height:100%}
 .node:active .dot{transform:scale(.94)}
 .node[aria-current=true] .dot{transform:scale(1.55)}
@@ -50,15 +48,15 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 .poets.v .node .lab{text-align:left;transform:translate(24px,-50%)}
 .poets.v .node[aria-current=true] .lab{transform:translate(32px,-50%)}
 
-/* Softly cross-faded detail column */
-.detail{position:relative;align-self:center;justify-self:center;width:min(var(--hw,34rem),calc(100% - 3rem));padding:4.8rem 0 3rem;z-index:1;text-align:center;pointer-events:none;opacity:1;transition:opacity .26s ease}
-.detail.fading{opacity:0}
+/* Keep couplets & h2 anchored in place; expand bio smoothly underneath */
+.detail{position:relative;align-self:start;justify-self:center;width:min(var(--hw,34rem),calc(100% - 3rem));padding-top:clamp(7.5rem,17vh,11.5rem);padding-bottom:3rem;z-index:1;text-align:center;pointer-events:none;transition:width .45s cubic-bezier(.22,1,.36,1),padding-top .45s cubic-bezier(.22,1,.36,1)}
 .detail :is(button,a,.gloss){pointer-events:auto}
-.poets.stk .detail{align-self:start;padding:var(--tl-gap) 0 3rem}
+.poets.stk .detail{padding-top:calc(var(--tl-gap) + 5.5rem)}
 
 .detail h2{margin:1.25rem 0 .45rem;font-size:clamp(1.5rem,3vw,2rem);font-weight:800;line-height:1.05;letter-spacing:-.02em}
-.bio{display:none;font:400 clamp(.65rem,1.15vw,.95rem)/1.6 var(--sans);width:min(30rem,100%);margin:.75rem auto 1.15rem;opacity:.9}
-.tl .bio,.is-tl .bio{display:block}
+
+.bio{font:400 clamp(.65rem,1.15vw,.95rem)/1.6 var(--sans);width:min(30rem,100%);margin:0 auto;max-height:0;opacity:0;overflow:hidden;transition:max-height .45s cubic-bezier(.22,1,.36,1),opacity .35s ease,margin .45s cubic-bezier(.22,1,.36,1)}
+.tl .bio,.is-tl .bio{max-height:24rem;opacity:.9;margin:.75rem auto 1.15rem}
 
 .h-yr{font:400 var(--s)/1 var(--sans);opacity:.78;letter-spacing:0;vertical-align:middle}
 .sm{font:400 var(--s)/1.5 var(--sans);margin:.2rem 0}
@@ -78,7 +76,7 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 .gloss:hover::after,.gloss:focus-visible::after{opacity:1;transform:translateX(-50%) translateY(0)}
 
 /* Book tags */
-.tags{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:.35rem;padding:0;margin:.75rem 0 0}
+.tags{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:.35rem;padding:0;margin:.75rem 0 0;transition:margin .45s cubic-bezier(.22,1,.36,1)}
 .tags li{font:400 var(--xs)/1.3 var(--sans);border:1px solid currentColor;border-radius:99px;padding:.22rem .65rem;opacity:.85}
 .tags li a{color:currentColor;text-decoration:underline;text-underline-offset:2px}
 
@@ -98,7 +96,7 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
   .dot{width:22px;height:22px;left:-11px;top:-11px}
   .node[aria-current=true] .dot{transform:scale(1.4)}
   .poets:not(.tl) .node .lab{opacity:0;pointer-events:none}
-  .poets .detail{padding:0}
+  .poets .detail{padding:0;align-self:center}
   .poets .detail .cps,
   .poets .detail .bio,
   .poets .detail .tags,
