@@ -52,7 +52,7 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 /* Earlier centered placement inside the circle; scooted up slightly in timeline */
 .detail{position:relative;align-self:center;justify-self:center;width:min(var(--hw,34rem),calc(100% - 3rem));padding:4.8rem 0 3rem;z-index:1;text-align:center;pointer-events:none}
 .detail :is(button,a,.gloss){pointer-events:auto}
-.poets.stk .detail{align-self:start;margin-top:-1.5rem;padding:.25rem 0 3rem}
+.poets.stk .detail{align-self:start;margin-top:0;padding:1.75rem 0 3rem}
 
 .detail h2{margin:1.25rem 0 .45rem;font-size:clamp(1.5rem,3vw,2rem);font-weight:800;line-height:1.05;letter-spacing:-.02em}
 
