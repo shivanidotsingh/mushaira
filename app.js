@@ -1,7 +1,7 @@
 /* Content lives in data.js. This file is the engine. */
 const $=s=>document.querySelector(s),N=POETS.length;
 const stage=$('#stage'),poets=$('#poets'),sc=$('.scroller');
-let focus=POETS.findIndex(p=>p.id==='ghalib'),mode='mushaira',switchTimer,dialRot=0;
+let focus=POETS.findIndex(p=>p.id==='ghalib'),mode='mushaira',dialRot=0;
 const norm=a=>((a+180)%360+360)%360-180;
 
 function flowerSVG(f){
@@ -17,6 +17,7 @@ function flowerSVG(f){
 const nodes=POETS.map((p,i)=>{
   const b=document.createElement('button');
   b.className='node';b.dataset.s=i%2?'b':'a';
+  b.style.setProperty('--i',i);
   b.innerHTML='<span class="dot">'+flowerSVG(p.fl)+'</span><span class="lab"><span class="nm-short">'+p.short+'</span><span class="yr">'+p.y+'</span></span>';
   b.setAttribute('aria-label',p.name+', '+p.y);
   b.onclick=()=>setFocus(i);stage.append(b);return b;
@@ -143,32 +144,28 @@ const step=d=>setFocus((focus+d+N)%N);
 function setMode(v){
   if(mode===v||innerWidth<768)return;
   mode=v;
-  clearTimeout(switchTimer);
-  document.body.classList.add('is-switching');
-  document.body.classList.toggle('is-tl',v==='timeline');
   if(sc)sc.scrollLeft=0;
   layout(false);
   syncNodeLabels();
-  const btn=$('.unfold');
-  if(btn){
-    const isTl=v==='timeline';
-    btn.setAttribute('aria-expanded',isTl);
-    btn.setAttribute('aria-label',isTl?'Collapse back to circle':'Expand into timeline');
-  }
-  switchTimer=setTimeout(()=>document.body.classList.remove('is-switching'),460);
+  renderDetail();
 }
 
-// 1. Arrow button below pills toggles timeline / circle
+// Arrow button below pills toggles timeline / circle
 $('#detail').addEventListener('click',e=>{
   if(e.target.closest('.unfold'))setMode(mode==='mushaira'?'timeline':'mushaira');
 });
 
-// 2. Clicking the timeline string snaps back to circle
+// Clicking the circle ring expands into timeline
+$('#arc').addEventListener('click',()=>{
+  if(mode==='mushaira')setMode('timeline');
+});
+
+// Clicking the timeline string snaps back to circle
 $('#axis').addEventListener('click',()=>{
   if(mode==='timeline')setMode('mushaira');
 });
 
-// 3. Deliberate downward scroll in circle mode unfolds into timeline
+// Deliberate downward scroll in circle mode unfolds into timeline
 let wheelAcc=0,wheelReset;
 window.addEventListener('wheel',e=>{
   if(mode!=='mushaira'||innerWidth<768)return;
@@ -181,11 +178,17 @@ window.addEventListener('wheel',e=>{
     setMode('timeline');
   }
 },{passive:true});
-document.addEventListener('keydown',e=>{const k=e.key;if(!['ArrowRight','ArrowDown','ArrowLeft','ArrowUp'].includes(k))return;e.preventDefault();step(k==='ArrowRight'||k==='ArrowDown'?1:-1);nodes[focus].focus();});
+
+document.addEventListener('keydown',e=>{
+  const k=e.key;if(!['ArrowRight','ArrowDown','ArrowLeft','ArrowUp'].includes(k))return;
+  e.preventDefault();step(k==='ArrowRight'||k==='ArrowDown'?1:-1);nodes[focus].focus();
+});
+
 document.addEventListener('click',e=>{
   const en=e.target.closest('#eranav button');
   if(en){setFocus(POETS.findIndex(p=>p.era===+en.dataset.era))}
 });
+
 addEventListener('resize',()=>layout(true));
 $('#eranav').innerHTML=ERAS.map((e,k)=>'<button data-era="'+k+'">'+e.n+'</button>').join('');
 layout(true);syncNodeLabels();renderDetail();
