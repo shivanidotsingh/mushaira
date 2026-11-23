@@ -152,10 +152,7 @@ function setMode(v){
 
 $('#sw').onclick=()=>setMode(mode==='mushaira'?'timeline':'mushaira');
 document.querySelectorAll('.sw [data-view]').forEach(b=>b.onclick=()=>setMode(b.dataset.view));
-stage.addEventListener('keydown',e=>{
-  const k=e.key;if(!['ArrowRight','ArrowDown','ArrowLeft','ArrowUp'].includes(k))return;
-  e.preventDefault();step(k==='ArrowRight'||k==='ArrowDown'?1:-1);nodes[focus].focus();
-});
+document.addEventListener('keydown',e=>{const k=e.key;if(!['ArrowRight','ArrowDown','ArrowLeft','ArrowUp'].includes(k))return;e.preventDefault();step(k==='ArrowRight'||k==='ArrowDown'?1:-1);nodes[focus].focus();});
 document.addEventListener('click',e=>{
   const en=e.target.closest('#eranav button');
   if(en){setFocus(POETS.findIndex(p=>p.era===+en.dataset.era))}
