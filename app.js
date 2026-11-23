@@ -1,6 +1,6 @@
 /* Content lives in data.js. This file is the engine. */
 const $=s=>document.querySelector(s),N=POETS.length;
-const stage=$('#stage'),poets=$('#poets'),sc=$('.scroller'),detailEl=$('#detail');
+const stage=$('#stage'),poets=$('#poets'),sc=$('.scroller');
 let focus=POETS.findIndex(p=>p.id==='ghalib'),mode='mushaira',dialRot=0;
 const norm=a=>((a+180)%360+360)%360-180;
 
@@ -50,11 +50,7 @@ function alignDial(instant){
 
 function layout(instant){
   const cw=sc.clientWidth,mob=cw<768,tl=!mob&&mode==='timeline';
-  if(instant){
-    nodes.forEach(n=>n.classList.add('notrans'));
-    stage.classList.add('notrans');
-    $('#axis').classList.add('notrans');
-  }
+  if(instant)nodes.forEach(n=>n.classList.add('notrans'));
   document.body.classList.toggle('is-tl',tl);
   poets.classList.toggle('stk',tl);poets.classList.toggle('tl',tl);poets.classList.remove('v');
 
@@ -66,7 +62,7 @@ function layout(instant){
 
   const cy=tl?H/2+tlShift:Math.max(R+36,H*.52);
   stage.style.height=H+'px';
-  detailEl.style.setProperty('--hw',tl?'34rem':mob?(R*1.25)+'px':Math.min(544,R*1.45)+'px');
+  $('#detail').style.setProperty('--hw',tl?'34rem':mob?(R*1.25)+'px':Math.min(544,R*1.45)+'px');
   $('#axis').style.cssText='left:0;right:0;top:'+(cy-tlShift)+'px';
   const arc=$('#arc');arc.setAttribute('viewBox','0 0 '+cw+' '+H);arc.style.cssText='width:'+cw+'px;height:'+H+'px';
   arc.innerHTML=tl?'':'<circle cx="'+cx+'" cy="'+cy+'" r="'+R+'"/>';
@@ -86,12 +82,7 @@ function layout(instant){
     }
     n.setAttribute('aria-current',i===focus);
   });
-  if(instant){
-    void stage.offsetWidth;
-    nodes.forEach(n=>n.classList.remove('notrans'));
-    stage.classList.remove('notrans');
-    $('#axis').classList.remove('notrans');
-  }
+  if(instant){void stage.offsetWidth;nodes.forEach(n=>n.classList.remove('notrans'))}
 }
 
 function paint(o){document.body.style.setProperty('--bg',o.c);document.body.style.setProperty('--fg',o.f)}
@@ -129,7 +120,7 @@ function renderDetail(){
   const p=POETS[focus],e=ERAS[p.era];
   document.querySelectorAll('#eranav button').forEach((b,k)=>b.setAttribute('aria-current',k===p.era));
   const isTl=mode==='timeline';
-  detailEl.innerHTML=renderCouplets()
+  $('#detail').innerHTML=renderCouplets()
     +'<h2>'+esc(p.name)+'</h2>'
     +'<p class="mob-note">View on desktop for the full experience</p>'
     +(p.bio?'<p class="bio">'+esc(p.bio)+'</p>':'')
