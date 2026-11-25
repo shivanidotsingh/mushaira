@@ -149,7 +149,7 @@ const POETS=[
   ],
   fl:{s:'round',n:4,w:.34,a:RD,c:CR}}];
 const COUPLETS=[
- {id:'khusro1',p:'khusro',
+{id:'khusro1',p:'khusro',
   tr:[
    [{t:'chhaap',g:'mark, seal, identity'},' ',{t:'tilak',g:'sacred mark / adornment'},' sab chheeni re mose ',{t:'naina',g:'eyes'},' milaike'],
    ['prem bhatti ka ',{t:'madhva',g:'wine, draught'},' pilaike'],
@@ -157,7 +157,54 @@ const COUPLETS=[
   ],
   ur:['چھاپ تلک سب چھینی رے موسے نیناں ملائکے','پریم بھٹی کا مدوا پلائکے','متوالی کر لینی رے موسے نیناں ملائکے'],
   en:'By meeting my eyes, you have taken away every mark and identity; making me drink the wine of love’s furnace, you have left me intoxicated.',
-  src:'https://www.rekhta.org/poets/ameer-khusrau/all'},
+  src:'https://www.rekhta.org/poets/ameer-khusrau/all',
+  expand:{
+   couplets:[
+    {
+     tr:[
+      [{t:'chhaap',g:'mark, seal, identity'},' ',{t:'tilak',g:'sacred mark / adornment'},' sab chheeni re mose ',{t:'naina',g:'eyes'},' milaike'],
+      ['prem bhatti ka ',{t:'madhva',g:'wine, draught'},' pilaike'],
+      [{t:'matwali',g:'intoxicated, entranced'},' kar leeni re mose naina milaike']
+     ],
+     ur:['چھاپ تلک سب چھینی رے موسے نیناں ملائکے','پریم بھٹی کا مدوا پلائکے','متوالی کر لینی رے موسے نیناں ملائکے'],
+     en:'By meeting my eyes, you have taken away every mark and identity; making me drink the wine of love’s furnace, you have left me intoxicated.'
+    },
+    {
+     tr:[
+      ['apni ',{t:'chhawi',g:'reflection, image, form'},' banaay ke jo main pi ke paas gayi'],
+      ['jab chhawi dekhi pihu ki to apni bhool gayi'],
+      [{t:'chhaap',g:'mark, seal, identity'},' ',{t:'tilak',g:'sacred mark / adornment'},' sab chheeni re mose ',{t:'naina',g:'eyes'},' milaike']
+     ],
+     ur:['اپنی چھوی بنائے کے جو میں پی کے پاس گئی','جب چھوی دیکھی پیہو کی تو اپنی بھول گئی','چھاپ تلک سب چھینی رے موسے نیناں ملائکے'],
+     en:'I shaped my image to go to my beloved, yet seeing the beloved’s reflection I forgot my own—taking every mark and identity away.'
+    },
+    {
+     tr:[
+      ['bal-bal jaaun main tore ',{t:'rang-rejwa',g:'dyer, one who dyes in love'},''],
+      ['apni si rang deenhīn re mose ',{t:'naina',g:'eyes'},' milaai ke']
+     ],
+     ur:['بل بل جاؤں میں تورے رنگ رجوا','اپنی سی رنگ دینہیں رے موسے نیناں ملائے کے'],
+     en:'I offer myself again and again to you, dyer of love; you have dyed me in your own hue just by meeting my eyes.'
+    },
+    {
+     tr:[
+      ['gori gori ',{t:'baiyan',g:'arms, wrists'},' hari hari ',{t:'churiyan',g:'bangles'},''],
+      ['baiyan pakar dhar leenhīn re mose ',{t:'naina',g:'eyes'},' milaai ke']
+     ],
+     ur:['گوری گوری بئیاں ہری ہری چریاں','بئیاں پکر دھر لینہیں رے موسے نیناں ملائے کے'],
+     en:'Fair arms and green bangles—you caught hold of my wrists just by meeting my eyes.'
+    },
+    {
+     tr:[
+      ['khusrau nizam ke bal-bal jaiye'],
+      ['mohe ',{t:'suhagan',g:'beloved bride, blessed wife'},' keenhīn re mose ',{t:'naina',g:'eyes'},' milaai ke']
+     ],
+     ur:['خسرو نظام کے بل بل جئیے','موہے سہاگن کینہیں رے موسے نیناں ملائے کے'],
+     en:'Khusrau is devoted to Nizam; you have made me a blessed bride just by meeting my eyes.'
+    }
+   ]
+  }
+ },
 
  {id:'kabir1',p:'kabir',
   tr:[
@@ -166,8 +213,45 @@ const COUPLETS=[
   ],
   ur:['ہمن ہیں عشق مستانہ ہمن کو ہوشیاری کیا','رہیں آزاد یا جگ سے ہمن دنیا سے یاری کیا'],
   en:'I am intoxicated with love—what use have I for worldly caution? Let me remain free of the world—what business do I have befriending it?',
-  src:'https://www.rekhta.org/poets/kabir/couplets'},
- 
+  src:'https://www.rekhta.org/poets/kabir/couplets',
+  expand:{
+   couplets:[
+    {
+     tr:[
+      ['haman hain ',{t:'ishq',g:'love, devotion'},' ',{t:'mastaana',g:'intoxicated, blissfully absorbed'},', haman ko ',{t:'hoshiyaari',g:'worldly cleverness, caution'},' kya?'],
+      ['rahein aazaad ya ',{t:'jag',g:'the world'},' se, haman duniya se ',{t:'yaari',g:'friendship, worldly attachment'},' kya?']
+     ],
+     ur:['ہمن ہیں عشق مستانہ ہمن کو ہوشیاری کیا','رہیں آزاد یا جگ سے ہمن دنیا سے یاری کیا'],
+     en:'I am intoxicated with love—what use have I for worldly caution? Let me remain free of the world—what business do I have befriending it?'
+    },
+    {
+     tr:[
+      ['jo bichhde hain ',{t:'piyare',g:'beloved'},' se ',{t:'bhatakte',g:'wander aimlessly'},' dar-ba-dar phirte'],
+      ['hamara yaar hai hum mein, haman ko ',{t:'intezaari',g:'waiting, longing'},' kya?']
+     ],
+     ur:['جو بچھڑے ہیں پیارے سے بھٹکتے در بہ در پھرتے','ہمارا یار ہے ہم میں ہمن کو انتظاری کیا'],
+     en:'Those parted from the beloved wander door to door; our friend is within us—what need have we for waiting?'
+    },
+    {
+     tr:[
+      ['na pal bichhdein piya hum se, na hum bichhdein ',{t:'piyare',g:'beloved'},' se'],
+      ['unhin se ',{t:'neh',g:'love, affection'},' laagi hai, haman ko ',{t:'beqarari',g:'restlessness'},' kya?']
+     ],
+     ur:['نہ پل بچھڑیں پیا ہم سے نہ ہم بچھڑیں پیارے سے','انہیں سے نیہہ لاگی ہے ہمن کو بے قراری کیا'],
+     en:'Neither does the beloved part from us for a moment nor do we part from them; our heart is bound to them—what restlessness can touch us?'
+    },
+    {
+     tr:[
+      ['kabira ishq ka ',{t:'maata',g:'intoxicated, absorbed'},', ',{t:'dui',g:'duality, division'},' ko door kar dil se'],
+      ['jo chalna raah ',{t:'nazuk',g:'delicate, narrow'},' hai, haman sar ',{t:'bojh',g:'burden, load'},' bhaari kya?']
+     ],
+     ur:['کبیرا عشق کا ماتا دوئی کو دور کر دل سے','جو چلنا راہ نازک ہے ہمن سر بوجھ بھاری کیا'],
+     en:'Kabir is drunk on love—cast duality out of the heart; when the path is fine and delicate, what use is a heavy load on the head?'
+    }
+   ]
+  }
+ },
+
  {id:'quli1',p:'quli',
   tr:[
    ['piya baaj pyala piya jaaye na'],
@@ -175,7 +259,44 @@ const COUPLETS=[
   ],
   ur:['پیا باج پیالہ پیا جائے نا','پیا باج اک تل جیا جائے نا'],
   en:'Without the beloved, the cup cannot be drunk; without the beloved, one cannot live even a moment.',
-  src:'https://archive.org/details/KulliyatESultanMuhammadQuliQutbShah'},
+  src:'https://archive.org/details/KulliyatESultanMuhammadQuliQutbShah',
+  expand:{
+   couplets:[
+    {
+     tr:[
+      ['piya ',{t:'baaj',g:'without'},' pyala piya jaaye na'],
+      ['piya baaj ek ',{t:'til',g:'a moment / sesame seed'},' jiya jaaye na']
+     ],
+     ur:['پیا باج پیالہ پیا جائے نا','پیا باج اک تل جیا جائے نا'],
+     en:'Without the beloved, the cup cannot be drunk; without the beloved, one cannot live even a moment.'
+    },
+    {
+     tr:[
+      ['kahe thay piya bin ',{t:'suboori',g:'patience, endurance'},' karoon'],
+      ['khaya jaaye amma, kiya jaaye na']
+     ],
+     ur:['کہے تھے پیا بن صبوری کروں','کھایا جائے اماں کیا جائے نا'],
+     en:'They said I should keep patience without the beloved—it is easy to say, mother, hard to do.'
+    },
+    {
+     tr:[
+      ['nahin ishq jis doo bada ',{t:'kodh',g:'folly, defect / affliction'},' hai'],
+      ['kadheen us se mil be-siya jaaye na']
+     ],
+     ur:['نہیں عشق جس دو بڑا کوڑھ ہے','کدھیں اس سے مل بے سیا جائے نا'],
+     en:'Whoever has no love suffers a great affliction; never sit beside them if you cannot share in that feeling.'
+    },
+    {
+     tr:[
+      ['qutub shah na de mujh ',{t:'diwane',g:'mad one, love-struck'},' ko ',{t:'pand',g:'counsel, advice'},''],
+      ['diwane koon kuchh pand diya jaaye na']
+     ],
+     ur:['قطب شاہ نہ دے مجھ دیوانے کو پند','دیوانے کوں کچھ پند دیا جائے نا'],
+     en:'Qutb Shah, do not offer counsel to one mad with love; advice is not given to the love-struck.'
+    }
+   ]
+  }
+ },
  
  {id:'nusrati1',p:'nusrati',
   tr:[
