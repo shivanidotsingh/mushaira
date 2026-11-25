@@ -884,44 +884,52 @@ const COUPLETS=[
  {id:'kaifi1',p:'kaifi',
   tr:[
    ['tum itna jo ',{t:'muskura',g:'smile'},' rahe ho'],
-   ['kya ',{t:'gham',g:'sorrow, grief'},' hai jis ko chhupa rahe ho']
+   ['kya ',{t:'gham',g:'sorrow, grief'},' hai jis ko ',{t:'chhupa',g:'hide, conceal'},' rahe ho']
   ],
   ur:['تم اتنا جو مسکرا رہے ہو','کیا غم ہے جس کو چھپا رہے ہو'],
-  en:'Why are you smiling like this—what sorrow are you trying to hide?',
+  en:'Why are you smiling so much? What grief is it that you are hiding?',
   src:'https://www.rekhta.org/poets/kaifi-azmi/ghazals',
   expand:{
    couplets:[
     {
      tr:[
       ['tum itna jo ',{t:'muskura',g:'smile'},' rahe ho'],
-      ['kya ',{t:'gham',g:'sorrow, grief'},' hai jis ko chhupa rahe ho']
+      ['kya ',{t:'gham',g:'sorrow, grief'},' hai jis ko ',{t:'chhupa',g:'hide, conceal'},' rahe ho']
      ],
      ur:['تم اتنا جو مسکرا رہے ہو','کیا غم ہے جس کو چھپا رہے ہو'],
-     en:'Why are you smiling like this—what sorrow are you trying to hide?'
+     en:'Why are you smiling so much? What grief is it that you are hiding?'
     },
     {
      tr:[
-      ['aankhon mein ',{t:'nami',g:'dampness, moisture'},' hai aur ',{t:'labon',g:'lips'},' par ',{t:'hansi',g:'laughter, smile'}],
-      ['ye ',{t:'kaisi',g:'what kind of'},' ',{t:'dastan',g:'story, tale'},' suna rahe ho']
+      ['aankhon mein ',{t:'nami',g:'dampness, moisture of tears'},', hansi ',{t:'labon',g:'lips'},' par'],
+      ['kya ',{t:'haal',g:'state, condition'},' hai, kya dikha rahe ho']
      ],
-     ur:['آنکھوں میں نمی ہے اور لبوں پر ہنسی','یہ کیسی داستاں سنا رہے ہو'],
-     en:'There is moisture in your eyes and a smile on your lips—what kind of story are you telling?'
+     ur:['آنکھوں میں نمی ہنسی لبوں پر','کیا حال ہے کیا دکھا رہے ہو'],
+     en:'Dampness in the eyes, a smile on the lips—what is your true state, and what are you showing?'
     },
     {
      tr:[
-      ['pather ki ',{t:'deewaron',g:'walls'},' mein bhi ',{t:'sada',g:'echo, voice'},' hai'],
-      ['tum kyun ',{t:'khamoshi',g:'silence'},' ko ',{t:'orha',g:'wrapped around'},' rahe ho']
+      ['ban jaayenge ',{t:'zehar',g:'poison'},' peete peete'],
+      ['yeh ',{t:'ashq',g:'tears'},' jo peete ja rahe ho']
      ],
-     ur:['پتھر کی دیواروں میں بھی صدا ہے','تم کیوں خاموشی کو اوڑھا رہے ہو'],
-     en:'Even walls of stone hold an echo—why do you keep wrapping yourself in silence?'
+     ur:['بن جائیں گے زہر پیتے پیتے','یہ اشک جو پیتے جا رہے ہو'],
+     en:'They will turn to poison as you keep drinking them—these tears you keep swallowing.'
     },
     {
      tr:[
-      ['kaifi har ',{t:'chehre',g:'face'},' ke peeche ek ',{t:'kahani',g:'story'},' hai'],
-      ['jo ',{t:'waqt',g:'time'},' ke saath ',{t:'khulti',g:'opens, unfolds'},' chali jaati hai']
+      ['jin ',{t:'zakhmon',g:'wounds'},' ko ',{t:'waqt',g:'time'},' bhar chala hai'],
+      ['tum kyun unhein ',{t:'chhede',g:'provoke, reopen'},' ja rahe ho']
      ],
-     ur:['کیفی ہر چہرے کے پیچھے اک کہانی ہے','جو وقت کے ساتھ کھلتی چلی جاتی ہے'],
-     en:'Kaifi, behind every face there is a story that slowly unfolds with time.'
+     ur:['جن زخموں کو وقت بھر چلا ہے','تم کیوں انہیں چھیڑے جا رہے ہو'],
+     en:'The wounds that time has begun to heal—why do you keep reopening them?'
+    },
+    {
+     tr:[
+      [{t:'rekhaon',g:'lines of fate / palm lines'},' ka khel hai ',{t:'muqaddar',g:'destiny, fate'}],
+      ['rekhaon se ',{t:'maat',g:'defeat, checkmate'},' kha rahe ho']
+     ],
+     ur:['ریکھاؤں کا کھیل ہے مقدر','ریکھاؤں سے مات کھا رہے ہو'],
+     en:'Destiny is a game of lines—why are you letting those lines defeat you?'
     }
    ]
   }
