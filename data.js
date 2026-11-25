@@ -556,8 +556,8 @@ const COUPLETS=[
 
  {id:'mahlaqa1',p:'mahlaqa',
   tr:[
-   [{t:'gul',g:'flower, rose'},' ke hone ki ',{t:'tawaqqo',g:'hope, expectation'},' pe jiye baiThi hai'],
-   ['har ',{t:'kali',g:'bud'},' ',{t:'jaan',g:'life'},' ko ',{t:'mutthi',g:'fist'},' mein liye baiThi hai']
+   [{t:'gul',g:'flower, rose'},' ke hone ki ',{t:'tawaqqo',g:'hope, expectation'},' pe jiye baithi hai'],
+   ['har ',{t:'kali',g:'bud'},' ',{t:'jaan',g:'life'},' ko ',{t:'mutthi',g:'fist'},' mein liye baithi hai']
   ],
   ur:['گل کے ہونے کی توقع پہ جیے بیٹھی ہے','ہر کلی جاں کو مٹھی میں لیے بیٹھی ہے'],
   en:'Hoping someday to become a flower, every bud sits holding its life in its fist.',
@@ -566,8 +566,8 @@ const COUPLETS=[
    couplets:[
     {
      tr:[
-      [{t:'gul',g:'flower, rose'},' ke hone ki ',{t:'tawaqqo',g:'hope, expectation'},' pe jiye baiThi hai'],
-      ['har ',{t:'kali',g:'bud'},' ',{t:'jaan',g:'life'},' ko ',{t:'mutthi',g:'fist'},' mein liye baiThi hai']
+      [{t:'gul',g:'flower, rose'},' ke hone ki ',{t:'tawaqqo',g:'hope, expectation'},' pe jiye baithi hai'],
+      ['har ',{t:'kali',g:'bud'},' ',{t:'jaan',g:'life'},' ko ',{t:'mutthi',g:'fist'},' mein liye baithi hai']
      ],
      ur:['گل کے ہونے کی توقع پہ جیے بیٹھی ہے','ہر کلی جاں کو مٹھی میں لیے بیٹھی ہے'],
      en:'Hoping someday to become a flower, every bud sits holding its life in its fist.'
