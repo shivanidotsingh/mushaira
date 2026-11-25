@@ -14,7 +14,7 @@ const POETS=[
   works:[
    {title:'Persian divans',url:'https://www.rekhta.org/poets/ameer-khusrau/all'},
    {title:'Khamsa',url:'https://www.rekhta.org/poets/ameer-khusrau/all'},
-   {title:'Hindavi riddles and songs (attributions uncertain)',url:'https://www.rekhta.org/poets/ameer-khusrau/all'}
+   {title:'Hindavi riddles and songs',url:'https://www.rekhta.org/poets/ameer-khusrau/all'}
   ],
   fl:{s:'point',n:8,w:.26,a:CR,b:OR,c:YL}},
 
@@ -435,7 +435,44 @@ const COUPLETS=[
   ],
   ur:['جب آدمی کسی کا طلبگار ہو گیا','ہر چیز اس کے واسطے دشوار ہو گیا'],
   en:'Once a person becomes a seeker/yearner for someone, every single thing becomes hard for them.',
-  src:'https://www.rekhta.org/poets/nazeer-akbarabadi/all'},
+  src:'https://www.rekhta.org/poets/nazeer-akbarabadi/all',
+  expand:{
+   couplets:[
+    {
+     tr:[
+      ['jab aadmi kisi ka ',{t:'talabgaar',g:'seeker, yearner'},' ho gaya'],
+      ['har cheez us ke waaste ',{t:'dushwaar',g:'difficult, arduous'},' ho gaya']
+     ],
+     ur:['جب آدمی کسی کا طلبگار ہو گیا','ہر چیز اس کے واسطے دشوار ہو گیا'],
+     en:'Once a person becomes a seeker/yearner for someone, every single thing becomes hard for them.'
+    },
+    {
+     tr:[
+      ['har ek ',{t:'waqt',g:'time, moment'},' ',{t:'kuchh',g:'something'},' na ',{t:'kuchh',g:'something'},' naya rang dikhaata hai'],
+      ['ye ',{t:'duniya',g:'world'},' ka ',{t:'karishma',g:'wonder, spectacle'},' hai jo sab ko ',{t:'nachata',g:'makes dance, moves'},' hai']
+     ],
+     ur:['ہر اک وقت کچھ نہ کچھ نیا رنگ دکھاتا ہے','یہ دنیا کا کرشمہ ہے جو سب کو نچاتا ہے'],
+     en:'Every passing moment shows some new color; it is the wonder of this world that keeps everyone moving.'
+    },
+    {
+     tr:[
+      ['daulat ho ya ',{t:'garibi',g:'poverty, destitution'},', ',{t:'shaahi',g:'royalty, kingship'},' ho ya ',{t:'faqiri',g:'mendicancy, poverty'},''],
+      ['aakhir sabhi ko ',{t:'khaak',g:'dust, earth'},' mein mil jaana hai']
+     ],
+     ur:['دولت ہو یا غریبی شاہی ہو یا فقیری','آخر سبھی کو خاک میں مل جانا ہے'],
+     en:'Whether wealth or poverty, kingship or mendicancy—in the end, every single one must return to the dust.'
+    },
+    {
+     tr:[
+      ['nazeer is ',{t:'kaarwan',g:'caravan'},' mein ',{t:'kahan',g:'where'},' koi ',{t:'rukta',g:'stops, stays'},' hai'],
+      ['har ',{t:'manzil',g:'stage, stopping-place'},' pe ',{t:'qafila',g:'caravan, company'},' ',{t:'badalta',g:'changes, shifts'},' hai']
+     ],
+     ur:['نظیر اس کارواں میں کہاں کوئی رکتا ہے','ہر منزل پہ قافلہ بدلتا ہے'],
+     en:'Nazeer, who ever stops for long in this caravan? At every stage the traveling company shifts.'
+    }
+   ]
+  }
+ },
 
  {id:'mahlaqa1',p:'mahlaqa',
   tr:[
