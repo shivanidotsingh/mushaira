@@ -62,7 +62,7 @@ function layout(instant){
 
   const cy=tl?H/2+tlShift:Math.max(R+36,H*.52);
   stage.style.height=H+'px';
-  $('#detail').style.setProperty('--hw',tl?'34rem':mob?(R*1.25)+'px':Math.min(544,R*1.45)+'px');
+  $('#detail').style.setProperty('--hw',tl?'32rem':mob?(R*1.25)+'px':Math.min(544,R*1.45)+'px');
   $('#axis').style.cssText='left:0;right:0;top:'+(cy-tlShift)+'px';
   const arc=$('#arc');arc.setAttribute('viewBox','0 0 '+cw+' '+H);arc.style.cssText='width:'+cw+'px;height:'+H+'px';
   arc.innerHTML=tl?'':'<circle cx="'+cx+'" cy="'+cy+'" r="'+R+'"/>';
@@ -97,15 +97,29 @@ function renderTrLine(line){
   }).join('')+'</span>';
 }
 
-function renderCouplets(){
-  const cs=COUPLETS.filter(c=>c.p===POETS[focus].id);
-  if(!cs.length)return '<p class="sm todo">No couplets yet.</p>';
-  return '<div class="cps">'+cs.map(c=>
-    '<div class="cp">'
+function coupletBlockHTML(c){
+  return '<div class="cp">'
     +'<p class="tr">'+c.tr.map(renderTrLine).join('')+'</p>'
     +'<p class="u" lang="ur" dir="rtl">'+c.ur.map(l=>'<span>'+esc(l)+'</span>').join('')+'</p>'
-    +'</div>'
-  ).join('')+'</div>';
+    +'</div>';
+}
+
+function renderCouplets(isTl){
+  const cs=COUPLETS.filter(c=>c.p===POETS[focus].id);
+  if(!cs.length)return '<p class="sm todo">No couplets yet.</p>';
+  if(!isTl){
+    return '<div class="cps">'+cs.map(coupletBlockHTML).join('')+'</div>';
+  }
+  return cs.map(c=>{
+    const list=(c.expand&&Array.isArray(c.expand.couplets)&&c.expand.couplets.length)?c.expand.couplets:[c];
+    const head=(c.expand&&(c.expand.title||c.expand.form))
+      ?'<div class="poem-meta">'
+        +(c.expand.title?'<div class="poem-title">'+esc(c.expand.title)+'</div>':'')
+        +(c.expand.form?'<div class="poem-form">'+esc(c.expand.form)+'</div>':'')
+        +'</div>'
+      :'';
+    return head+'<div class="cps">'+list.map(coupletBlockHTML).join('')+'</div>';
+  }).join('');
 }
 
 function renderWorkTag(w){
@@ -116,18 +130,26 @@ function renderWorkTag(w){
   return '<li>'+esc(label)+'</li>';
 }
 
+function renderBioCard(p){
+  const card=$('#bio-card');
+  if(!card)return;
+  card.innerHTML='<div class="bio-poet">'+esc(p.name)+' <span class="h-yr">'+esc(p.y)+'</span></div>'
+    +(p.bio?'<p class="bio">'+esc(p.bio)+'</p>':'')
+    +'<ul class="tags">'+p.works.map(renderWorkTag).join('')+'</ul>';
+}
+
 function renderDetail(){
   const p=POETS[focus],e=ERAS[p.era];
   document.querySelectorAll('#eranav button').forEach((b,k)=>b.setAttribute('aria-current',k===p.era));
   const isTl=mode==='timeline';
-  $('#detail').innerHTML=renderCouplets()
+  $('#detail').innerHTML=renderCouplets(isTl)
     +'<h2>'+esc(p.name)+'</h2>'
     +'<p class="mob-note">View on desktop for the full experience</p>'
-    +(p.bio?'<p class="bio">'+esc(p.bio)+'</p>':'')
     +'<ul class="tags">'+p.works.map(renderWorkTag).join('')+'</ul>'
     +'<button class="unfold" type="button" aria-expanded="'+isTl+'" aria-label="'+(isTl?'Collapse back to circle':'Expand into timeline')+'">'
     +'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v11M3.5 9.5 8 14l4.5-4.5"/></svg>'
     +'</button>';
+  renderBioCard(p);
   paint(e);
 }
 
