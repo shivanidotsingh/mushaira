@@ -376,8 +376,8 @@ const COUPLETS=[
  
  {id:'mir1',p:'mir',
   tr:[
-   ['ulti ho gain sab tadbiren kuchh na dawa ne kam kiya'],
-   ['dekha is bimari-e-dil ne akhir kam tamam kiya']
+   ['ulti ho gain sab ',{t:'tadbeeren',g:'plans, remedies, contrivances'},' kuchh na ',{t:'dawaa',g:'medicine, cure'},' ne kaam kiya'],
+   ['dekha is ',{t:'bimaari-e-dil',g:'malady of the heart, lovesickness'},' ne aakhir kaam ',{t:'tamam',g:'complete, finished'},' kiya']
   ],
   ur:['الٹی ہو گئیں سب تدبیریں کچھ نہ دوا نے کام کیا','دیکھا اس بیماریِ دل نے آخر کام تمام کیا'],
   en:'Every plan turned upside down, and no remedy worked; at last this malady of the heart finished its work.',
@@ -386,79 +386,79 @@ const COUPLETS=[
    couplets:[
     {
      tr:[
-      ['ulti ho gain sab tadbiren kuchh na dawa ne kam kiya'],
-      ['dekha is bimari-e-dil ne akhir kam tamam kiya']
+      ['ulti ho gain sab ',{t:'tadbeeren',g:'plans, remedies, contrivances'},' kuchh na ',{t:'dawaa',g:'medicine, cure'},' ne kaam kiya'],
+      ['dekha is ',{t:'bimaari-e-dil',g:'malady of the heart, lovesickness'},' ne aakhir kaam ',{t:'tamam',g:'complete, finished'},' kiya']
      ],
      ur:['الٹی ہو گئیں سب تدبیریں کچھ نہ دوا نے کام کیا','دیکھا اس بیماریِ دل نے آخر کام تمام کیا'],
      en:'Every plan turned upside down, and no remedy worked; at last this malady of the heart finished its work.'
     },
     {
      tr:[
-      ['ahd-e-jawani ro ro kata piri mein lin ankhen mund'],
-      ['yaani raat bahut the jaage subh hui aaram kiya']
+      [{t:'ahd-e-jawani',g:'season of youth'},' ro ro kata ',{t:'piri',g:'old age'},' mein lin ankhen mund'],
+      ['yaani raat bahut the jaage subh hui ',{t:'aaram',g:'rest, ease'},' kiya']
      ],
      ur:['عہدِ جوانی رو رو کاٹا پیری میں لیں آنکھیں موند','یعنی رات بہت تھے جاگے صبح ہوئی آرام کیا'],
      en:'I spent youth weeping and closed my eyes in old age; that is, I stayed awake all night and rested when morning came.'
     },
     {
      tr:[
-      ['harf nahin jaan-bakhshi mein us ki khubi apni qismat ki'],
-      ['ham se jo pahle kah bheja so marne ka paigham kiya']
+      ['harf nahin ',{t:'jaan-bakhshi',g:'granting of life, grace'},' mein us ki khubi apni ',{t:'qismat',g:'fate, destiny'},' ki'],
+      ['ham se jo pahle kah bheja so marne ka ',{t:'paigham',g:'message, summons'},' kiya']
      ],
      ur:['حرف نہیں جاں بخشی میں اس کی خوبی اپنی قسمت کی','ہم سے جو پہلے کہہ بھیجا سو مرنے کا پیغام کیا'],
      en:'There is no fault in their grace, only in my own fate; whatever message they sent me beforehand was a summons to die.'
     },
     {
      tr:[
-      ['nahaq ham majburon par ye tohmat hai mukhtari ki'],
-      ['chahte hain so aap karen hain ham ko abas badnam kiya']
+      ['nahaq ham ',{t:'majburon',g:'helpless ones, those bound by fate'},' par ye ',{t:'tohmat',g:'accusation, charge'},' hai ',{t:'mukhtari',g:'free will, agency'},' ki'],
+      ['chahte hain so aap karen hain ham ko abas ',{t:'badnam',g:'defamed, ill-reputed'},' kiya']
      ],
      ur:['ناحق ہم مجبوروں پر یہ تہمت ہے مختاری کی','چاہتے ہیں سو آپ کریں ہیں ہم کو عبث بدنام کیا'],
      en:'Unjustly we who are helpless are accused of having free choice; they do whatever they wish and blame us for nothing.'
     },
     {
      tr:[
-      ['saare rind aubaash jahan ke tujh se sujud mein rahte hain'],
-      ['banke tedhe tirchhe tikhe sab ka tujh ko imam kiya']
+      ['saare ',{t:'rind',g:'reckless drinkers, free spirits'},' ',{t:'aubaash',g:'rowdy, unrestrained'},' jahan ke tujh se ',{t:'sujud',g:'prostration, worship'},' mein rahte hain'],
+      ['banke tedhe tirchhe tikhe sab ka tujh ko ',{t:'imam',g:'leader, guide'},' kiya']
      ],
      ur:['سارے رند اوباش جہاں کے تجھ سے سجود میں رہتے ہیں','بن کے ٹیڑھے ترچھے تیکھے سب کا تجھ کو امام کیا'],
      en:'All the wayward drinkers of the world bow in devotion before you; crooked, slant, and sharp-witted, they made you their leader.'
     },
     {
      tr:[
-      ['sarzad ham se be-adabi to wahshat mein bhi kam hi hui'],
-      ['koson us ki or gae par sajda har har gam kiya']
+      ['sarzad ham se ',{t:'be-adabi',g:'disrespect, impoliteness'},' to ',{t:'wahshat',g:'wildness, frenzy'},' mein bhi kam hi hui'],
+      ['koson us ki or gae par ',{t:'sajda',g:'prostration'},' har har gam kiya']
      ],
      ur:['سرزد ہم سے بے ادبی تو وحشت میں بھی کم ہی ہوئی','کوسوں اس کی اور گئے پر سجدہ ہر ہر گام کیا'],
      en:'Even in frenzy, disrespect rarely slipped from me; I walked miles toward them and bowed at every single step.'
     },
     {
      tr:[
-      ['kis ka kaba kaisa qibla kaun haram hai kya ehram'],
-      ['kuche ke us ke bashindon ne sab ko yahin se salam kiya']
+      ['kis ka ',{t:'kaba',g:'Kaaba, sacred house'},' kaisa ',{t:'qibla',g:'direction of prayer'},' kaun ',{t:'haram',g:'sanctuary'},' hai kya ',{t:'ehram',g:'pilgrim garment'},''],
+      ['kuche ke us ke ',{t:'bashindon',g:'dwellers, inhabitants'},' ne sab ko yahin se ',{t:'salam',g:'salutation, farewell'},' kiya']
      ],
      ur:['کس کا کعبہ کیسا قبلہ کون حرم ہے کیا احرام','کوچے کے اس کے باشندوں نے سب کو یہیں سے سلام کیا'],
      en:'What Kaaba, what qibla, what sanctuary or pilgrim garb? Those who dwell in the beloved’s lane saluted them all right here.'
     },
     {
      tr:[
-      ['shaikh jo hai masjid mein nanga raat ko tha mai-khane mein'],
-      ['jubba khirqa kurta topi masti mein inaam kiya']
+      [{t:'shaikh',g:'preacher, ascetic elder'},' jo hai masjid mein nanga raat ko tha ',{t:'mai-khane',g:'tavern, wine-house'},' mein'],
+      ['jubba khirqa kurta topi ',{t:'masti',g:'ecstasy, intoxication'},' mein ',{t:'inaam',g:'gift, award'},' kiya']
      ],
      ur:['شیخ جو ہے مسجد میں ننگا رات کو تھا میخانے میں','جبہ خرقہ کرتا ٹوپی مستی میں انعام کیا'],
      en:'The shaikh who stands bare in the mosque was at the tavern by night, giving away cloak, robe, tunic, and cap in ecstasy.'
     },
     {
      tr:[
-      ['kaash ab burqa munh se utha de warna phir kya hasil hai'],
-      ['ankh munde par un ne go didar ko apne aam kiya']
+      ['kaash ab ',{t:'burqa',g:'veil, covering'},' munh se utha de warna phir kya hasil hai'],
+      ['ankh munde par un ne go ',{t:'didar',g:'sight, vision of the beloved'},' ko apne aam kiya']
      ],
      ur:['کاش اب برقع منہ سے اٹھا دے ورنہ پھر کیا حاصل ہے','آنکھ موندے پر ان نے گو دیدار کو اپنے عام کیا'],
      en:'If only they would lift the veil from their face now, else what is the gain—even though with closed eyes they made their sight open to all.'
     },
     {
      tr:[
-      ['yaan ke safed o siyah mein ham ko dakhl jo hai so itna hai'],
+      ['yaan ke safed o siyah mein ham ko ',{t:'dakhl',g:'involvement, part'},' jo hai so itna hai'],
       ['raat ko ro ro subh kiya ya din ko jyun tyun sham kiya']
      ],
      ur:['یاں کے سفید و سیاہ میں ہم کو دخل جو ہے سو اتنا ہے','رات کو رو رو صبح کیا یا دن کو جوں تیوں شام کیا'],
@@ -466,40 +466,40 @@ const COUPLETS=[
     },
     {
      tr:[
-      ['subh chaman mein us ko kahin taklif-e-hawa le aai thi'],
-      ['rukh se gul ko mol liya qamat se sarv ghulam kiya']
+      ['subh ',{t:'chaman',g:'garden, meadow'},' mein us ko kahin taklif-e-hawa le aai thi'],
+      ['rukh se gul ko mol liya ',{t:'qamat',g:'stature, figure'},' se ',{t:'sarv',g:'cypress tree'},' ',{t:'ghulam',g:'enslaved, servant'},' kiya']
      ],
      ur:['صبح چمن میں اس کو کہیں تکلیفِ ہوا لے آئی تھی','رخ سے گل کو مول لیا قامت سے سرو غلام کیا'],
      en:'Some urge of the morning breeze brought them to the garden at dawn; with their cheek they outdid the rose, and with their stature enslaved the cypress.'
     },
     {
      tr:[
-      ['saad-e-simin donon us ke haath mein la kar chhod diye'],
-      ['bhule us ke qaul-o-qasam par haaye khayal-e-khaam kiya']
+      [{t:'saad-e-simin',g:'silver forearms'},' donon us ke haath mein la kar chhod diye'],
+      ['bhule us ke ',{t:'qaul-o-qasam',g:'word and oath'},' par haaye ',{t:'khayal-e-khaam',g:'raw or idle fancy'},' kiya']
      ],
      ur:['ساعدِ سیمیں دونوں اس کے ہاتھ میں لا کر چھوڑ دیے','بھولے اس کے قول و قسم پر ہائے خیالِ خام کیا'],
      en:'They placed both silver forearms into their hands and let go—alas, trusting their word and oath was an idle fancy.'
     },
     {
      tr:[
-      ['kaam hue hain saare zaea har saat ki samajat se'],
-      ['istighna ki chauguni un ne jyun jyun main ibram kiya']
+      ['kaam hue hain saare ',{t:'zaea',g:'wasted, lost'},' har saat ki ',{t:'samajat',g:'pleading, entreaty'},' se'],
+      [{t:'istighna',g:'indifference, self-sufficiency'},' ki chauguni un ne jyun jyun main ',{t:'ibram',g:'insistence, importunity'},' kiya']
      ],
      ur:['کام ہوئے ہیں سارے ضائع ہر ساعت کی سماجت سے','استغنا کی چوگنی ان نے جوں جوں میں ابرام کیا'],
      en:'Every effort was wasted through constant pleading; the more I persisted, fourfold grew their indifference.'
     },
     {
      tr:[
-      ['aise aahu-e-ram-khurda ki wahshat khoni mushkil thi'],
-      ['sehr kiya ejaaz kiya jin logon ne tujh ko ram kiya']
+      ['aise ',{t:'aahu-e-ram-khurda',g:'frightened or startled gazelle'},' ki wahshat khoni mushkil thi'],
+      [{t:'sehr',g:'magic, enchantment'},' kiya ',{t:'ejaaz',g:'miracle'},' kiya jin logon ne tujh ko ',{t:'ram',g:'tamed, won over'},' kiya']
      ],
      ur:['ایسے آہوئے رم خوردہ کی وحشت کھونی مشکل تھی','سحر کیا اعجاز کیا جن لوگوں نے تجھ کو رام کیا'],
      en:'It was hard to tame the wildness of a startled gazelle like this; those who tamed you worked magic and miracles.'
     },
     {
      tr:[
-      ['\'mir\' ke din-o-mazhab ko ab puchhte kya ho un ne to'],
-      ['qashqa khincha dair mein baitha kab ka tark islam kiya']
+      ['\'mir\' ke ',{t:'din-o-mazhab',g:'faith and creed'},' ko ab puchhte kya ho un ne to'],
+      [{t:'qashqa',g:'forehead mark'},' khincha ',{t:'dair',g:'temple'},' mein baitha kab ka ',{t:'tark',g:'abandoning, renouncing'},' islam kiya']
      ],
      ur:['میر کے دین و مذہب کو اب پوچھتے کیا ہو ان نے تو','قشقہ کھینچا دیر میں بیٹھا کب کا ترک اسلام کیا'],
      en:'Why ask about Mir’s faith and creed now? Long ago they drew the forehead mark, sat in the temple, and left Islam behind.'
