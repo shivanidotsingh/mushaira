@@ -376,37 +376,133 @@ const COUPLETS=[
  
  {id:'mir1',p:'mir',
   tr:[
-   ['ultee ho gayeen sab ',{t:'tadbeeren',g:'plans, contrivances, remedies'},' kuchh na dawaa ne kaam kiya'],
-   ['dekha is ',{t:'bimaari-e-dil',g:'malady of the heart, lovesickness'},' ne aakhir kaam tamam kiya']
+   ['ulti ho gain sab tadbiren kuchh na dawa ne kam kiya'],
+   ['dekha is bimari-e-dil ne akhir kam tamam kiya']
   ],
   ur:['الٹی ہو گئیں سب تدبیریں کچھ نہ دوا نے کام کیا','دیکھا اس بیماریِ دل نے آخر کام تمام کیا'],
   en:'Every plan turned upside down, and no remedy worked; at last this malady of the heart finished its work.',
-  src:'https://www.rekhta.org/poets/mir-taqi-mir/ghazals',
+  src:'https://www.rekhta.org/ghazals/ultii-ho-gaiin-sab-tadbiiren-kuchh-na-davaa-ne-kaam-kiyaa-meer-taqi-meer-ghazals',
   expand:{
    couplets:[
     {
      tr:[
-      ['ultee ho gayeen sab ',{t:'tadbeeren',g:'plans, contrivances, remedies'},' kuchh na dawaa ne kaam kiya'],
-      ['dekha is ',{t:'bimaari-e-dil',g:'malady of the heart, lovesickness'},' ne aakhir kaam tamam kiya']
+      ['ulti ho gain sab tadbiren kuchh na dawa ne kam kiya'],
+      ['dekha is bimari-e-dil ne akhir kam tamam kiya']
      ],
      ur:['الٹی ہو گئیں سب تدبیریں کچھ نہ دوا نے کام کیا','دیکھا اس بیماریِ دل نے آخر کام تمام کیا'],
      en:'Every plan turned upside down, and no remedy worked; at last this malady of the heart finished its work.'
     },
     {
      tr:[
-      ['aankh jo dekha to ',{t:'bahaar',g:'spring, bloom'},' aayi thi'],
-      ['dil jo dekha to ',{t:'khizaan',g:'autumn, decay'},' nikli hai']
+      ['ahd-e-jawani ro ro kata piri mein lin ankhen mund'],
+      ['yaani raat bahut the jaage subh hui aaram kiya']
      ],
-     ur:['آنکھ جو دیکھا تو بہار آئی تھی','دل جو دیکھا تو خزاں نکلی ہے'],
-     en:'When I looked at the eyes, spring seemed to have arrived; when I looked into the heart, it turned out to be autumn.'
+     ur:['عہدِ جوانی رو رو کاٹا پیری میں لیں آنکھیں موند','یعنی رات بہت تھے جاگے صبح ہوئی آرام کیا'],
+     en:'I spent youth weeping and closed my eyes in old age; that is, I stayed awake all night and rested when morning came.'
     },
     {
      tr:[
-      ['na suno gar bura kahe koi'],
-      ['na kaho gar bura kare koi']
+      ['harf nahin jaan-bakhshi mein us ki khubi apni qismat ki'],
+      ['ham se jo pahle kah bheja so marne ka paigham kiya']
      ],
-     ur:['نہ سنو گر برا کہے کوئی','نہ کہو گر برا کرے کوئی'],
-     en:'Do not listen if someone speaks ill, and do not speak ill if someone does wrong.'
+     ur:['حرف نہیں جاں بخشی میں اس کی خوبی اپنی قسمت کی','ہم سے جو پہلے کہہ بھیجا سو مرنے کا پیغام کیا'],
+     en:'There is no fault in their grace, only in my own fate; whatever message they sent me beforehand was a summons to die.'
+    },
+    {
+     tr:[
+      ['nahaq ham majburon par ye tohmat hai mukhtari ki'],
+      ['chahte hain so aap karen hain ham ko abas badnam kiya']
+     ],
+     ur:['ناحق ہم مجبوروں پر یہ تہمت ہے مختاری کی','چاہتے ہیں سو آپ کریں ہیں ہم کو عبث بدنام کیا'],
+     en:'Unjustly we who are helpless are accused of having free choice; they do whatever they wish and blame us for nothing.'
+    },
+    {
+     tr:[
+      ['saare rind aubaash jahan ke tujh se sujud mein rahte hain'],
+      ['banke tedhe tirchhe tikhe sab ka tujh ko imam kiya']
+     ],
+     ur:['سارے رند اوباش جہاں کے تجھ سے سجود میں رہتے ہیں','بن کے ٹیڑھے ترچھے تیکھے سب کا تجھ کو امام کیا'],
+     en:'All the wayward drinkers of the world bow in devotion before you; crooked, slant, and sharp-witted, they made you their leader.'
+    },
+    {
+     tr:[
+      ['sarzad ham se be-adabi to wahshat mein bhi kam hi hui'],
+      ['koson us ki or gae par sajda har har gam kiya']
+     ],
+     ur:['سرزد ہم سے بے ادبی تو وحشت میں بھی کم ہی ہوئی','کوسوں اس کی اور گئے پر سجدہ ہر ہر گام کیا'],
+     en:'Even in frenzy, disrespect rarely slipped from me; I walked miles toward them and bowed at every single step.'
+    },
+    {
+     tr:[
+      ['kis ka kaba kaisa qibla kaun haram hai kya ehram'],
+      ['kuche ke us ke bashindon ne sab ko yahin se salam kiya']
+     ],
+     ur:['کس کا کعبہ کیسا قبلہ کون حرم ہے کیا احرام','کوچے کے اس کے باشندوں نے سب کو یہیں سے سلام کیا'],
+     en:'What Kaaba, what qibla, what sanctuary or pilgrim garb? Those who dwell in the beloved’s lane saluted them all right here.'
+    },
+    {
+     tr:[
+      ['shaikh jo hai masjid mein nanga raat ko tha mai-khane mein'],
+      ['jubba khirqa kurta topi masti mein inaam kiya']
+     ],
+     ur:['شیخ جو ہے مسجد میں ننگا رات کو تھا میخانے میں','جبہ خرقہ کرتا ٹوپی مستی میں انعام کیا'],
+     en:'The shaikh who stands bare in the mosque was at the tavern by night, giving away cloak, robe, tunic, and cap in ecstasy.'
+    },
+    {
+     tr:[
+      ['kaash ab burqa munh se utha de warna phir kya hasil hai'],
+      ['ankh munde par un ne go didar ko apne aam kiya']
+     ],
+     ur:['کاش اب برقع منہ سے اٹھا دے ورنہ پھر کیا حاصل ہے','آنکھ موندے پر ان نے گو دیدار کو اپنے عام کیا'],
+     en:'If only they would lift the veil from their face now, else what is the gain—even though with closed eyes they made their sight open to all.'
+    },
+    {
+     tr:[
+      ['yaan ke safed o siyah mein ham ko dakhl jo hai so itna hai'],
+      ['raat ko ro ro subh kiya ya din ko jyun tyun sham kiya']
+     ],
+     ur:['یاں کے سفید و سیاہ میں ہم کو دخل جو ہے سو اتنا ہے','رات کو رو رو صبح کیا یا دن کو جوں تیوں شام کیا'],
+     en:'All the part I play in the light and dark of this world is turning night into morning with tears, or somehow bringing day to evening.'
+    },
+    {
+     tr:[
+      ['subh chaman mein us ko kahin taklif-e-hawa le aai thi'],
+      ['rukh se gul ko mol liya qamat se sarv ghulam kiya']
+     ],
+     ur:['صبح چمن میں اس کو کہیں تکلیفِ ہوا لے آئی تھی','رخ سے گل کو مول لیا قامت سے سرو غلام کیا'],
+     en:'Some urge of the morning breeze brought them to the garden at dawn; with their cheek they outdid the rose, and with their stature enslaved the cypress.'
+    },
+    {
+     tr:[
+      ['saad-e-simin donon us ke haath mein la kar chhod diye'],
+      ['bhule us ke qaul-o-qasam par haaye khayal-e-khaam kiya']
+     ],
+     ur:['ساعدِ سیمیں دونوں اس کے ہاتھ میں لا کر چھوڑ دیے','بھولے اس کے قول و قسم پر ہائے خیالِ خام کیا'],
+     en:'They placed both silver forearms into their hands and let go—alas, trusting their word and oath was an idle fancy.'
+    },
+    {
+     tr:[
+      ['kaam hue hain saare zaea har saat ki samajat se'],
+      ['istighna ki chauguni un ne jyun jyun main ibram kiya']
+     ],
+     ur:['کام ہوئے ہیں سارے ضائع ہر ساعت کی سماجت سے','استغنا کی چوگنی ان نے جوں جوں میں ابرام کیا'],
+     en:'Every effort was wasted through constant pleading; the more I persisted, fourfold grew their indifference.'
+    },
+    {
+     tr:[
+      ['aise aahu-e-ram-khurda ki wahshat khoni mushkil thi'],
+      ['sehr kiya ejaaz kiya jin logon ne tujh ko ram kiya']
+     ],
+     ur:['ایسے آہوئے رم خوردہ کی وحشت کھونی مشکل تھی','سحر کیا اعجاز کیا جن لوگوں نے تجھ کو رام کیا'],
+     en:'It was hard to tame the wildness of a startled gazelle like this; those who tamed you worked magic and miracles.'
+    },
+    {
+     tr:[
+      ['\'mir\' ke din-o-mazhab ko ab puchhte kya ho un ne to'],
+      ['qashqa khincha dair mein baitha kab ka tark islam kiya']
+     ],
+     ur:['میر کے دین و مذہب کو اب پوچھتے کیا ہو ان نے تو','قشقہ کھینچا دیر میں بیٹھا کب کا ترک اسلام کیا'],
+     en:'Why ask about Mir’s faith and creed now? Long ago they drew the forehead mark, sat in the temple, and left Islam behind.'
     }
    ]
   }
