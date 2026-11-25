@@ -186,8 +186,6 @@ const COUPLETS=[
   en:'Carrying the light of hopes in his heart, he walked on, step by step, far from the goal.',
   src:'https://www.rekhta.org/poets/nusrati/all',
   expand:{
-   title:'Gulshan-e-Ishq — On the Road of Trials',
-   form:'Dakhni Masnavi (1657)',
    couplets:[
     {
      tr:[
@@ -218,8 +216,6 @@ const COUPLETS=[
   en:'The path to fresh meaning is never closed; until the end of time, the door of poetry stands open.',
   src:'https://www.rekhta.org/poets/wali-dakni/couplets',
   expand:{
-   title:'Raah-e-mazmoon-e-taaza band nahin',
-   form:'Ghazal — Divan-e-Wali',
    couplets:[
     {
      tr:[
@@ -236,6 +232,14 @@ const COUPLETS=[
      ],
      ur:['صبحِ زلفوں کا تجھ سے وعدہ ہے','شامِ چشماں کا تجھ سے اقرار ہے'],
      en:'There is a promise from you for the morning of dark tresses, and a pledge from you for the evening of eyes.'
+    },
+    {
+     tr:[
+      ['tujh ',{t:'jamal',g:'beauty, radiance'},' ki ',{t:'taarif',g:'praise, description'},' mein ',{t:'wali',g:'Wali'},''],
+      ['har ',{t:'sukhan',g:'word, verse'},' ek ',{t:'noor',g:'light, lustre'},' ban gaya']
+     ],
+     ur:['تجھ جمال کی تعریف میں ولی','ہر سخن اک نور بن گیا'],
+     en:'In praise of your beauty, Wali, every line of verse has become a beam of light.'
     },
     {
      tr:[
@@ -258,8 +262,6 @@ const COUPLETS=[
   en:'We hold out hope for loyalty from those who don\u2019t even know what loyalty is.',
   src:'https://www.rekhta.org/poets/mir-taqi-mir/ghazals',
   expand:{
-   title:'Ham ko un se hai wafa ki ummeed',
-   form:'Ghazal',
    couplets:[
     {
      tr:[
@@ -276,6 +278,22 @@ const COUPLETS=[
      ],
      ur:['ہاں بھلا کر تری حیا کا شمار','گھر میں آیا وہ اور غصہ نہ تھا'],
      en:'Indeed, let us count your modesty: they came into the house, and there was no anger at all.'
+    },
+    {
+     tr:[
+      ['na suno gar bura kahe koi'],
+      ['na kaho gar bura kare koi']
+     ],
+     ur:['نہ سنو گر برا کہے کوئی','نہ کہو گر برا کرے کوئی'],
+     en:'Do not listen if someone speaks ill, and do not speak ill if someone does wrong.'
+    },
+    {
+     tr:[
+      ['roknay ko to ',{t:'rok',g:'stop, restraint'},' lete par'],
+      ['kis tarah hum se ',{t:'rukta',g:'held back'},' dil ']
+     ],
+     ur:['روکنے کو تو روک لیتے پر','کس طرح ہم سے رکتا دل'],
+     en:'We could have tried to hold it back, yet how could the heart stay restrained in us?'
     },
     {
      tr:[
@@ -307,8 +325,6 @@ const COUPLETS=[
   en:'Hoping someday to become a flower, every bud sits holding its life in its fist.',
   src:'https://www.rekhta.org/poets/mah-laqa-chanda/couplets',
   expand:{
-   title:'Gul ke hone ki tawaqqo pe jiye baiThi hai',
-   form:'Ghazal — Gulzar-e-Mah Laqa',
    couplets:[
     {
      tr:[
@@ -325,6 +341,14 @@ const COUPLETS=[
      ],
      ur:['صبا آتی ہے تو پیغام لیے آتی ہے','کہ گلستاں میں پھر بہار آئی ہے'],
      en:'When the morning breeze arrives, it brings the news that spring has returned to the garden.'
+    },
+    {
+     tr:[
+      ['shabnam ke ',{t:'qatre',g:'drops, dewdrops'},' bhi ',{t:'chamak',g:'gleam, sparkle'},' uthe'],
+      ['jab ',{t:'subh',g:'morning, dawn'},' ki ',{t:'kiran',g:'ray, beam'},' ne chhua']
+     ],
+     ur:['شبنم کے قطرے بھی چمک اٹھے','جب صبح کی کرن نے چھوا'],
+     en:'Even the drops of dew began to sparkle when the first ray of morning touched them.'
     },
     {
      tr:[
@@ -349,8 +373,6 @@ const COUPLETS=[
   en:'When I had no real awareness of my own state, I watched others\u2019 flaws and merits; once my gaze fell on my own shortcomings, no one else looked bad to me.',
   src:'https://www.rekhta.org/poets/bahadur-shah-zafar/ghazals',
   expand:{
-   title:'Na thi haal ki jab hamein apni khabar',
-   form:'Ghazal — Divan-e-Zafar',
    couplets:[
     {
      tr:[
@@ -367,6 +389,14 @@ const COUPLETS=[
      ],
      ur:['پڑی اپنی برائیوں پر جو نظر','تو نگاہ میں کوئی برا نہ رہا'],
      en:'Once my gaze fell on my own shortcomings, no one else looked bad to me.'
+    },
+    {
+     tr:[
+      ['jo guzar gayi so guzar gayi'],
+      ['ab us ka ',{t:'shikwa',g:'complaint'},' kya karein']
+     ],
+     ur:['جو گزر گئی سو گزر گئی','اب اس کا شکوہ کیا کریں'],
+     en:'What has passed has passed; what complaint can we make about it now?'
     },
     {
      tr:[
@@ -389,8 +419,6 @@ const COUPLETS=[
   en:'Thousands of desires, each one worth dying for. Many of my wishes came true, and still it was too few.',
   src:'https://www.rekhta.org/poets/mirza-ghalib/ghazals',
   expand:{
-   title:'Hazaaron khwahishen aisi',
-   form:'Ghazal — Divan-e-Ghalib',
    couplets:[
     {
      tr:[
@@ -410,16 +438,63 @@ const COUPLETS=[
     },
     {
      tr:[
-      ['ghalib ke ',{t:'andaz-e-bayan',g:'style of expression'},' aur hain'],
-      ['jo sunta hai woh ',{t:'hairaan',g:'amazed, astonished'},' reh jaata hai']
+      ['nikalna ',{t:'khuld',g:'paradise, heaven'},' se aadam ka sunte aaye hain lekin'],
+      ['bahut be-abru hokar tere kooche se ham nikle']
      ],
-     ur:['غالب کے اندازِ بیاں اور ہیں','جو سنتا ہے وہ حیران رہ جاتا ہے'],
-     en:'Ghalib\u2019s way of speaking is of another kind; whoever hears it is left astonished.'
+     ur:['نکلنا خلد سے آدم کا سنتے آئے ہیں لیکن','بہت بے آبرو ہو کر ترے کوچے سے ہم نکلے'],
+     en:'We have heard the tale of Adam leaving paradise, yet it was with deep disgrace that we came out of your lane.'
+    },
+    {
+     tr:[
+      ['bharam khul jaaye zaalim teri ',{t:'qaamat',g:'stature, height'},' ki daraazi ka'],
+      ['agar is turra-e-pur-pech o kham ka pech o kham nikle']
+     ],
+     ur:['بھرم کھل جائے ظالم تری قامت کی درازی کا','اگر اس طرۂ پر پیچ و خم کا پیچ و خم نکلے'],
+     en:'Cruel one, the illusion of your towering stature would break if every twist and curl of this tangled lock were unwound.'
+    },
+    {
+     tr:[
+      ['magar likhvaaye koi us ko khat to ham se likhvaaye'],
+      ['ke subh-o-shaam ka ',{t:'kaaghaz',g:'paper'},' mein naqsh-e-paa-e-ham nikle']
+     ],
+     ur:['مگر لکھوائے کوئی اس کو خط تو ہم سے لکھوائے','کہ صبح و شام کا کاغذ میں نقشِ پاے ہم نکلے'],
+     en:'Let someone have a letter written to them through us—so that morning and evening our footsteps appear upon the page.'
+    },
+    {
+     tr:[
+      ['hui is daur mein mansoob mujh se baada-aashaami'],
+      ['ke phir aaya woh zamaana jo jahaan mein ',{t:'jaam',g:'goblet, wine-cup'},' nikle']
+     ],
+     ur:['ہوئی اس دور میں منسوب مجھ سے بادہ آشامی','کہ پھر آیا وہ زمانہ جو جہاں میں جام نکلے'],
+     en:'Wine-drinking became associated with me in an age that brought forth the cup into the world once more.'
+    },
+    {
+     tr:[
+      ['hui jin se ',{t:'tawaqqo',g:'hope, expectation'},' ',{t:'khastagi',g:'woundedness, affliction'},' ki ',{t:'daad',g:'redress, recognition'},' paane ki'],
+      ['woh ham se bhi ziyada ',{t:'khasta-e-tegh-e-sitam',g:'wounded by the sword of tyranny'},' nikle']
+     ],
+     ur:['ہوئی جن سے توقع خستگی کی داد پانے کی','وہ ہم سے بھی زیادہ خستۂ تیغِ ستم نکلے'],
+     en:'Those from whom we expected recognition of our grief turned out even more wounded by the sword of tyranny than we were.'
+    },
+    {
+     tr:[
+      ['zara kar zor seene par ke ',{t:'teer-e-pur-sitam',g:'cruel arrow'},' nikle'],
+      ['jo nikle to dil nikle, jo dil nikle to dam nikle']
+     ],
+     ur:['ذرا کر زور سینے پر کہ تیرِ پر ستم نکلے','جو نکلے تو دل نکلے جو دل نکلے تو دم نکلے'],
+     en:'Press a little harder against the chest so the cruel arrow comes out—if it comes out, the heart comes out; if the heart comes out, breath leaves.'
+    },
+    {
+     tr:[
+      ['ghalib aur kahaan ',{t:'waiz',g:'preacher'},' par itna jaante hain kal'],
+      ['woh jaata tha ke ham nikle']
+     ],
+     ur:['غالب اور کہاں واعظ پر اتنا جانتے ہیں کل','وہ جاتا تھا کہ ہم نکلے'],
+     en:'Where else, Ghalib, would the preacher go? Yet this much we know: yesterday he was going in just as we came out.'
     }
    ]
   }
  },
- 
  {id:'daagh1',p:'daagh',
   tr:[
    [{t:'lutf',g:'delight, pleasure'},' vo ',{t:'ishq',g:'love, passion'},' mein paaye hain ke ',{t:'jee',g:'heart, soul'},' jaanta hai'],
@@ -429,8 +504,6 @@ const COUPLETS=[
   en:'Such delights have I found in love that only my heart knows; and such sorrows have I borne that only my heart knows.',
   src:'https://www.rekhta.org/poets/daagh-dehlvi/ghazals',
   expand:{
-   title:'Lutf vo ishq mein paaye hain',
-   form:'Ghazal',
    couplets:[
     {
      tr:[
@@ -447,6 +520,14 @@ const COUPLETS=[
      ],
      ur:['ان کی محفل میں جو شام گزری ہے','وہ صبح کے نور سے بھی روشن تھی'],
      en:'The evening spent in their gathering was brighter even than the light of morning.'
+    },
+    {
+     tr:[
+      ['ham ne to ',{t:'wada-e-deedar',g:'promise of a glimpse'},' ka ',{t:'intezaar',g:'waiting, anticipation'},' kiya'],
+      ['woh aaye ya na aaye par ',{t:'dil',g:'heart'},' ',{t:'beqarar',g:'restless, impatient'},' raha']
+     ],
+     ur:['ہم نے تو وعدۂ دیدار کا انتظار کیا','وہ آئے یا نہ آئے پر دل بے قرار رہا'],
+     en:'We waited for the promised glimpse; whether they came or not, the heart remained restless.'
     },
     {
      tr:[
@@ -469,8 +550,6 @@ const COUPLETS=[
   en:'Raise your selfhood so high that before every decree of fate, God himself asks you: what do you want?',
   src:'https://en.wikipedia.org/wiki/The_Call_of_the_Marching_Bell',
   expand:{
-   title:'Khudi ko kar buland itna',
-   form:'Ghazal — Bal-e-Jibril (1935)',
    couplets:[
     {
      tr:[
@@ -487,6 +566,14 @@ const COUPLETS=[
      ],
      ur:['مقامِ گفتگو کیا ہے اگر دل میں یقین ہو','تو خطرہ بھی سلامتی کا پیغام بن جاتا ہے'],
      en:'What room is there for doubt if there is conviction in the heart? Even danger becomes a messenger of safety.'
+    },
+    {
+     tr:[
+      ['shab-e-tareek mein bhi ',{t:'sitara',g:'star'},' raah dikhata hai'],
+      ['jo ',{t:'khudi',g:'selfhood'},' ko pehchane woh ',{t:'manzil',g:'destination, goal'},' paata hai']
+     ],
+     ur:['شبِ تاریک میں بھی ستارہ راہ دکھاتا ہے','جو خودی کو پہچانے وہ منزل پاتا ہے'],
+     en:'Even in the dark night a star shows the way; whoever knows their selfhood reaches the destination.'
     },
     {
      tr:[
@@ -509,8 +596,6 @@ const COUPLETS=[
   en:'Love is not easy—understand just this much: it is a river of fire, and one must go through it by drowning.',
   src:'https://www.rekhta.org/poets/jigar-moradabadi/ghazals',
   expand:{
-   title:'Ye ishq nahin aasaan',
-   form:'Ghazal — Atish-e-Gul',
    couplets:[
     {
      tr:[
@@ -527,6 +612,14 @@ const COUPLETS=[
      ],
      ur:['ہر قدم پر امتحان ہے اس راہ میں','جو ہار نہ مانے وہی منزل پاتا ہے'],
      en:'At every step along this path there is a test; only the one who does not surrender reaches the goal.'
+    },
+    {
+     tr:[
+      ['khud ko mita kar hi ',{t:'hasti',g:'existence, being'},' milti hai'],
+      ['ye ',{t:'raz-e-mohabbat',g:'secret of love'},' har kisi ko ',{t:'samajh',g:'understanding'},' aata nahin']
+     ],
+     ur:['خود کو مٹا کر ہی ہستی ملتی ہے','یہ رازِ محبت ہر کسی کو سمجھ آتا نہیں'],
+     en:'True being is found only by letting go of self; this secret of love is not understood by everyone.'
     },
     {
      tr:[
@@ -549,8 +642,6 @@ const COUPLETS=[
   en:'For a long time now, not even a memory of you has come to me—and yet it is not as though I have forgotten you.',
   src:'https://www.rekhta.org/poets/firaq-gorakhpuri/ghazals',
   expand:{
-   title:'Ek muddat se teri yaad bhi aai na hamein',
-   form:'Ghazal — Gul-e-Naghma',
    couplets:[
     {
      tr:[
@@ -567,6 +658,14 @@ const COUPLETS=[
      ],
      ur:['رات بھر تارے گن کر صبح ہوتی ہے','اور تنہائی میں خاموشی بولتی ہے'],
      en:'Counting stars all night long brings the morning, while silence speaks inside solitude.'
+    },
+    {
+     tr:[
+      ['bheeni bheeni si ',{t:'khushboo',g:'fragrance, scent'},' hawa mein hai'],
+      ['jaise kisi ki ',{t:'aamad',g:'arrival, coming'},' ki ',{t:'khabar',g:'news, hint'},' ho']
+     ],
+     ur:['بھینی بھینی سی خوشبو ہوا میں ہے','جیسے کسی کی آمد کی خبر ہو'],
+     en:'A gentle fragrance lingers in the air, as if bringing word of someone’s arrival.'
     },
     {
      tr:[
@@ -588,8 +687,6 @@ const COUPLETS=[
   en:'The heart isn\'t hopeless, only disappointed/unfulfilled; the evening of grief is long, yet it is still only an evening.',
   src:'https://www.rekhta.org/ebooks/detail/naqsh-e-faryadi-faiz-ahmad-faiz-ebooks-5',
   expand:{
-   title:'Dil na-umeed to nahin nakaam hi to hai',
-   form:'Ghazal — Naqsh-e-Faryadi (1941)',
    couplets:[
     {
      tr:[
@@ -606,6 +703,14 @@ const COUPLETS=[
      ],
      ur:['جب صبح آئے گی تو ظلمت مٹ جائے گی','اور زنجیر بھی نغمہ بن جائے گی'],
      en:'When morning comes, the darkness will fade, and even the chain will turn into a song.'
+    },
+    {
+     tr:[
+      ['waqt-e-rukhsat to ',{t:'bidaai',g:'farewell, departure'},' ka hai par'],
+      ['dil ki ',{t:'dhadkan',g:'heartbeat'},' mein ',{t:'raqs-e-saba',g:'dance of the morning breeze'},' hai']
+     ],
+     ur:['وقتِ رخصت تو بدائی کا ہے پر','دل کی دھڑکن میں رقصِ صبا ہے'],
+     en:'The hour is one of departure, yet in the heart’s beat moves the dance of the morning breeze.'
     },
     {
      tr:[
@@ -627,8 +732,6 @@ const COUPLETS=[
   en:'Why are you smiling like this—what sorrow are you trying to hide?',
   src:'https://www.rekhta.org/poets/kaifi-azmi/ghazals',
   expand:{
-   title:'Tum itna jo muskura rahe ho',
-   form:'Ghazal — Kaifi Azmi',
    couplets:[
     {
      tr:[
@@ -648,6 +751,14 @@ const COUPLETS=[
     },
     {
      tr:[
+      ['pather ki ',{t:'deewaron',g:'walls'},' mein bhi ',{t:'sada',g:'echo, voice'},' hai'],
+      ['tum kyun ',{t:'khamoshi',g:'silence'},' ko ',{t:'orha',g:'wrapped around'},' rahe ho']
+     ],
+     ur:['پتھر کی دیواروں میں بھی صدا ہے','تم کیوں خاموشی کو اوڑھا رہے ہو'],
+     en:'Even walls of stone hold an echo—why do you keep wrapping yourself in silence?'
+    },
+    {
+     tr:[
       ['kaifi har ',{t:'chehre',g:'face'},' ke peeche ek ',{t:'kahani',g:'story'},' hai'],
       ['jo ',{t:'waqt',g:'time'},' ke saath ',{t:'khulti',g:'opens, unfolds'},' chali jaati hai']
      ],
@@ -663,12 +774,10 @@ const COUPLETS=[
    [{t:'dil',g:'heart'},' ',{t:'cheez',g:'thing'},' kya hai aap meri ',{t:'jaan',g:'life'},' lijiye'],
    ['bas ek baar mera kaha maan lijiye']
   ],
-  ur:['دل چیز کیا ہے آپ میری جان لیجیے','بس ایک بار مرا کہا مان لیجیے'],
+  ur:['دل چیز کیا ہے آپ میری جان لیجیے','بس اک بار مرا کہا مان لیجیے'],
   en:'What is a heart\u2014take my very life instead; just once, agree to what I ask.',
   src:'https://www.rekhta.org/poets/shahryar/all',
   expand:{
-   title:'Dil cheez kya hai aap meri jaan lijiye',
-   form:'Ghazal — Khwab Ka Dar Band Hai',
    couplets:[
     {
      tr:[
@@ -685,6 +794,14 @@ const COUPLETS=[
      ],
      ur:['خوابوں کے در بند ہوں تو بھی آہٹ سنائی دیتی ہے','کہ یاد کسی کی خاموشی میں بھی بستی ہے'],
      en:'Even when the doors of dreams are shut, a faint footstep is heard—a memory dwells even in silence.'
+    },
+    {
+     tr:[
+      ['kuchh ',{t:'khwaab',g:'dreams'},' adhure reh jaate hain'],
+      ['par un ki ',{t:'roshni',g:'light, glow'},' ',{t:'baqi',g:'remaining, enduring'},' rehti hai']
+     ],
+     ur:['کچھ خواب ادھورے رہ جاتے ہیں','پر ان کی روشنی باقی رہتی ہے'],
+     en:'Some dreams remain incomplete, yet their glow lingers on.'
     },
     {
      tr:[
@@ -707,8 +824,6 @@ const COUPLETS=[
   en:'No one ever gets a complete world; somewhere the earth is missing, somewhere the sky.',
   src:'https://www.rekhta.org/poets/nida-fazli/ghazals',
   expand:{
-   title:'Kabhi kisi ko mukammal jahan nahin milta',
-   form:'Ghazal — Nida Fazli',
    couplets:[
     {
      tr:[
@@ -725,6 +840,14 @@ const COUPLETS=[
      ],
      ur:['ہر سفر میں اک نیا موڑ آتا ہے','ہر قدم پر اک نیا سوال آتا ہے'],
      en:'At every stage of the journey a new turn appears; at every step a new question arises.'
+    },
+    {
+     tr:[
+      ['ghar se niklo to ',{t:'saya',g:'shadow'},' saath chalta hai'],
+      ['shaam dhale to woh bhi ',{t:'kho',g:'lost, disappears'},' jaata hai']
+     ],
+     ur:['گھر سے نکلو تو سایہ ساتھ چلتا ہے','شام ڈھلے تو وہ بھی کھو جاتا ہے'],
+     en:'Step out of the house and your shadow walks beside you; as evening falls, even that slips away.'
     },
     {
      tr:[
