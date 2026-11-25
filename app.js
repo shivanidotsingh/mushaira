@@ -103,7 +103,6 @@ function coupletBlockHTML(c){
     +'<p class="u" lang="ur" dir="rtl">'+c.ur.map(l=>'<span>'+esc(l)+'</span>').join('')+'</p>'
     +'</div>';
 }
-
 function renderCouplets(isTl){
   const cs=COUPLETS.filter(c=>c.p===POETS[focus].id);
   if(!cs.length)return '<p class="sm todo">No couplets yet.</p>';
@@ -112,13 +111,7 @@ function renderCouplets(isTl){
   }
   return cs.map(c=>{
     const list=(c.expand&&Array.isArray(c.expand.couplets)&&c.expand.couplets.length)?c.expand.couplets:[c];
-    const head=(c.expand&&(c.expand.title||c.expand.form))
-      ?'<div class="poem-meta">'
-        +(c.expand.title?'<div class="poem-title">'+esc(c.expand.title)+'</div>':'')
-        +(c.expand.form?'<div class="poem-form">'+esc(c.expand.form)+'</div>':'')
-        +'</div>'
-      :'';
-    return head+'<div class="cps">'+list.map(coupletBlockHTML).join('')+'</div>';
+    return '<div class="cps">'+list.map(coupletBlockHTML).join('')+'</div>';
   }).join('');
 }
 
