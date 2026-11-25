@@ -376,29 +376,29 @@ const COUPLETS=[
  
  {id:'mir1',p:'mir',
   tr:[
-   ['ham ko un se hai ',{t:'wafa',g:'loyalty, faithfulness'},' ki ',{t:'ummeed',g:'hope, expectation'}],
-   ['jo nahin jaante wafa kya hai']
+   ['ultee ho gayeen sab ',{t:'tadbeeren',g:'plans, contrivances, remedies'},' kuchh na dawaa ne kaam kiya'],
+   ['dekha is ',{t:'bimaari-e-dil',g:'malady of the heart, lovesickness'},' ne aakhir kaam tamam kiya']
   ],
-  ur:['ہم کو ان سے ہے وفا کی امید','جو نہیں جانتے وفا کیا ہے'],
-  en:'We hold out hope for loyalty from those who don\u2019t even know what loyalty is.',
+  ur:['الٹی ہو گئیں سب تدبیریں کچھ نہ دوا نے کام کیا','دیکھا اس بیماریِ دل نے آخر کام تمام کیا'],
+  en:'Every plan turned upside down, and no remedy worked; at last this malady of the heart finished its work.',
   src:'https://www.rekhta.org/poets/mir-taqi-mir/ghazals',
   expand:{
    couplets:[
     {
      tr:[
-      ['ham ko un se hai ',{t:'wafa',g:'loyalty, faithfulness'},' ki ',{t:'ummeed',g:'hope, expectation'}],
-      ['jo nahin jaante wafa kya hai']
+      ['ultee ho gayeen sab ',{t:'tadbeeren',g:'plans, contrivances, remedies'},' kuchh na dawaa ne kaam kiya'],
+      ['dekha is ',{t:'bimaari-e-dil',g:'malady of the heart, lovesickness'},' ne aakhir kaam tamam kiya']
      ],
-     ur:['ہم کو ان سے ہے وفا کی امید','جو نہیں جانتے وفا کیا ہے'],
-     en:'We hold out hope for loyalty from those who don\u2019t even know what loyalty is.'
+     ur:['الٹی ہو گئیں سب تدبیریں کچھ نہ دوا نے کام کیا','دیکھا اس بیماریِ دل نے آخر کام تمام کیا'],
+     en:'Every plan turned upside down, and no remedy worked; at last this malady of the heart finished its work.'
     },
     {
      tr:[
-      ['haan bhala kar teri ',{t:'haya',g:'modesty, restraint'},' ka ',{t:'shumar',g:'count, reckoning'}],
-      ['ghar mein aaya woh aur ',{t:'ghussa',g:'anger'},' na tha']
+      ['aankh jo dekha to ',{t:'bahaar',g:'spring, bloom'},' aayi thi'],
+      ['dil jo dekha to ',{t:'khizaan',g:'autumn, decay'},' nikli hai']
      ],
-     ur:['ہاں بھلا کر تری حیا کا شمار','گھر میں آیا وہ اور غصہ نہ تھا'],
-     en:'Indeed, let us count your modesty: they came into the house, and there was no anger at all.'
+     ur:['آنکھ جو دیکھا تو بہار آئی تھی','دل جو دیکھا تو خزاں نکلی ہے'],
+     en:'When I looked at the eyes, spring seemed to have arrived; when I looked into the heart, it turned out to be autumn.'
     },
     {
      tr:[
@@ -407,22 +407,6 @@ const COUPLETS=[
      ],
      ur:['نہ سنو گر برا کہے کوئی','نہ کہو گر برا کرے کوئی'],
      en:'Do not listen if someone speaks ill, and do not speak ill if someone does wrong.'
-    },
-    {
-     tr:[
-      ['roknay ko to ',{t:'rok',g:'stop, restraint'},' lete par'],
-      ['kis tarah hum se ',{t:'rukta',g:'held back'},' dil ']
-     ],
-     ur:['روکنے کو تو روک لیتے پر','کس طرح ہم سے رکتا دل'],
-     en:'We could have tried to hold it back, yet how could the heart stay restrained in us?'
-    },
-    {
-     tr:[
-      ['mir ke ',{t:'sher',g:'couplet, verse'},' kya hue ',{t:'bayan',g:'account, narration'}],
-      ['yun hi kuchh gham ke darmiyan se ',{t:'nikle',g:'emerged, came out'}]
-     ],
-     ur:['میر کے شعر کیا ہوئے بیاں','یوں ہی کچھ غم کے درمیاں سے نکلے'],
-     en:'What else could Mir\u2019s couplets be? They simply emerged out of the midst of grief.'
     }
    ]
   }
