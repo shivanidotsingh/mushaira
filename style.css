@@ -63,7 +63,7 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 .todo{opacity:.65;font-style:italic}
 
 /* Couplets first inside detail, with English left-aligned and Urdu right-aligned inside */
-.cps{display:flex;flex-direction:column;gap:1rem;width:min(25rem,100%);margin:0 auto}
+.cps{display:flex;flex-direction:column;gap:1rem;width:min(27rem,100%);margin:0 auto}
 .cp{margin:0}
 .cp .tr{margin:0;text-align:left;font-size:clamp(.65rem,1.15vw,.95rem);font-weight:400;line-height:1.45}
 .cp .tr>span{display:block}
@@ -92,7 +92,7 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 .poets.stk .scroller{grid-column:1 / -1;grid-row:1}
 .poets.stk .detail{grid-column:2;grid-row:2;align-self:start;justify-self:center;width:100%;margin-top:0;padding:1.75rem 0 3rem}
 .poets.stk .detail h2,.poets.stk .detail>.tags{display:none}
-.poets.stk .bio-card{display:block;grid-column:3;grid-row:2;align-self:start;justify-self:start;max-width:20rem;padding:1.75rem 1.5rem 2rem 0;text-align:left}
+.poets.stk .bio-card{display:block;grid-column:3;grid-row:2;align-self:start;justify-self:start;max-width:20rem;padding:1.85rem 1.5rem 2rem 0;text-align:left}
 .bio-card .bio-poet{font:700 1.05rem/1.2 var(--serif);margin-bottom:.5rem}
 .bio-card .bio{max-height:none;opacity:.9;margin:0 0 .85rem}
 .bio-card .tags{justify-content:flex-start}
