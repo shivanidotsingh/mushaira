@@ -200,6 +200,7 @@ function setMode(v){
 }
 
 $('#detail').addEventListener('click',e=>{
+  if(e.target.closest('.cps,.cp,h2,.tags,.mob-note'))return;
   if(e.target.closest('.unfold')){
     setMode(mode==='mushaira'?'timeline':'mushaira');
   }
