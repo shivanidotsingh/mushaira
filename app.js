@@ -116,23 +116,11 @@ function activePoem(){
   return cs[poemIdx];
 }
 
-function poemLabel(c,idx){
-  if(c&&c.title)return c.title;
-  const first=c&&c.tr&&c.tr[0];
-  if(first){
-    const txt=(Array.isArray(first)?first:[first])
-      .map(s=>typeof s==='string'?s:(s&&s.t)||'')
-      .join('').trim();
-    if(txt)return txt;
-  }
-  return 'Poem '+(idx+1);
-}
-
-function renderPoemNavHTML(cs){
-  if(mode!=='timeline'||!cs||cs.length<2)return '';
-  return '<nav class="poem-nav" aria-label="Poems">'
-    +cs.map((c,idx)=>'<button type="button" class="poem-item" data-poem="'+idx+'" aria-current="'+(idx===poemIdx)+'">'+esc(poemLabel(c,idx))+'</button>').join('')
-    +'</nav>';
+function renderPoemDotsHTML(cs){
+  if(!cs||cs.length<2)return '';
+  return '<div class="poem-dots" role="group" aria-label="Poems">'
+    +cs.map((c,idx)=>'<button type="button" class="poem-dot" data-poem="'+idx+'" aria-label="Poem '+(idx+1)+'" aria-current="'+(idx===poemIdx)+'" title="Poem '+(idx+1)+'"></button>').join('')
+    +'</div>';
 }
 
 function renderFormPillHTML(c){
@@ -152,10 +140,10 @@ function renderCouplets(isTl){
   if(!cs.length)return '<p class="sm todo">No couplets yet.</p>';
   const cur=activePoem()||cs[0];
   if(!isTl){
-    return '<div class="cps">'+coupletBlockHTML(cur)+'</div>';
+    return '<div class="cps">'+coupletBlockHTML(cur)+'</div>'+renderPoemDotsHTML(cs);
   }
   const list=(cur.expand&&Array.isArray(cur.expand.couplets)&&cur.expand.couplets.length)?cur.expand.couplets:[cur];
-  return '<div class="cps">'+list.map(coupletBlockHTML).join('')+'</div>';
+  return '<div class="cps">'+list.map(coupletBlockHTML).join('')+'</div>'+renderPoemDotsHTML(cs);
 }
 
 function renderWorkTag(w){
@@ -169,10 +157,8 @@ function renderWorkTag(w){
 function renderBioCard(p){
   const card=$('#bio-card');
   if(!card)return;
-  const cs=poetCouplets();
   const c=activePoem();
-  card.innerHTML=renderPoemNavHTML(cs)
-    +'<div class="bio-poet">'+esc(p.name)+' <span class="h-yr">'+esc(p.y)+'</span></div>'
+  card.innerHTML='<div class="bio-poet">'+esc(p.name)+' <span class="h-yr">'+esc(p.y)+'</span></div>'
     +(p.bio?'<p class="bio">'+esc(p.bio)+'</p>':'')
     +'<ul class="tags">'+renderFormPillHTML(c)+p.works.map(renderWorkTag).join('')+'</ul>'
     +renderFormNoteHTML(c);
@@ -264,9 +250,9 @@ document.addEventListener('keydown',e=>{
 });
 
 document.addEventListener('click',e=>{
-  const pi=e.target.closest('.poem-nav button[data-poem]');
-  if(pi){
-    poemIdx=+pi.dataset.poem;
+  const pd=e.target.closest('.poem-dot[data-poem]');
+  if(pd){
+    poemIdx=+pd.dataset.poem;
     formOpen=false;
     renderDetail();
     return;
