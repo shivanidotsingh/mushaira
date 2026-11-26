@@ -119,6 +119,10 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 .unfold:hover,.unfold:focus-visible{opacity:1}
 .unfold svg{width:16px;height:16px;stroke:currentColor;stroke-width:1.35;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s ease}
 .tl .unfold svg{transform:rotate(180deg)}
+.tl .unfold,
+.is-tl .unfold{
+  display:none;
+}
 
 /* Expanded / timeline layout: true horizontal center for couplets + side bio slot */
 .bio-card{display:none}
