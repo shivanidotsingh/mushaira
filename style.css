@@ -131,46 +131,31 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 .bio-card .bio{max-height:none;opacity:.9;margin:0 0 .85rem}
 .bio-card .tags{justify-content:flex-start}
 
-.poem-pager{
+.poem-dots{
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:.6rem;
-  margin-bottom:.75rem;
-  padding-bottom:.45rem;
-  border-bottom:1px solid color-mix(in srgb, var(--fg) 20%, transparent);
-  font-size:.82rem;
+  justify-content:center;
+  gap:.45rem;
+  margin-top:.85rem;
 }
-.poem-pager-title{
-  flex:1;
-  min-width:0;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  opacity:.82;
-}
-.poem-pager-ctrls{
-  display:inline-flex;
-  align-items:center;
-  gap:.35rem;
-}
-.poem-pager button{
-  font:inherit;
-  font-size:.78rem;
-  padding:.18rem .5rem;
+.poem-dot{
+  width:.5rem;
+  height:.5rem;
+  padding:0;
   border-radius:999px;
-  border:1px solid color-mix(in srgb, var(--fg) 45%, transparent);
+  border:1px solid var(--fg);
   background:transparent;
-  color:inherit;
   cursor:pointer;
+  opacity:.45;
+  transition:opacity .18s ease, background-color .18s ease, transform .18s ease;
 }
-.poem-pager button:hover{
+.poem-dot:hover{
+  opacity:.85;
+}
+.poem-dot[aria-current="true"]{
   background:var(--fg);
-  color:var(--bg);
-}
-.poem-pager-idx{
-  font-variant-numeric:tabular-nums;
-  opacity:.75;
+  opacity:1;
+  transform:scale(1.15);
 }
 
 @media (max-width:1080px){
