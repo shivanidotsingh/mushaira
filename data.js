@@ -409,7 +409,7 @@ const COUPLETS=[
   }
  },
  
- {id:'mir1',p:'mir',
+ {id:'mir1',p:'mir', form:'ghazal',
   tr:[
    ['ulti ho gain sab ',{t:'tadbeeren',g:'plans, remedies, contrivances'},' kuchh na ',{t:'dawaa',g:'medicine, cure'},' ne kaam kiya'],
    ['dekha is ',{t:'bimaari-e-dil',g:'malady of the heart, lovesickness'},' ne aakhir kaam ',{t:'tamam',g:'complete, finished'},' kiya']
@@ -589,7 +589,7 @@ const COUPLETS=[
   }
  },
 
- {id:'mahlaqa1',p:'mahlaqa',
+ {id:'mahlaqa1',p:'mahlaqa', form:'ghazal',
   tr:[
    [{t:'gul',g:'flower, rose'},' ke hone ki ',{t:'tawaqqo',g:'hope, expectation'},' pe jiye baithi hai'],
    ['har ',{t:'kali',g:'bud'},' ',{t:'jaan',g:'life'},' ko ',{t:'mutthi',g:'fist'},' mein liye baithi hai']
@@ -635,7 +635,7 @@ const COUPLETS=[
   }
  },
  
- {id:'zafar1',p:'zafar',
+ {id:'zafar1',p:'zafar', form:'ghazal',
   tr:[
    ['na thi haal ki jab hamein apni ',{t:'khabar',g:'awareness, news'}],
    ['rahe dekhte auron ke ',{t:'aib',g:'flaws, faults'},' o ',{t:'hunar',g:'skills, merits'}],
@@ -683,7 +683,7 @@ const COUPLETS=[
   }
  },
  
- {id:'ghalib1',p:'ghalib',
+ {id:'ghalib1',p:'ghalib', form:'ghazal',
   tr:[
    ['hazaaron khwahishen aisi ke har khwahish pe ',{t:'dam nikle',g:'breath leaves / one dies'}],
    ['bahut nikle mere ',{t:'armaan',g:'longings, wishes'},', lekin phir bhi kam nikle']
@@ -953,7 +953,7 @@ const COUPLETS=[
   }
  },
  
- {id:'firaq1',p:'firaq',
+ {id:'firaq1',p:'firaq', form:'ghazal',
   tr:[
    ['ek ',{t:'muddat',g:'an age, a long stretch of time'},' se teri ',{t:'yaad',g:'memory, remembrance'},' bhi aai na hamein'],
    ['aur ham bhul gae hon tujhe aisa bhi nahin']
@@ -998,7 +998,7 @@ const COUPLETS=[
    ]
   }
  },
- {id:'faiz1',p:'faiz',
+ {id:'faiz1',p:'faiz', form:'ghazal',
   tr:[
    ['dil na-umeed to nahin nakaam hi to hai'],
    ['lambi hai ',{t:'gham',g:'grief, sorrow'},' ki shaam magar shaam hi to hai']
@@ -1151,7 +1151,7 @@ const COUPLETS=[
   }
  },
  
-{id:'shahryar1',p:'shahryar',
+{id:'shahryar1',p:'shahryar', form:'ghazal',
   tr:[
    [{t:'dil',g:'heart'},' ',{t:'cheez',g:'thing'},' kya hai aap meri ',{t:'jaan',g:'life'},' lijiye'],
    ['bas ek baar mera kaha maan lijiye']
