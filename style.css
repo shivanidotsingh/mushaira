@@ -131,6 +131,48 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 .bio-card .bio{max-height:none;opacity:.9;margin:0 0 .85rem}
 .bio-card .tags{justify-content:flex-start}
 
+.poem-pager{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:.6rem;
+  margin-bottom:.75rem;
+  padding-bottom:.45rem;
+  border-bottom:1px solid color-mix(in srgb, var(--fg) 20%, transparent);
+  font-size:.82rem;
+}
+.poem-pager-title{
+  flex:1;
+  min-width:0;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  opacity:.82;
+}
+.poem-pager-ctrls{
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+}
+.poem-pager button{
+  font:inherit;
+  font-size:.78rem;
+  padding:.18rem .5rem;
+  border-radius:999px;
+  border:1px solid color-mix(in srgb, var(--fg) 45%, transparent);
+  background:transparent;
+  color:inherit;
+  cursor:pointer;
+}
+.poem-pager button:hover{
+  background:var(--fg);
+  color:var(--bg);
+}
+.poem-pager-idx{
+  font-variant-numeric:tabular-nums;
+  opacity:.75;
+}
+
 @media (max-width:1080px){
   .poets.stk{grid-template-columns:minmax(0,1fr)}
   .poets.stk .detail{grid-column:1;grid-row:2;justify-self:center;width:min(var(--hw,34rem),calc(100% - 3rem))}
