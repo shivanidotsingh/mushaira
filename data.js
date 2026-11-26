@@ -133,8 +133,8 @@ const POETS=[
   ],
   fl:{s:'curl',n:6,a:RD,b:CR,c:YL}},
 
- {id:'shahryar',name:'Shahryar',short:'Shahryar',ur:'شہریار',b:1936,y:'1936–2012',era:3,
-  bio:'Born in Aanwala and based in Aligarh, Kunwar Akhlaq Muhammad Khan \u201cShahryar\u201d brought a refined, haunting modern sensibility to the Urdu ghazal. His verses reached wide audiences through films like Umrao Jaan, where delicate longing meets memorable melody.',
+ {id:'shahryar',name:'Akhlaq Muhammad Khan',short:'Shahryar',ur:'شہریار',b:1936,y:'1936–2012',era:3,
+  bio:'Born in Bareily and based in Aligarh, Kunwar Akhlaq Muhammad Khan \u201cShahryar\u201d brought a refined, haunting modern sensibility to the Urdu ghazal. His verses reached wide audiences through films like Umrao Jaan, where delicate longing meets memorable melody.',
   works:[
    {title:'Khwab Ka Dar Band Hai',url:'https://www.rekhta.org/poets/shahryar/all'},
    {title:'Umrao Jaan (film lyrics)',url:'https://www.rekhta.org/poets/shahryar/all'}
