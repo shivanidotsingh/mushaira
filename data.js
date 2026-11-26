@@ -159,7 +159,7 @@ const FORMS={
 };
 
 const COUPLETS=[
-{id:'khusro1',p:'khusro',
+{id:'khusro1',p:'khusro', form:'qawwali',
   tr:[
    [{t:'chhaap',g:'mark, seal, identity'},' ',{t:'tilak',g:'sacred mark / adornment'},' sab chheeni re mose ',{t:'naina',g:'eyes'},' milaike'],
    ['prem bhatti ka ',{t:'madhva',g:'wine, draught'},' pilaike'],
@@ -216,7 +216,7 @@ const COUPLETS=[
   }
  },
 
- {id:'kabir1',p:'kabir',
+ {id:'kabir1',p:'kabir', form:'doha'
   tr:[
    ['haman hain ',{t:'ishq',g:'love, devotion'},' ',{t:'mastaana',g:'intoxicated, blissfully absorbed'},', haman ko ',{t:'hoshiyaari',g:'worldly cleverness, caution'},' kya?'],
    ['rahein aazaad ya ',{t:'jag',g:'the world'},' se, haman duniya se ',{t:'yaari',g:'friendship, worldly attachment'},' kya?']
@@ -543,7 +543,7 @@ const COUPLETS=[
   }
  },
  
- {id:'nazeer1',p:'nazeer',
+ {id:'nazeer1',p:'nazeer', form:'nazm',
   tr:[
    ['jab aadmi kisi ka ',{t:'talabgaar',g:'seeker, yearner'},' ho gaya'],
    ['har cheez us ke waaste ',{t:'dushwaar',g:'difficult, arduous'},' ho gaya']
@@ -814,7 +814,7 @@ const COUPLETS=[
   }
  },
  
- {id:'iqbal1',p:'iqbal',
+ {id:'iqbal1',p:'iqbal', form:'nazm',
   tr:[
    [{t:'khudi',g:'selfhood'},' ko kar ',{t:'buland',g:'exalted, high'},' itna ke har ',{t:'taqdeer',g:'decree of fate'},' se pehle'],
    ['khuda bande se khud poochhe, bata teri ',{t:'raza',g:'will, wish'},' kya hai']
@@ -1050,7 +1050,7 @@ const COUPLETS=[
   }
  },
  
- {id:'kaifi1',p:'kaifi',
+ {id:'kaifi1',p:'kaifi', form:'nazm',
   tr:[
    ['tum itna jo ',{t:'muskura',g:'smile'},' rahe ho'],
    ['kya ',{t:'gham',g:'sorrow, grief'},' hai jis ko ',{t:'chhupa',g:'hide, conceal'},' rahe ho']
@@ -1150,7 +1150,7 @@ const COUPLETS=[
   }
  },
  
- {id:'nida1',p:'nida',
+ {id:'nida1',p:'nida', form:'ghazal',
   tr:[
    ['kabhi kisi ko ',{t:'mukammal',g:'complete, whole'},' ',{t:'jahan',g:'world'},' nahin milta'],
    ['kahin ',{t:'zamin',g:'earth, ground'},' kahin ',{t:'aasman',g:'sky, heaven'},' nahin milta']
