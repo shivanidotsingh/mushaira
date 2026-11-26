@@ -671,7 +671,7 @@ const COUPLETS=[
       ['dare kyun mera qatil kya rahega us ki gardan par'],
       ['vo ḳhoon jo chashm-e-tar se umr bhar yun dam-ba-dam nikle']
      ],
-     ur:['درے گا اور کیا ہوتا جو تم مجھ کو نہ دیکھتے','کہ میں بھی آخر اک انساں تھا'],
+     ur:['ڈرے کیوں میرا قاتل کیا رہے گا اس کی گردن پر','وہ خوں جو چشمِ تر سے عمر بھر یوں دم بہ دم نکلے'],
      en:'Why should my killer fear, what will remain on their neck— that blood which flows from tearful eyes, moment by moment, all through life.'
     },
     {
@@ -695,13 +695,13 @@ const COUPLETS=[
       ['magar likhvaaye koi us ko khat to ham se likhvaaye'],
       ['hui subah aur ghar se kaan par rakh kar qalam nikle']
      ],
-     ur:['مگر لکھوائے کوئی اس کو خط تو ہم سے لکھوائے','کہ صبح و شام کا کاغذ میں نقشِ پاے ہم نکلے'],
+     ur:['مگر لکھوائے کوئی اس کو خط تو ہم سے لکھوائے','ہوئی صبح اور گھر سے کان پر رکھ کر قلم نکلے'],
      en:'Let someone have a letter written to them through us—so that morning and evening our footsteps appear upon the page.'
     },
     {
      tr:[
       ['hui is daur mein mansoob mujh se baada-aashaami'],
-      ['ke phir aaya woh zamaana jo jahaan mein ',{t:'jaam-e-jam',g:'goblet, wine-cup'},' nikle']
+      ['ke phir aaya woh zamaana jo jahaan mein ',{t:'jaam',g:'goblet, wine-cup'},' nikle']
      ],
      ur:['ہوئی اس دور میں منسوب مجھ سے بادہ آشامی','کہ پھر آیا وہ زمانہ جو جہاں میں جام نکلے'],
      en:'Wine-drinking became associated with me in an age that brought forth the cup into the world once more.'
@@ -719,7 +719,7 @@ const COUPLETS=[
       ['mohabbat mein nahin hai farq jiine aur marne ka'],
       ['usi ko dekh kar jiite hain jis kafir pe dam nikle']
      ],
-     ur:['ذرا کر زور سینے پر کہ تیرِ پر ستم نکلے','جو نکلے تو دل نکلے جو دل نکلے تو دم نکلے'],
+     ur:['محبت میں نہیں ہے فرق جینے اور مرنے کا','اسی کو دیکھ کر جیتے ہیں جس کافر پہ دم نکلے'],
      en:'Press a little harder against the chest so the cruel arrow comes out—if it comes out, the heart comes out; if the heart comes out, breath leaves.'
     },
     {
@@ -727,7 +727,7 @@ const COUPLETS=[
       ['kahan mai-ḳhane ka darvaza ghalib aur kahan vaa.iz'],
       ['par itna jaante haia kal vo jaata tha ki ham nikle']
      ],
-     ur:['غالب اور کہاں واعظ پر اتنا جانتے ہیں کل','وہ جاتا تھا کہ ہم نکلے'],
+     ur:['کہاں میخانے کا دروازہ غالب اور کہاں واعظ','پر اتنا جانتے ہیں کل وہ جاتا تھا کہ ہم نکلے'],
      en:'Where else, Ghalib, would the preacher go? Yet this much we know: yesterday he was going in just as we came out.'
     }
    ]
