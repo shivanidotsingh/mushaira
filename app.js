@@ -2,12 +2,13 @@
 const $=s=>document.querySelector(s),N=POETS.length;
 const stage=$('#stage'),poets=$('#poets'),sc=$('.scroller');
 let focus=POETS.findIndex(p=>p.id==='ghalib'),mode='mushaira',dialRot=0;
+let poemIdx=0,formOpen=false;
 const norm=a=>((a+180)%360+360)%360-180;
 
 function flowerSVG(f){
   const R=44,x=R*f.w;
   const d=f.s==='point'?'M0 0C'+x*1.6+' '+-R*.3+' '+x*1.6+' '+-R*.7+' 0 '+-R+'C'+-x*1.6+' '+-R*.7+' '+-x*1.6+' '+-R*.3+' 0 0Z'
-    :f.s==='curl'?'M0 0C'+R*.5+' '+-R*.2+' '+R*.4+' '+-R*.85+' 0 '+-R+'C'+-R*.15+' '+-R*.6+' '+-R*.2+' '+-R*.3+' 0 0Z'
+    :f.s==='curl'?'M0 0C'+R*.5+' '+-R*.2+' '+R*.4+' '+-R*.85+' 0 '+-R+'C'+-R*.15+' '+-R*.6+' '+R*.2+' '+-R*.3+' 0 0Z'
     :'M0 0C'+x*2.2+' '+-R*.1+' '+x*2.2+' '+-R*.95+' 0 '+-R+'C'+-x*2.2+' '+-R*.95+' '+-x*2.2+' '+-R*.1+' 0 0Z';
   const ring=(fill,s,off)=>Array.from({length:f.n},(_,i)=>'<path d="'+d+'" fill="'+fill+'" transform="rotate('+(i*360/f.n+off)+') scale('+s+')"/>').join('');
   return '<svg viewBox="-50 -50 100 100" aria-hidden="true"><g stroke="#1b1218" stroke-width="1.6" stroke-linejoin="round">'
@@ -103,11 +104,34 @@ function coupletBlockHTML(c){
     +'<p class="u" lang="ur" dir="rtl">'+c.ur.map(l=>'<span>'+esc(l)+'</span>').join('')+'</p>'
     +'</div>';
 }
+
+function poetCouplets(){
+  return COUPLETS.filter(c=>c.p===POETS[focus].id);
+}
+
+function activePoem(){
+  const cs=poetCouplets();
+  return cs[poemIdx]||cs[0]||null;
+}
+
+function renderFormPillHTML(c){
+  if(!c||!c.form||typeof FORMS==='undefined'||!FORMS[c.form])return '';
+  const f=FORMS[c.form];
+  return '<li class="form-pill"><button type="button" data-form="'+esc(c.form)+'" aria-expanded="'+formOpen+'" title="Click to learn about '+esc(f.label)+'">'+esc(f.label)+'</button></li>';
+}
+
+function renderFormNoteHTML(c){
+  if(!formOpen||!c||!c.form||typeof FORMS==='undefined'||!FORMS[c.form])return '';
+  const f=FORMS[c.form];
+  return '<p class="form-note"><strong>'+esc(f.label)+':</strong> '+esc(f.desc)+'</p>';
+}
+
 function renderCouplets(isTl){
-  const cs=COUPLETS.filter(c=>c.p===POETS[focus].id);
+  const cs=poetCouplets();
   if(!cs.length)return '<p class="sm todo">No couplets yet.</p>';
   if(!isTl){
-    return '<div class="cps">'+cs.map(coupletBlockHTML).join('')+'</div>';
+    const first=activePoem()||cs[0];
+    return '<div class="cps">'+coupletBlockHTML(first)+'</div>';
   }
   return cs.map(c=>{
     const list=(c.expand&&Array.isArray(c.expand.couplets)&&c.expand.couplets.length)?c.expand.couplets:[c];
@@ -126,19 +150,23 @@ function renderWorkTag(w){
 function renderBioCard(p){
   const card=$('#bio-card');
   if(!card)return;
+  const c=activePoem();
   card.innerHTML='<div class="bio-poet">'+esc(p.name)+' <span class="h-yr">'+esc(p.y)+'</span></div>'
     +(p.bio?'<p class="bio">'+esc(p.bio)+'</p>':'')
-    +'<ul class="tags">'+p.works.map(renderWorkTag).join('')+'</ul>';
+    +'<ul class="tags">'+renderFormPillHTML(c)+p.works.map(renderWorkTag).join('')+'</ul>'
+    +renderFormNoteHTML(c);
 }
 
 function renderDetail(){
   const p=POETS[focus],e=ERAS[p.era];
   document.querySelectorAll('#eranav button').forEach((b,k)=>b.setAttribute('aria-current',k===p.era));
   const isTl=mode==='timeline';
+  const c=activePoem();
   $('#detail').innerHTML=renderCouplets(isTl)
     +'<h2>'+esc(p.name)+'</h2>'
     +'<p class="mob-note">View on desktop for the full experience</p>'
-    +'<ul class="tags">'+p.works.map(renderWorkTag).join('')+'</ul>'
+    +'<ul class="tags">'+renderFormPillHTML(c)+p.works.map(renderWorkTag).join('')+'</ul>'
+    +renderFormNoteHTML(c)
     +'<button class="unfold" type="button" aria-expanded="'+isTl+'" aria-label="'+(isTl?'Collapse back to circle':'Expand into timeline')+'">'
     +'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v11M3.5 9.5 8 14l4.5-4.5"/></svg>'
     +'</button>';
@@ -149,6 +177,8 @@ function renderDetail(){
 function setFocus(j){
   if(j===focus)return;
   focus=j;
+  poemIdx=0;
+  formOpen=false;
   layout(false);
   syncNodeLabels();
   renderDetail();
@@ -204,11 +234,17 @@ window.addEventListener('wheel',e=>{
 },{passive:true});
 
 document.addEventListener('keydown',e=>{
-  const k=e.key;if(!['ArrowRight','ArrowDown','ArrowLeft','ArrowUp'].includes(k))return;
-  e.preventDefault();step(k==='ArrowRight'||k==='ArrowDown'?1:-1);nodes[focus].focus();
+  const k=e.key;if(k!=='ArrowRight'&&k!=='ArrowLeft')return;
+  e.preventDefault();step(k==='ArrowRight'?1:-1);nodes[focus].focus();
 });
 
 document.addEventListener('click',e=>{
+  const fb=e.target.closest('.form-pill button');
+  if(fb){
+    formOpen=!formOpen;
+    renderDetail();
+    return;
+  }
   const en=e.target.closest('#eranav button');
   if(en){setFocus(POETS.findIndex(p=>p.era===+en.dataset.era))}
 });
