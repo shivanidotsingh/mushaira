@@ -176,16 +176,30 @@ $('#axis').addEventListener('click',()=>{
   if(mode==='timeline')setMode('mushaira');
 });
 
-let wheelAcc=0,wheelReset;
+let wheelAcc=0,wheelReset,wheelLockUntil=0;
 window.addEventListener('wheel',e=>{
-  if(mode!=='mushaira'||innerWidth<768)return;
-  if(e.deltaY<=0){wheelAcc=0;return;}
-  wheelAcc+=e.deltaY;
-  clearTimeout(wheelReset);
-  wheelReset=setTimeout(()=>wheelAcc=0,180);
-  if(wheelAcc>140){
-    wheelAcc=0;
-    setMode('timeline');
+  if(innerWidth<768||Date.now()<wheelLockUntil)return;
+  const dy=e.deltaY;
+  if(mode==='mushaira'){
+    if(dy<=0){wheelAcc=0;return;}
+    wheelAcc+=dy;
+    clearTimeout(wheelReset);
+    wheelReset=setTimeout(()=>wheelAcc=0,180);
+    if(wheelAcc>140){
+      wheelAcc=0;
+      wheelLockUntil=Date.now()+450;
+      setMode('timeline');
+    }
+  }else if(mode==='timeline'){
+    if(dy>=0||window.scrollY>10){wheelAcc=0;return;}
+    wheelAcc+=Math.abs(dy);
+    clearTimeout(wheelReset);
+    wheelReset=setTimeout(()=>wheelAcc=0,180);
+    if(wheelAcc>140){
+      wheelAcc=0;
+      wheelLockUntil=Date.now()+450;
+      setMode('mushaira');
+    }
   }
 },{passive:true});
 
