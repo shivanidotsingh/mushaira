@@ -206,8 +206,8 @@ $('#detail').addEventListener('click',e=>{
   }
 });
 
-$('#arc').addEventListener('click',()=>{
-  if(mode==='mushaira')setMode('timeline');
+$('#arc').addEventListener('click',e=>{
+  if(mode==='mushaira'&&e.target.closest('circle'))setMode('timeline');
 });
 
 $('#axis').addEventListener('click',()=>{
