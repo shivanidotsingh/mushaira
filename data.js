@@ -262,7 +262,7 @@ const COUPLETS=[
   }
  },
 
- {id:'quli1',p:'quli',
+ {id:'quli1',p:'quli', form:'ghazal',
   tr:[
    ['piya baaj pyala piya jaaye na'],
    ['piya baaj ek ',{t:'til',g:'a moment / sesame seed'},' jiya jaaye na']
@@ -309,7 +309,7 @@ const COUPLETS=[
  },
  
  
- {id:'wali1',p:'wali',
+ {id:'wali1',p:'wali', form:'ghazal',
   tr:[
    ['raah-e-',{t:'mazmoon-e-taaza',g:'fresh theme, new meaning'},' band nahin'],
    ['ta ',{t:'qayamat',g:'end of time, resurrection'},' khula hai ',{t:'baab-e-sukhan',g:'door of speech, poetry'}]
