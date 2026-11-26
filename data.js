@@ -61,7 +61,7 @@ const POETS=[
    {title:'Aadmi-nama',url:'https://www.rekhta.org/poets/nazeer-akbarabadi/all'}
   ],
   fl:{s:'curl',n:7,a:PK,c:YL}},
- {id:'mahlaqa',name:'Mah Laqa Bai Chanda',short:'Mah Laqa',ur:'ماہ لقا بائی چندا',b:1768,y:'1768–1824',era:1,
+ {id:'mahlaqa',name:'Mah Laqa Bai Chanda',short:'Chanda',ur:'ماہ لقا بائی چندا',b:1768,y:'1768–1824',era:1,
   bio:'A celebrated courtesan, diplomat, and patron of the arts at the Nizam\u2019s court in Hyderabad, Mah Laqa Bai Chanda became the first woman poet to publish a complete Urdu divan. Her ghazals blend Shi\u2019i devotion with courtly grace and musical poise.',
   works:[
    {title:'Gulzar-e-Mah Laqa',url:'https://artsandculture.google.com/story/mah-laqa-chanda-rekhta-foundation/8AUBe_1QvRv_Jg?hl=en'}
@@ -589,7 +589,7 @@ const COUPLETS=[
   }
  },
 
- {id:'mahlaqa1',p:'mahlaqa', form:'ghazal',
+{id:'mahlaqa1',p:'mahlaqa', form:'ghazal',
   tr:[
    [{t:'gul',g:'flower, rose'},' ke hone ki ',{t:'tawaqqo',g:'hope, expectation'},' pe jiye baithi hai'],
    ['har ',{t:'kali',g:'bud'},' ',{t:'jaan',g:'life'},' ko ',{t:'mutthi',g:'fist'},' mein liye baithi hai']
@@ -609,27 +609,35 @@ const COUPLETS=[
     },
     {
      tr:[
-      [{t:'saba',g:'morning breeze'},' aati hai to ',{t:'paigham',g:'message'},' liye aati hai'],
-      ['ke ',{t:'gulistan',g:'garden'},' mein phir ',{t:'bahaar',g:'spring'},' aayi hai']
+      ['kabhi ',{t:'sayyad',g:'hunter, fowler'},' ka ',{t:'khatka',g:'fear, dread'},' hai kabhi ',{t:'khauf-e-khizan',g:'fear of autumn'}],
+      [{t:'bulbul',g:'nightingale'},' ab ',{t:'jaan',g:'life'},' hatheli pe liye baithi hai']
      ],
-     ur:['صبا آتی ہے تو پیغام لیے آتی ہے','کہ گلستاں میں پھر بہار آئی ہے'],
-     en:'When the morning breeze arrives, it brings the news that spring has returned to the garden.'
+     ur:['کبھی صیاد کا کھٹکا ہے کبھی خوفِ خزاں','بلبل اب جاں ہتھیلی پہ لیے بیٹھی ہے'],
+     en:'Now dread of the hunter, now fear of autumn—the nightingale sits with its life on its palm.'
     },
     {
      tr:[
-      ['shabnam ke ',{t:'qatre',g:'drops, dewdrops'},' bhi ',{t:'chamak',g:'gleam, sparkle'},' uthe'],
-      ['jab ',{t:'subh',g:'morning, dawn'},' ki ',{t:'kiran',g:'ray, beam'},' ne chhua']
+      [{t:'tir-o-shamshir',g:'arrows and sword'},' se barh kar hai teri ',{t:'tirchhi nigah',g:'sideways glance'}],
+      ['saikron ',{t:'ashiqon',g:'lovers'},' ka ',{t:'khun',g:'blood, murder'},' kiye baithi hai']
      ],
-     ur:['شبنم کے قطرے بھی چمک اٹھے','جب صبح کی کرن نے چھوا'],
-     en:'Even the drops of dew began to sparkle when the first ray of morning touched them.'
+     ur:['تیر و شمشیر سے بڑھ کر ہے تری ترچھی نگاہ','سیکڑوں عاشقوں کا خوں کیے بیٹھی ہے'],
+     en:'More sharp than arrow or sword is your sideways glance—it has claimed the blood of hundreds of lovers.'
     },
     {
      tr:[
-      ['mahlaqa dil mein ',{t:'tamanna',g:'wish, longing'},' hai ke bas ek ',{t:'nazar',g:'glance'},''],
-      ['un ki ',{t:'soorat',g:'face, form'},' pe pade aur ',{t:'zindagi',g:'life'},' ban jaaye']
+      ['tere ',{t:'rukhsar',g:'cheek'},' se ',{t:'tashbih',g:'comparison, simile'},' use dun kyunkar'],
+      [{t:'shama',g:'candle, lamp'},' to ',{t:'charbi',g:'fat, wax'},' ko aankhon mein diye baithi hai']
      ],
-     ur:['ماہ لقا دل میں تمنا ہے کہ بس اک نظر','ان کی صورت پہ پڑے اور زندگی بن جائے'],
-     en:'Mah Laqa, the heart\u2019s only wish is that a single glance fall upon their face and make life whole.'
+     ur:['تیرے رخسار سے تشبیہ اسے دوں کیونکر','شمع تو چربی کو آنکھوں میں دیے بیٹھی ہے'],
+     en:'How could I compare it to your cheek? The candle holds mere tallow in its eyes.'
+    },
+    {
+     tr:[
+      [{t:'tishna-lab',g:'parched-lipped, thirsty'},' kyun rahe ai ',{t:'saqi-e-kausar',g:'cupbearer of Kausar'}," 'chanda'"],
+      ['ye tire ',{t:'jam-e-mohabbat',g:'cup of love'},' ko piye baithi hai']
+     ],
+     ur:['تشنه لب کیوں رہے اے ساقیٔ کوثر چندا','یہ ترے جامِ محبت کو پیے بیٹھی ہے'],
+     en:"Why stay thirsty, O cupbearer of Kausar, Chanda? She has already drunk from your cup of love."
     }
    ]
   }
