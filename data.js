@@ -768,6 +768,53 @@ const COUPLETS=[
    ]
   }
  },
+
+ {id:'ghalib2',p:'ghalib',form:'ghazal',
+  tr:[
+   [{t:'dil-e-nadaan',g:'naive heart'},' tujhe hua kya hai'],
+   ['aakhir is dard ki ',{t:'dawaa',g:'remedy, cure'},' kya hai']
+  ],
+  ur:['دلِ ناداں تجھے ہوا کیا ہے','آخر اس درد کی دوا کیا ہے'],
+  en:'O naive heart, what has come over you? After all, what is the cure for this ache?',
+  src:'https://www.rekhta.org/ghazals/dil-e-naadaan-tujhe-huaa-kyaa-hai-mirza-ghalib-ghazals',
+  expand:{
+   couplets:[
+    {
+     tr:[
+      [{t:'dil-e-nadaan',g:'naive heart'},' tujhe hua kya hai'],
+      ['aakhir is dard ki ',{t:'dawaa',g:'remedy, cure'},' kya hai']
+     ],
+     ur:['دلِ ناداں تجھے ہوا کیا ہے','آخر اس درد کی دوا کیا ہے'],
+     en:'O naive heart, what has come over you? After all, what is the cure for this ache?'
+    },
+    {
+     tr:[
+      ['ham ko un se ',{t:'wafa',g:'faithfulness, devotion'},' ki hai ',{t:'umeed',g:'hope'},''],
+      ['jo nahin jaante wafa kya hai']
+     ],
+     ur:['ہم کو ان سے وفا کی ہے امید','جو نہیں جانتے وفا کیا ہے'],
+     en:'I hold hope of faithfulness from the very one who does not know what faithfulness means.'
+    },
+    {
+     tr:[
+      ['jaan tum par ',{t:'nisaar',g:'devoted, offered up'},' karta hoon'],
+      ['main nahin jaanta ',{t:'duaa',g:'prayer, supplication'},' kya hai']
+     ],
+     ur:['جاں تم پر نثار کرتا ہوں','میں نہیں جانتا دعا کیا ہے'],
+     en:'I offer my life for you—I do not even know what a prayer is.'
+    },
+    {
+     tr:[
+      ['main ne mana ke kuchh nahin ',{t:'ghalib',g:'Ghalib (pen name)'},''],
+      ['muft haath aaye to bura kya hai']
+     ],
+     ur:['میں نے مانا کہ کچھ نہیں غالب','مفت ہاتھ آئے تو برا کیا ہے'],
+     en:'I grant that Ghalib is nothing at all—yet if something comes free to hand, what harm is there?'
+    }
+   ]
+  }
+ },
+ 
  {id:'daagh1',p:'daagh',
   tr:[
    [{t:'lutf',g:'delight, pleasure'},' vo ',{t:'ishq',g:'love, passion'},' mein paaye hain ke ',{t:'jee',g:'heart, soul'},' jaanta hai'],
