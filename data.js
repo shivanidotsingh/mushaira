@@ -31,14 +31,6 @@ const POETS=[
    {title:'Kulliyat (the first complete Urdu divan)',url:'https://archive.org/details/KulliyatESultanMuhammadQuliQutbShah'}
   ],
   fl:{s:'round',n:10,w:.22,a:OR,b:YL,c:BR}},
-
- {id:'nusrati',name:'Muhammad Nusrat',short:'Nusrati',ur:'نصرتی',b:1600,y:'c. 1600–1674',era:0,
-  bio:'Poet laureate at the Adil Shahi court of Bijapur under Ali Adil Shah II, Mulla Nusrati elevated Dakhni narrative poetry to grand epic scale. His masnavis weave Persianate romance and Deccani martial history with rich, jewel-like imagery.',
-  works:[
-   {title:'Gulshan-e-Ishq',url:'https://www.rekhta.org/ebooks/detail/masnavi-gulshan-e-ishq-mulla-nusrati-ebooks-1'},
-   {title:'Ali Nama',url:'https://blog.rekhta.org/gulshan-e-ishq/'}
-  ],
-  fl:{s:'curl',n:5,a:YL,c:RD}},
  
  {id:'wali',name:'Wali Deccani',short:'Wali',ur:'ولی دکنی',b:1667,y:'c. 1667–1707',era:0,
   bio:'Born in Aurangabad and trained in Gujarat, Wali bridged the southern Dakhni tradition and northern Delhi literary circles. When his divan reached Delhi around 1700, it sparked an explosion of ghazal writing in Urdu rather than Persian.',
@@ -46,6 +38,14 @@ const POETS=[
    {title:'Divan-e-Wali',url:'https://archive.org/details/divaniwali'}
   ],
   fl:{s:'round',n:5,w:.3,a:YL,c:OR}},
+
+ {id:'bulleh',name:'Bulleh Shah',short:'Bulleh',ur:'بلھے شاہ',b:1680,y:'c. 1680–1757',era:1,
+  bio:'A towering Punjabi Sufi poet and mystic from Kasur, Bulleh Shah wrote ecstatic kafis that question religious orthodoxy, caste, and ego. Through everyday imagery and fierce longing for his murshid Shah Inayat, his songs remain alive across folk and Sufi music.',
+  works:[
+   {title:'Kafis of Bulleh Shah',url:'https://www.rekhta.org/poets/bulleh-shah/all'}
+  ],
+  fl:{s:'curl',n:8,w:.25,a:OR,b:CR,c:PU}},
+ 
  {id:'mir',name:'Mir Taqi Mir',short:'Mir',ur:'میر تقی میر',b:1723,y:'1723–1810',era:1,
   bio:'Shaped by childhood loss in Agra and the repeated sacking of Mughal Delhi before spending his final decades in Lucknow, Mir defined the emotional core of the classical Urdu ghazal. Known as Khuda-e-Sukhan, he turned heartbreak and ruined cities into spare, devastating speech.',
   works:[
@@ -148,6 +148,16 @@ const POETS=[
    {title:'Khoya Hua Sa Kuchh',url:'https://www.rekhta.org/poets/nida-fazli/all'}
   ],
   fl:{s:'round',n:4,w:.34,a:RD,c:CR}}];
+
+const FORMS={
+  ghazal:{label:'Ghazal',desc:'A sequence of independent two-line couplets bound by a strict rhyme (qafiya) and refrain (radif). Each couplet is a self-contained emotional or philosophical universe.'},
+  nazm:{label:'Nazm',desc:'A thematic poem that develops a single continuous idea, story, or mood from beginning to end—the direct blueprint for most modern Hindi film songs.'},
+  kafi:{label:'Kafi',desc:'A Sufi folk-musical form rooted in Punjabi and Sindhi traditions, built around a hypnotic refrain meant to be sung rather than merely recited.'},
+  doha:{label:'Doha',desc:'An ancient two-line rhyming couplet in North Indian vernaculars, prized for punchy, memorable aphorisms and everyday spiritual wisdom.'},
+  qawwali:{label:'Qawwali',desc:'Devotional Sufi poetry crafted for ecstatic call-and-response group singing, building emotional intensity through rhythm and repetition.'},
+  thumri:{label:'Thumri',desc:'A semi-classical lyric form in Braj or Awadhi, expressing tender romantic longing and seasonal mood—the soul of classic cinema melodies.'}
+};
+
 const COUPLETS=[
 {id:'khusro1',p:'khusro',
   tr:[
@@ -298,35 +308,6 @@ const COUPLETS=[
   }
  },
  
- {id:'nusrati1',p:'nusrati',
-  tr:[
-   ['chalaa leke dil mein ',{t:'ummeedon',g:'hopes'},' ka ',{t:'noor',g:'light, radiance'}],
-   ['kadam rakhta jaata tha ',{t:'manzil',g:'destination, goal'},' se door']
-  ],
-  ur:['چلا لے کے دل میں امیدوں کا نور','قدم رکھتا جاتا تھا منزل سے دور'],
-  en:'Carrying the light of hopes in his heart, he walked on, step by step, far from the goal.',
-  src:'https://www.rekhta.org/poets/nusrati/all',
-  expand:{
-   couplets:[
-    {
-     tr:[
-      ['chalaa leke dil mein ',{t:'ummeedon',g:'hopes'},' ka ',{t:'noor',g:'light, radiance'}],
-      ['kadam rakhta jaata tha ',{t:'manzil',g:'destination, goal'},' se door']
-     ],
-     ur:['چلا لے کے دل میں امیدوں کا نور','قدم رکھتا جاتا تھا منزل سے دور'],
-     en:'Carrying the light of hopes in his heart, he walked on, step by step, far from the goal.'
-    },
-    {
-     tr:[
-      ['badi ',{t:'waadiyaan',g:'valleys'},' aur ',{t:'jaangal',g:'forests, woods'},' ghane'],
-      ['har ek mod par ',{t:'imtihaan',g:'trials, tests'},' thay bane']
-     ],
-     ur:['بڑی وادیاں اور جنگل گھنے','ہر اک موڑ پر امتحان تھے بنے'],
-     en:'Vast valleys and dense forests lay ahead; at every turn, trials stood ready.'
-    }
-   ]
-  }
- },
  
  {id:'wali1',p:'wali',
   tr:[
@@ -369,6 +350,60 @@ const COUPLETS=[
      ],
      ur:['ولی کو شہرت ملی ہے سخن سازی میں','جو کہ عالم میں اس کا کردار ہے'],
      en:'Wali has gained renown in the craft of poetry—such is the mark he leaves across the world.'
+    }
+   ]
+  }
+ },
+
+ {id:'bulleh1',p:'bulleh',form:'kafi',
+  tr:[
+   ['bulla ki jaana main ',{t:'kaun',g:'who, what self'}],
+   ['na main momin vich ',{t:'masjidan',g:'mosques'},', na main vich kufr diyan ritan']
+  ],
+  ur:['بلھا کی جاناں میں کون','نہ میں مومن وچ مسجدان نہ میں وچ کفر دیاں ریتاں'],
+  en:'Bulla, what do I know of who I am? Neither am I a believer in mosques, nor bound to the ways of disbelief.',
+  src:'https://www.rekhta.org/poets/bulleh-shah/all',
+  expand:{
+   couplets:[
+    {
+     tr:[
+      ['bulla ki jaana main ',{t:'kaun',g:'who, what self'}],
+      ['na main momin vich ',{t:'masjidan',g:'mosques'},', na main vich kufr diyan ritan']
+     ],
+     ur:['بلھا کی جاناں میں کون','نہ میں مومن وچ مسجدان نہ میں وچ کفر دیاں ریتاں'],
+     en:'Bulla, what do I know of who I am? Neither am I a believer in mosques, nor bound to the ways of disbelief.'
+    },
+    {
+     tr:[
+      ['na main pak vich ',{t:'palitaan',g:'the impure, defiled'},', na main musaan vich palitan'],
+      ['na main vich ',{t:'shaad',g:'joy, rejoicing'},' ghaman de, na main bhethiyan vich na leetan']
+     ],
+     ur:['نہ میں پاک وچ پلیتاں نہ میں موسیاں وچ پلیتاں','نہ میں وچ شاد غماں دے نہ میں بیٹھیاں وچ نہ لیٹاں'],
+     en:'Neither am I among the pure nor the defiled, neither among Moses nor his followers; neither in joy nor in grief, neither sitting nor lying down.'
+    },
+    {
+     tr:[
+      ['na main vich ',{t:'arab',g:'Arabia'},' na lahoreyan, na main vich hind nagriyan'],
+      ['na main ',{t:'bhedi',g:'knower of secrets, mystic'},' maram da paya, na main arabian vich padhiyan']
+     ],
+     ur:['نہ میں وچ عرب نہ لاہوریاں نہ میں وچ ہند نگریاں','نہ میں بھیدی مرم دا پایا نہ میں عربیاں وچ پڑھیاں'],
+     en:'Neither am I in Arabia nor in Lahore, nor in the towns of Hind; I have not found the secret through mere mystery-mongering, nor through reading Arabic.'
+    },
+    {
+     tr:[
+      ['na main ',{t:'kunj',g:'corner, solitude'},' ',{t:'fariq',g:'renunciant, ascetic'},' ',{t:'ahliyan',g:'householder, worldly folk'},', na main ',{t:'pak',g:'pure, sacred'},' na ',{t:'paliti',g:'defiled, impure'}],
+      ['bulla ki jaana main kaun']
+     ],
+     ur:['نہ میں کنج فریق اہلیان نہ میں پاک نہ پلیتی','بلھا کی جاناں میں کون'],
+     en:'Neither a recluse in a corner nor a householder, neither pure nor defiled—Bulla, what do I know of who I am?'
+    },
+    {
+     tr:[
+      ['awwal aakhir aap nu ',{t:'jana',g:'recognized, known'},', na koi duja hor pachhana'],
+      ['main ton hor na koi ',{t:'siyana',g:'wise, clever'},', bulla oho khara hai kaun']
+     ],
+     ur:['اول آخر آپ نوں جانا نہ کوئی دوجا ہور پچھانا','میں توں ہور نہ کوئی سیانا بلھا اوہو کھڑا ہے کون'],
+     en:'In beginning and end I have known only the One, recognizing no other; no one is wiser than I—Bulla, who is it that stands here?'
     }
    ]
   }
