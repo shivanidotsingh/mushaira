@@ -996,6 +996,60 @@ const COUPLETS=[
    ]
   }
  },
+{id:'faiz2',p:'faiz',form:'nazm',
+  tr:[
+   ['mujh se pehli si mohabbat mere mehboob na maang'],
+   ['main ne samjha tha ke tu hai to ',{t:'darakhshan',g:'shining, radiant'},' hai ',{t:'hayaat',g:'life'}]
+  ],
+  ur:['مجھ سے پہلی سی محبت مرے محبوب نہ مانگ','میں نے سمجھا تھا کہ تو ہے تو درخشاں ہے حیات'],
+  en:'My love, do not ask me for the love that once was ours; I used to think that with you, life itself shone bright.',
+  src:'https://www.rekhta.org/poets/faiz-ahmad-faiz/all',
+  expand:{
+   couplets:[
+    {
+     tr:[
+      ['mujh se pehli si mohabbat mere mehboob na maang'],
+      ['main ne samjha tha ke tu hai to ',{t:'darakhshan',g:'shining, radiant'},' hai ',{t:'hayaat',g:'life'}]
+     ],
+     ur:['مجھ سے پہلی سی محبت مرے محبوب نہ مانگ','میں نے سمجھا تھا کہ تو ہے تو درخشاں ہے حیات'],
+     en:'My love, do not ask me for the love that once was ours; I used to think that with you, life itself shone bright.'
+    },
+    {
+     tr:[
+      ['tera gham hai to ',{t:'gham-e-dahr',g:'sorrow of the world / age'},' ka jhagda kya hai'],
+      ['teri surat se hai aalam mein baharon ko ',{t:'sabaat',g:'permanence, constancy'}]
+     ],
+     ur:['ترا غم ہے تو غمِ دہر کا جھگڑا کیا ہے','تری صورت سے ہے عالم میں بہاروں کو ثبات'],
+     en:'When I had your sorrow, what quarrel could there be with the grief of the age? Spring stayed alive in the world through your face.'
+    },
+    {
+     tr:[
+      ['teri aankhon ke siwa duniya mein rakha kya hai'],
+      ['tu jo mil jaaye to ',{t:'taqdir',g:'fate, destiny'},' ',{t:'nigoon',g:'bowed down, overturned'},' ho jaaye']
+     ],
+     ur:['تری آنکھوں کے سوا دنیا میں رکھا کیا ہے','تو جو مل جائے تو تقدیر نگوں ہو جائے'],
+     en:'What else existed in the world beyond your eyes? If I won you, fate itself would bow its head.'
+    },
+    {
+     tr:[
+      ['yun na tha main ne ',{t:'faqat',g:'merely, only'},' chaaha tha yun ho jaaye'],
+      ['aur bhi dukh hain zamaane mein mohabbat ke siwa']
+     ],
+     ur:['یوں نہ تھا میں نے فقط چاہا تھا یوں ہو جائے','اور بھی دکھ ہیں زمانے میں محبت کے سوا'],
+     en:'It was not so—I had only wished it would be; there are other sorrows in the world besides love.'
+    },
+    {
+     tr:[
+      [{t:'raahaten',g:'comforts, reliefs'},' aur bhi hain ',{t:'vasl',g:'union with the beloved'},' ki raahat ke siwa'],
+      ['mujh se pehli si mohabbat mere mehboob na maang']
+     ],
+     ur:['راحتیں اور بھی ہیں وصل کی راحت کے سوا','مجھ سے پہلی سی محبت مرے محبوب نہ مانگ'],
+     en:'There are other comforts too beyond the comfort of union—my love, do not ask me for that first love again.'
+    }
+   ]
+  }
+ },
+ 
  {id:'kaifi1',p:'kaifi',
   tr:[
    ['tum itna jo ',{t:'muskura',g:'smile'},' rahe ho'],
@@ -1137,7 +1191,56 @@ const COUPLETS=[
      ],
      ur:['ندا لفظوں کا پل بنا کر دیکھو','ہر فاصلہ خود بخود کم ہو جاتا ہے'],
      en:'Nida, try building a bridge of words—every distance grows smaller on its own.'
+    }    
+   ]
+  }
+ },
+{id:'nida2',p:'nida',form:'ghazal',
+  tr:[
+   [{t:'hoshwalon',g:'those in their senses, the sober'},' ko khabar kya ',{t:'bekhudi',g:'ecstasy, self-forgetfulness'},' kya cheez hai'],
+   ['ishq kijiye phir samajhiye zindagi kya cheez hai']
+  ],
+  ur:['ہوش والوں کو خبر کیا بے خودی کیا چیز ہے','عشق کیجیے پھر سمجھئے زندگی کیا چیز ہے'],
+  en:'What do those who stay in their senses know of what self-forgetfulness is? Fall in love, then understand what life really is.',
+  src:'https://www.rekhta.org/poets/nida-fazli/all',
+  expand:{
+   couplets:[
+    {
+     tr:[
+      [{t:'hoshwalon',g:'those in their senses, the sober'},' ko khabar kya ',{t:'bekhudi',g:'ecstasy, self-forgetfulness'},' kya cheez hai'],
+      ['ishq kijiye phir samajhiye zindagi kya cheez hai']
+     ],
+     ur:['ہوش والوں کو خبر کیا بے خودی کیا چیز ہے','عشق کیجیے پھر سمجھئے زندگی کیا چیز ہے'],
+     en:'What do those who stay in their senses know of what self-forgetfulness is? Fall in love, then understand what life really is.'
+    },
+    {
+     tr:[
+      ['un se nazren kya milin ',{t:'roshan',g:'lit up, radiant'},' fizayein ho gain'],
+      ['aaj jaana pyaar ki ',{t:'jaadugari',g:'magic, enchantment'},' kya cheez hai']
+     ],
+     ur:['ان سے نظریں کیا ملیں روشن فضائیں ہو گئیں','آج جانا پیار کی جادوگری کیا چیز ہے'],
+     en:'As soon as our eyes met, the air grew bright—today I learned what the magic of love truly is.'
+    },
+    {
+     tr:[
+      ['khulti zulfon ne sikhaayein mausamon ko shaayeri'],
+      ['jhukti aankhon ne bataaya ',{t:'maikashi',g:'wine-drinking, intoxication'},' kya cheez hai']
+     ],
+     ur:['کھلتی زلفوں نے سکھائیں موسموں کو شاعری','جھکتی آنکھوں نے بتایا مے کشی کیا چیز ہے'],
+     en:'Unbound hair taught the seasons how to write poetry; lowering eyes revealed what intoxication is.'
+    },
+    {
+     tr:[
+      ['ham labon se kah na paaye un se ',{t:'haal-e-dil',g:'state of the heart'},' kabhi'],
+      ['aur woh samjhe nahin ke yeh khamoshi kya cheez hai']
+     ],
+     ur:['ہم لبوں سے کہہ نہ پائے ان سے حالِ دل کبھی','اور وہ سمجھے نہیں کہ یہ خاموشی کیا چیز ہے'],
+     en:'My lips could never tell them the state of my heart, and they never understood what this silence meant.'
     }
    ]
   }
- }];
+ }
+ 
+];
+
+
