@@ -124,13 +124,13 @@ function renderPoemDotsHTML(cs){
 }
 
 function renderFormPillHTML(c){
-  if(!c||!c.form||typeof FORMS==='undefined'||!FORMS[c.form])return '';
+  if(mode!=='timeline'||!c||!c.form||typeof FORMS==='undefined'||!FORMS[c.form])return '';
   const f=FORMS[c.form];
   return '<li class="form-pill"><button type="button" data-form="'+esc(c.form)+'" aria-expanded="'+formOpen+'" title="Click to learn about '+esc(f.label)+'">'+esc(f.label)+'</button></li>';
 }
 
 function renderFormNoteHTML(c){
-  if(!formOpen||!c||!c.form||typeof FORMS==='undefined'||!FORMS[c.form])return '';
+  if(mode!=='timeline'||!formOpen||!c||!c.form||typeof FORMS==='undefined'||!FORMS[c.form])return '';
   const f=FORMS[c.form];
   return '<p class="form-note"><strong>'+esc(f.label)+':</strong> '+esc(f.desc)+'</p>';
 }
@@ -168,12 +168,10 @@ function renderDetail(){
   const p=POETS[focus],e=ERAS[p.era];
   document.querySelectorAll('#eranav button').forEach((b,k)=>b.setAttribute('aria-current',k===p.era));
   const isTl=mode==='timeline';
-  const c=activePoem();
   $('#detail').innerHTML=renderCouplets(isTl)
     +'<h2>'+esc(p.name)+'</h2>'
     +'<p class="mob-note">View on desktop for the full experience</p>'
-    +'<ul class="tags">'+renderFormPillHTML(c)+p.works.map(renderWorkTag).join('')+'</ul>'
-    +renderFormNoteHTML(c)
+    +'<ul class="tags">'+p.works.map(renderWorkTag).join('')+'</ul>'
     +'<button class="unfold" type="button" aria-expanded="'+isTl+'" aria-label="'+(isTl?'Collapse back to circle':'Expand into timeline')+'">'
     +'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v11M3.5 9.5 8 14l4.5-4.5"/></svg>'
     +'</button>';
@@ -235,22 +233,26 @@ window.addEventListener('wheel',e=>{
       wheelLockUntil=Date.now()+450;
       setMode('timeline');
     }
-  }else if(mode==='timeline'){
-    if(dy>=0||window.scrollY>10){wheelAcc=0;return;}
-    wheelAcc+=Math.abs(dy);
-    clearTimeout(wheelReset);
-    wheelReset=setTimeout(()=>wheelAcc=0,180);
-    if(wheelAcc>140){
-      wheelAcc=0;
-      wheelLockUntil=Date.now()+450;
-      setMode('mushaira');
-    }
   }
 },{passive:true});
 
 document.addEventListener('keydown',e=>{
-  const k=e.key;if(k!=='ArrowRight'&&k!=='ArrowLeft')return;
-  e.preventDefault();step(k==='ArrowRight'?1:-1);nodes[focus].focus();
+  const k=e.key;
+  if(k==='ArrowRight'||k==='ArrowLeft'){
+    e.preventDefault();
+    step(k==='ArrowRight'?1:-1);
+    nodes[focus].focus();
+    return;
+  }
+  if(k==='ArrowDown'&&mode==='mushaira'&&innerWidth>=768){
+    e.preventDefault();
+    setMode('timeline');
+    return;
+  }
+  if(k==='ArrowUp'&&mode==='timeline'&&innerWidth>=768){
+    e.preventDefault();
+    setMode('mushaira');
+  }
 });
 
 document.addEventListener('click',e=>{
