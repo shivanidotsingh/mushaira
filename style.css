@@ -23,7 +23,6 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
   font:inherit;
   font-size:inherit;
   letter-spacing:.04em;
-  text-transform:uppercase;
   padding:.22rem .62rem;
   border-radius:999px;
   border:1px solid var(--fg);
