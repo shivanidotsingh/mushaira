@@ -116,11 +116,23 @@ function activePoem(){
   return cs[poemIdx];
 }
 
-function renderPoemDotsHTML(cs){
-  if(!cs||cs.length<2)return '';
-  return '<div class="poem-dots" role="tablist" aria-label="Poems">'
-    +cs.map((_,idx)=>'<button type="button" class="poem-dot" data-poem="'+idx+'" aria-label="Poem '+(idx+1)+'" aria-current="'+(idx===poemIdx)+'"></button>').join('')
-    +'</div>';
+function poemLabel(c,idx){
+  if(c&&c.title)return c.title;
+  const first=c&&c.tr&&c.tr[0];
+  if(first){
+    const txt=(Array.isArray(first)?first:[first])
+      .map(s=>typeof s==='string'?s:(s&&s.t)||'')
+      .join('').trim();
+    if(txt)return txt;
+  }
+  return 'Poem '+(idx+1);
+}
+
+function renderPoemNavHTML(cs){
+  if(mode!=='timeline'||!cs||cs.length<2)return '';
+  return '<nav class="poem-nav" aria-label="Poems">'
+    +cs.map((c,idx)=>'<button type="button" class="poem-item" data-poem="'+idx+'" aria-current="'+(idx===poemIdx)+'">'+esc(poemLabel(c,idx))+'</button>').join('')
+    +'</nav>';
 }
 
 function renderFormPillHTML(c){
@@ -143,7 +155,7 @@ function renderCouplets(isTl){
     return '<div class="cps">'+coupletBlockHTML(cur)+'</div>';
   }
   const list=(cur.expand&&Array.isArray(cur.expand.couplets)&&cur.expand.couplets.length)?cur.expand.couplets:[cur];
-  return '<div class="cps">'+list.map(coupletBlockHTML).join('')+'</div>'+renderPoemDotsHTML(cs);
+  return '<div class="cps">'+list.map(coupletBlockHTML).join('')+'</div>';
 }
 
 function renderWorkTag(w){
@@ -157,8 +169,10 @@ function renderWorkTag(w){
 function renderBioCard(p){
   const card=$('#bio-card');
   if(!card)return;
+  const cs=poetCouplets();
   const c=activePoem();
-  card.innerHTML='<div class="bio-poet">'+esc(p.name)+' <span class="h-yr">'+esc(p.y)+'</span></div>'
+  card.innerHTML=renderPoemNavHTML(cs)
+    +'<div class="bio-poet">'+esc(p.name)+' <span class="h-yr">'+esc(p.y)+'</span></div>'
     +(p.bio?'<p class="bio">'+esc(p.bio)+'</p>':'')
     +'<ul class="tags">'+renderFormPillHTML(c)+p.works.map(renderWorkTag).join('')+'</ul>'
     +renderFormNoteHTML(c);
@@ -202,12 +216,6 @@ function setMode(v){
 $('#detail').addEventListener('click',e=>{
   if(e.target.closest('.unfold')){
     setMode(mode==='mushaira'?'timeline':'mushaira');
-    return;
-  }
-  const dot=e.target.closest('.poem-dot');
-  if(dot){
-    poemIdx=+dot.dataset.poem;
-    renderDetail();
   }
 });
 
@@ -256,6 +264,13 @@ document.addEventListener('keydown',e=>{
 });
 
 document.addEventListener('click',e=>{
+  const pi=e.target.closest('.poem-nav button[data-poem]');
+  if(pi){
+    poemIdx=+pi.dataset.poem;
+    formOpen=false;
+    renderDetail();
+    return;
+  }
   const fb=e.target.closest('.form-pill button');
   if(fb){
     formOpen=!formOpen;
