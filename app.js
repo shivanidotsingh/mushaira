@@ -89,6 +89,12 @@ function layout(instant){
 function paint(o){document.body.style.setProperty('--bg',o.c);document.body.style.setProperty('--fg',o.f)}
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
 
+function plainTrLine(line){
+  if(typeof line==='string')return line;
+  const parts=Array.isArray(line)?line:[line];
+  return parts.map(seg=>typeof seg==='string'?seg:(seg&&seg.t?seg.t:'')).join('');
+}
+
 function renderTrLine(line){
   if(typeof line==='string')return '<span>'+esc(line)+'</span>';
   const parts=Array.isArray(line)?line:[line];
@@ -111,7 +117,29 @@ function poetCouplets(){
 
 function activePoem(){
   const cs=poetCouplets();
-  return cs[poemIdx]||cs[0]||null;
+  if(!cs.length)return null;
+  if(poemIdx>=cs.length)poemIdx=0;
+  return cs[poemIdx];
+}
+
+function turnPoem(delta){
+  const cs=poetCouplets();
+  if(cs.length<2)return;
+  poemIdx=(poemIdx+delta+cs.length)%cs.length;
+  renderDetail();
+}
+
+function renderPoemPagerHTML(cs,cur){
+  if(!cs||cs.length<2||!cur)return '';
+  const firstLine=cur.tr&&cur.tr[0]?plainTrLine(cur.tr[0]):'';
+  return '<div class="poem-pager" role="region" aria-label="Poems by '+esc(POETS[focus].name)+'">'
+    +'<span class="poem-pager-title">'+esc(firstLine)+'</span>'
+    +'<span class="poem-pager-ctrls">'
+    +'<button type="button" class="poem-prev" aria-label="Previous poem">←</button>'
+    +'<span class="poem-pager-idx">'+(poemIdx+1)+' / '+cs.length+'</span>'
+    +'<button type="button" class="poem-next" aria-label="Next poem">→</button>'
+    +'</span>'
+    +'</div>';
 }
 
 function renderFormPillHTML(c){
@@ -129,14 +157,12 @@ function renderFormNoteHTML(c){
 function renderCouplets(isTl){
   const cs=poetCouplets();
   if(!cs.length)return '<p class="sm todo">No couplets yet.</p>';
+  const cur=activePoem()||cs[0];
   if(!isTl){
-    const first=activePoem()||cs[0];
-    return '<div class="cps">'+coupletBlockHTML(first)+'</div>';
+    return '<div class="cps">'+coupletBlockHTML(cur)+'</div>';
   }
-  return cs.map(c=>{
-    const list=(c.expand&&Array.isArray(c.expand.couplets)&&c.expand.couplets.length)?c.expand.couplets:[c];
-    return '<div class="cps">'+list.map(coupletBlockHTML).join('')+'</div>';
-  }).join('');
+  const list=(cur.expand&&Array.isArray(cur.expand.couplets)&&cur.expand.couplets.length)?cur.expand.couplets:[cur];
+  return renderPoemPagerHTML(cs,cur)+'<div class="cps">'+list.map(coupletBlockHTML).join('')+'</div>';
 }
 
 function renderWorkTag(w){
@@ -195,7 +221,17 @@ function setMode(v){
 }
 
 $('#detail').addEventListener('click',e=>{
-  if(e.target.closest('.unfold'))setMode(mode==='mushaira'?'timeline':'mushaira');
+  if(e.target.closest('.unfold')){
+    setMode(mode==='mushaira'?'timeline':'mushaira');
+    return;
+  }
+  if(e.target.closest('.poem-prev')){
+    turnPoem(-1);
+    return;
+  }
+  if(e.target.closest('.poem-next')){
+    turnPoem(1);
+  }
 });
 
 $('#arc').addEventListener('click',()=>{
