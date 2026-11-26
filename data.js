@@ -216,7 +216,7 @@ const COUPLETS=[
   }
  },
 
- {id:'kabir1',p:'kabir', form:'doha'
+ {id:'kabir1',p:'kabir', form:'doha',
   tr:[
    ['haman hain ',{t:'ishq',g:'love, devotion'},' ',{t:'mastaana',g:'intoxicated, blissfully absorbed'},', haman ko ',{t:'hoshiyaari',g:'worldly cleverness, caution'},' kya?'],
    ['rahein aazaad ya ',{t:'jag',g:'the world'},' se, haman duniya se ',{t:'yaari',g:'friendship, worldly attachment'},' kya?']
