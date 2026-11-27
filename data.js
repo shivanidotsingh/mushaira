@@ -26,7 +26,7 @@ const POETS=[
   fl:{s:'curl',n:6,w:.24,a:CR,b:OR,c:YL}},
  
  {id:'quli',name:'Muhammad Quli Qutb Shah',short:'Quli',ur:'محمد قلی قطب شاہ',b:1565,y:'1565–1612',era:0,
-  bio:'The fifth ruler of the Qutb Shahi dynasty of Golconda and founder of Hyderabad, Muhammad Quli Qutb Shah composed the first full-fledged divan in Dakhni Urdu. His verse celebrates royal festivals, Deccani seasons, and earthly devotion in a vivid local idiom.',
+  bio:'The fifth ruler of the Qutb Shahi dynasty of Golconda and founder of Hyderabad, Quli composed the first full-fledged divan in Dakhni Urdu. His verse celebrates royal festivals, Deccani seasons, and earthly devotion in a vivid local idiom.',
   works:[
    {title:'Kulliyat (the first complete Urdu divan)',url:'https://archive.org/details/KulliyatESultanMuhammadQuliQutbShah'}
   ],
@@ -40,7 +40,7 @@ const POETS=[
   fl:{s:'round',n:5,w:.3,a:YL,c:OR}},
 
  {id:'bulleh',name:'Bulleh Shah',short:'Bulleh',ur:'بلھے شاہ',b:1680,y:'c. 1680–1757',era:1,
-  bio:'A towering Punjabi Sufi poet and mystic from Kasur, Bulleh Shah wrote ecstatic kafis that question religious orthodoxy, caste, and ego. Through everyday imagery and fierce longing for his murshid Shah Inayat, his songs remain alive across folk and Sufi music.',
+  bio:'A Punjabi Sufi poet and mystic from Kasur, Bulleh Shah wrote ecstatic kafis that question religious orthodoxy, caste, and ego. Through everyday imagery and fierce longing for his murshid Shah Inayat, his songs remain alive across folk and Sufi music.',
   works:[
    {title:'Kafis of Bulleh Shah',url:'https://www.rekhta.org/poets/bulleh-shah/all'}
   ],
@@ -68,8 +68,8 @@ const POETS=[
   ],
   fl:{s:'point',n:10,w:.22,a:GN,b:CR,c:YL}},
  {id:'zafar',name:'Bahadur Shah Zafar',short:'Zafar',ur:'بہادر شاہ ظفر',b:1775,y:'1775–1862',era:1,
-  bio:'The last Mughal emperor of Delhi, Zafar presided over a twilight court that nurtured Ghalib and Zauq even as British power closed in. Following the 1857 uprising, he was exiled to Rangoon, where his late ghazals became elegies for a vanished world.',
-  works:[
+bio:'The last Mughal emperor of Delhi, Zafar presided over a twilight court that nurtured Ghalib and Zauq even as British power closed in. After the 1857 uprising, he was exiled to Rangoon, where his late ghazals became elegies for a vanished world.',
+works:[
    {title:'Divan',url:'https://www.rekhta.org/poets/bahadur-shah-zafar/ghazals'}
   ],
   fl:{s:'round',n:6,w:.28,a:YL,b:CR,c:BR}},
