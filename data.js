@@ -47,7 +47,7 @@ const POETS=[
   fl:{s:'curl',n:8,w:.25,a:OR,b:CR,c:PU}},
  
  {id:'mir',name:'Mir Taqi Mir',short:'Mir',ur:'میر تقی میر',b:1723,y:'1723–1810',era:1,
-  bio:'Born in Agra and shaped by the turbulent decline of Mughal Delhi before settling in Lucknow, Mir set the emotional standard for the classical Urdu ghazal. Revered as Khuda-e-Sukhan (the master of poetry), he wrote in simple, deeply moving everyday speech.',
+  bio:'Born in Agra and shaped by the turbulent decline of Mughal Delhi before settling in Lucknow, Mir set the emotional standard for the classical Urdu ghazal. Revered as Khuda-e-Sukhan, he turned everyday speech into devastating verse.',
   works:[
    {title:'Six divans',url:'https://www.rekhta.org/ebooks/detail/deewan-e-meer-urdu-devnagri-volume-001-meer-taqi-meer-ebooks'},
    {title:'Zikr-e-Mir (autobiography)',url:'https://archive.org/details/zikrimir'},
