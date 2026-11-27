@@ -49,9 +49,9 @@ header{display:flex;align-items:center;justify-content:space-between;gap:1rem;pa
 }
 
 /* Circle ring & timeline axis */
-.arc{position:absolute;left:0;top:0;pointer-events:none;cursor:pointer;fill:none;stroke:currentColor;stroke-width:14;stroke-opacity:0;transition:opacity .35s ease}
-.arc circle{stroke-width:1;stroke-opacity:.08;pointer-events:stroke;transition:stroke-opacity .2s ease}
-.arc:hover circle{stroke-opacity:.25}
+.arc{position:absolute;left:0;top:0;pointer-events:none;fill:none;transition:opacity .35s ease}
+.arc circle{stroke:currentColor;stroke-width:5;stroke-opacity:.08;cursor:pointer;pointer-events:stroke;transition:stroke-opacity .2s ease}
+.arc circle:hover{stroke-opacity:.25}
 .tl .arc{opacity:0;pointer-events:none}
 
 .axis{position:absolute;pointer-events:none;height:1px;background:currentColor;transform:translateY(var(--tl-y));opacity:0;transition:opacity .35s ease}
