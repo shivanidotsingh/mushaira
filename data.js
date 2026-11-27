@@ -49,9 +49,9 @@ const POETS=[
  {id:'mir',name:'Mir Taqi Mir',short:'Mir',ur:'میر تقی میر',b:1723,y:'1723–1810',era:1,
   bio:'Shaped by childhood loss in Agra and the repeated sacking of Mughal Delhi before spending his final decades in Lucknow, Mir defined the emotional core of the classical Urdu ghazal. Known as Khuda-e-Sukhan, he turned heartbreak and ruined cities into spare, devastating speech.',
   works:[
-   {title:'Six divans',url:'https://en.wikipedia.org/wiki/Mir_Taqi_Mir'},
+   {title:'Six divans',url:'https://www.rekhta.org/ebooks/detail/deewan-e-meer-urdu-devnagri-volume-001-meer-taqi-meer-ebooks'},
    {title:'Zikr-e-Mir (autobiography)',url:'https://archive.org/details/zikrimir'},
-   {title:'Nikat-ush-Shu\u2019ara',url:'https://en.wikipedia.org/wiki/Mir_Taqi_Mir'}
+   {title:'Nikat-ush-Shu\u2019ara',url:'https://www.rekhta.org/ebooks/detail/nikat-ush-shuara-meer-taqi-meer-ebooks'}
   ],
   fl:{s:'round',n:12,w:.14,a:CR,b:YL,c:BR}},
  {id:'nazeer',name:'Nazeer Akbarabadi',short:'Nazeer',ur:'نظیر اکبر آبادی',b:1735,y:'1735–1830',era:1,
@@ -93,16 +93,16 @@ const POETS=[
   bio:'Born in Sialkot and educated in Lahore, Cambridge, and Munich, Iqbal transformed Urdu and Persian poetry into a vehicle for philosophical renewal. Through his concept of Khudi (selfhood), he urged spiritual awakening and anti-colonial confidence.',
   works:[
    {title:'Bang-e-Dra',url:'https://www.rekhta.org/ebooks/detail/bang-e-dra-ma-farhang-allama-iqbal-ebooks'},
-   {title:'Bal-e-Jibril',url:'https://en.wikipedia.org/wiki/The_Call_of_the_Marching_Bell'},
-   {title:'Shikwa and Jawab-e-Shikwa',url:'https://en.wikipedia.org/wiki/The_Call_of_the_Marching_Bell'}
+   {title:'Bal-e-Jibril',url:'https://www.rekhta.org/ebooks/detail/bal-e-jibreel-allama-iqbal-ebooks-14'},
+   {title:'Shikwa and Jawab-e-Shikwa',url:'https://www.rekhta.org/ebooks/shikwa-and-jawab-e-shikwa-allama-iqbal-ebooks'}
   ],
   fl:{s:'point',n:6,w:.3,a:CR,b:PK,c:YL}},
  
  {id:'jigar',name:'Jigar Moradabadi',short:'Jigar',ur:'جگر مرادآبادی',b:1890,y:'1890–1960',era:2,
   bio:'Born in Moradabad and celebrated across mushairas of the early twentieth century, Jigar bridged classical ghazal lyricism with modern emotional candor. Known as Taj-ul-Shu\u2019ara, he wrote with unguarded intensity about love, humility, and human reckoning.',
   works:[
-   {title:'Atish-e-Gul',url:'https://www.rekhta.org/poets/jigar-moradabadi/all'},
-   {title:'Shola-e-Toor',url:'https://www.rekhta.org/poets/jigar-moradabadi/all'},
+   {title:'Atish-e-Gul',url:'https://www.rekhta.org/ebooks/detail/atish-e-gul-jigar-moradabadi-ebooks'},
+   {title:'Shola-e-Toor',url:'https://www.rekhta.org/ebooks/detail/shola-e-toor-jigar-moradabadi-ebooks-6'},
    {title:'Dagh-e-Jigar',url:'https://www.rekhta.org/poets/jigar-moradabadi/all'}
   ],
   fl:{s:'round',n:8,w:.24,a:OR,b:CR,c:RD}},
@@ -110,32 +110,32 @@ const POETS=[
  {id:'firaq',name:'Firaq Gorakhpuri',short:'Firaq',ur:'فراق گورکھپوری',b:1896,y:'1896–1982',era:2,
   bio:'Born Raghupati Sahay in Gorakhpur, Firaq left the Indian Civil Service to join the independence movement and later taught English literature at Allahabad University. He infused the classical ghazal with Indian aesthetics, tender intimacy, and quiet philosophical melancholy.',
   works:[
-   {title:'Gul-e-Naghma',url:'https://www.rekhta.org/poets/firaq-gorakhpuri/all'},
-   {title:'Ruh-e-Kainat',url:'https://www.rekhta.org/poets/firaq-gorakhpuri/all'}
+   {title:'Gul-e-Naghma',url:'https://www.rekhta.org/ebooks/detail/gul-e-naghma-firaq-gorakhpuri-ebooks'},
+   {title:'Ruh-e-Kainat',url:'https://www.rekhta.org/ebooks/detail/rooh-e-kainaat-firaq-gorakhpuri-ebooks'}
   ],
   fl:{s:'point',n:7,w:.3,a:PU,b:CR,c:YL}},
  {id:'faiz',name:'Faiz Ahmed Faiz',short:'Faiz',ur:'فیض احمد فیض',b:1911,y:'1911–1984',era:3,
   bio:'A leading voice of the Progressive Writers\u2019 Movement, journalist, and frequent political prisoner in post-Partition Pakistan, Faiz fused classical romantic imagery with anti-authoritarian resistance. In his verse, longing for the beloved and longing for justice become one.',
   works:[
    {title:'Naqsh-e-Faryadi',url:'https://www.rekhta.org/ebooks/detail/naqsh-e-faryadi-faiz-ahmad-faiz-ebooks-5'},
-   {title:'Dast-e-Saba',url:'https://en.wikipedia.org/wiki/Faiz_Ahmad_Faiz'},
-   {title:'Zindan Nama',url:'https://en.wikipedia.org/wiki/Faiz_Ahmad_Faiz'}
+   {title:'Dast-e-Saba',url:'https://www.rekhta.org/ebooks/detail/dast-e-saba-faiz-ahmad-faiz-ebooks-12'},
+   {title:'Zindan Nama',url:'https://www.rekhta.org/ebooks/detail/zindan-nama-faiz-ahmad-faiz-ebooks-11'}
   ],
   fl:{s:'round',n:5,w:.3,a:PK,b:RD,c:CR}},
  
  {id:'kaifi',name:'Kaifi Azmi',short:'Kaifi',ur:'کیفی اعظمی',b:1919,y:'1919–2002',era:3,
   bio:'Born in Azamgarh, Kaifi Azmi left seminary studies to join the Communist Party and trade-union organizing in Bombay. Alongside acclaimed Hindi film lyrics, he wrote fiery progressive nazms championing working-class dignity and women\u2019s emancipation.',
   works:[
-   {title:'Jhankaar',url:'https://en.wikipedia.org/wiki/Kaifi_Azmi'},
-   {title:'Awaara Sajde',url:'https://en.wikipedia.org/wiki/Kaifi_Azmi'},
-   {title:'Aurat (nazm)',url:'https://en.wikipedia.org/wiki/Kaifi_Azmi'}
+   {title:'Jhankaar'},
+   {title:'Awaara Sajde'},
+   {title:'Sarmaya',url:'https://www.rekhta.org/ebooks/detail/sarmaya-kaifi-azmi-ebooks-1'}
   ],
   fl:{s:'curl',n:6,a:RD,b:CR,c:YL}},
 
  {id:'shahryar',name:'Akhlaq Muhammad Khan',short:'Shahryar',ur:'شہریار',b:1936,y:'1936–2012',era:3,
   bio:'Born in Bareily and based in Aligarh, Kunwar Akhlaq Muhammad Khan \u201cShahryar\u201d brought a refined, haunting modern sensibility to the Urdu ghazal. His verses reached wide audiences through films like Umrao Jaan, where delicate longing meets memorable melody.',
   works:[
-   {title:'Khwab Ka Dar Band Hai',url:'https://www.rekhta.org/poets/shahryar/all'},
+   {title:'Khwab Ka Dar Band Hai',url:'https://www.rekhta.org/ebooks/detail/khwab-ka-dar-band-hai-shahryar-ebooks'},
    {title:'Umrao Jaan (film lyrics)',url:'https://www.rekhta.org/poets/shahryar/all'}
   ],
   fl:{s:'point',n:7,w:.25,a:YL,b:PK,c:CR}},
@@ -143,7 +143,7 @@ const POETS=[
  {id:'nida',name:'Nida Fazli',short:'Nida',ur:'ندا فاضلی',b:1938,y:'1938–2016',era:3,
   bio:'Born in Delhi and raised in Gwalior before moving to Mumbai after his family migrated during Partition, Nida Fazli stripped Urdu poetry of heavy ornamentation. His ghazals and dohas speak in quiet, everyday language about displacement, humanism, and urban solitude.',
   works:[
-   {title:'Lafzon Ke Pul',url:'https://www.rekhta.org/poets/nida-fazli/all'},
+   {title:'Mor Naach',url:'https://www.rekhta.org/ebooks/detail/mor-naach-nida-fazli-ebooks'},
    {title:'Khoya Hua Sa Kuchh',url:'https://www.rekhta.org/poets/nida-fazli/all'}
   ],
   fl:{s:'round',n:4,w:.34,a:RD,c:CR}}];
