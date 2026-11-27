@@ -161,8 +161,7 @@ function renderBioCard(p){
   card.innerHTML='<div class="bio-poet">'+esc(p.name)+'</div>'
     +(p.bio?'<p class="bio">'+esc(p.bio)+'</p>':'')
     +'<ul class="tags">'+renderFormPillHTML(c)+p.works.map(renderWorkTag).join('')+'</ul>'
-    +renderFormNoteHTML(c)
-    +renderVideosHTML(c);
+    +renderFormNoteHTML(c);
 }
 
 function renderDetail(){
