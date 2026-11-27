@@ -82,7 +82,7 @@ const POETS=[
   ],
   fl:{s:'curl',n:9,a:CR,b:PK,c:YL}},
  {id:'daagh',name:'Daagh Dehlvi',short:'Daagh',ur:'داغ دہلوی',b:1831,y:'1831–1905',era:1,
-  bio:'Raised in Delhi\u2019s Red Fort and later serving at the courts of Rampur and the Nizam of Hyderabad, Daagh was famed for pure, idiomatic Delhi speech. His sparkling, unadorned ghazals drew hundreds of disciples across India, including a young Iqbal.',
+  bio:'Raised in Delhi\u2019s Red Fort and later serving at the courts of Rampur and the Nizam of Hyderabad, Daagh was famed for pure, idiomatic Delhi speech. His unadorned ghazals drew hundreds of disciples across India, including a young Iqbal.',
   works:[
    {title:'Gulzar-e-Daagh',url:'https://www.rekhta.org/ebooks/detail/gulzar-e-daagh-dagh-dehlvi-ebooks'},
    {title:'Aftab-e-Daagh',url:'https://www.rekhta.org/ebooks/detail/aftab-e-dagh-dagh-dehlvi-ebooks-2'},
@@ -822,7 +822,7 @@ const COUPLETS=[
   }
  },
  
- {id:'daagh1',p:'daagh',
+ {id:'daagh1',p:'daagh', form:'ghazal',
   tr:[
    [{t:'lutf',g:'delight, pleasure'},' vo ',{t:'ishq',g:'love, passion'},' mein paaye hain ke ',{t:'jee',g:'heart, soul'},' jaanta hai'],
    [{t:'ranj',g:'sorrow, grief'},' bhi itne uthaaye hain ke ',{t:'jee',g:'heart, soul'},' jaanta hai']
