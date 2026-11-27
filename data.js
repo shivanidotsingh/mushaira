@@ -84,10 +84,9 @@ const POETS=[
  {id:'daagh',name:'Daagh Dehlvi',short:'Daagh',ur:'داغ دہلوی',b:1831,y:'1831–1905',era:1,
   bio:'Raised in Delhi\u2019s Red Fort and later serving at the courts of Rampur and the Nizam of Hyderabad, Daagh was famed for pure, idiomatic Delhi speech. His sparkling, unadorned ghazals drew hundreds of disciples across India, including a young Iqbal.',
   works:[
-   {title:'Gulzar-e-Daagh',url:'https://en.wikipedia.org/wiki/Daagh_Dehlvi'},
-   {title:'Aftab-e-Daagh',url:'https://en.wikipedia.org/wiki/Daagh_Dehlvi'},
-   {title:'Mahtab-e-Daagh',url:'https://en.wikipedia.org/wiki/Daagh_Dehlvi'},
-   {title:'Yadgar-e-Daagh',url:'https://en.wikipedia.org/wiki/Daagh_Dehlvi'}
+   {title:'Gulzar-e-Daagh',url:'https://www.rekhta.org/ebooks/detail/gulzar-e-daagh-dagh-dehlvi-ebooks'},
+   {title:'Aftab-e-Daagh',url:'https://www.rekhta.org/ebooks/detail/aftab-e-dagh-dagh-dehlvi-ebooks-2'},
+   {title:'Mahtab-e-Daagh',url:'https://www.rekhta.org/ebooks/detail/mahtab-e-dagh-ma-zameema-yadgar-e-dagh-dagh-dehlvi-ebooks'}
   ],
   fl:{s:'round',n:16,w:.1,a:YL,c:BR}},
  {id:'iqbal',name:'Muhammad Iqbal',short:'Iqbal',ur:'علامہ اقبال',b:1877,y:'1877–1938',era:2,
