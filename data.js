@@ -108,7 +108,7 @@ works:[
   fl:{s:'round',n:8,w:.24,a:OR,b:CR,c:RD}},
  
  {id:'firaq',name:'Firaq Gorakhpuri',short:'Firaq',ur:'فراق گورکھپوری',b:1896,y:'1896–1982',era:2,
-  bio:'Born Raghupati Sahay in Gorakhpur, Firaq left the Indian Civil Service to join the independence movement and later taught English literature at Allahabad University. He infused the classical ghazal with Indian aesthetics, tender intimacy, and quiet philosophical melancholy.',
+  bio:'Born in Gorakhpur, Firaq left the Indian Civil Service to join the independence movement and later taught English literature at Allahabad University. He infused the classical ghazal with Indian aesthetics and quiet philosophical melancholy.',
   works:[
    {title:'Gul-e-Naghma',url:'https://www.rekhta.org/ebooks/detail/gul-e-naghma-firaq-gorakhpuri-ebooks'},
    {title:'Ruh-e-Kainat',url:'https://www.rekhta.org/ebooks/detail/rooh-e-kainaat-firaq-gorakhpuri-ebooks'}
