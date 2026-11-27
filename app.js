@@ -158,10 +158,11 @@ function renderBioCard(p){
   const card=$('#bio-card');
   if(!card)return;
   const c=activePoem();
-  card.innerHTML='<div class="bio-poet">'+esc(p.name)+' <span class="h-yr">'+esc(p.y)+'</span></div>'
+  card.innerHTML='<div class="bio-poet">'+esc(p.name)+'</div>'
     +(p.bio?'<p class="bio">'+esc(p.bio)+'</p>':'')
     +'<ul class="tags">'+renderFormPillHTML(c)+p.works.map(renderWorkTag).join('')+'</ul>'
-    +renderFormNoteHTML(c);
+    +renderFormNoteHTML(c)
+    +renderVideosHTML(c);
 }
 
 function renderDetail(){
