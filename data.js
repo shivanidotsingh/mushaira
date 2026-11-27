@@ -40,7 +40,7 @@ const POETS=[
   fl:{s:'round',n:5,w:.3,a:YL,c:OR}},
 
  {id:'bulleh',name:'Bulleh Shah',short:'Bulleh',ur:'بلھے شاہ',b:1680,y:'c. 1680–1757',era:1,
-  bio:'A Punjabi Sufi poet and mystic from Kasur, Bulleh Shah wrote ecstatic kafis that question religious orthodoxy, caste, and ego. Through everyday imagery and fierce longing for his murshid Shah Inayat, his songs remain alive across folk and Sufi music.',
+  bio:'A Punjabi Sufi poet from Kasur, Bulleh Shah wrote passionate kafis that challenged rigid religious rules, caste, and ego. Using everyday images and devotion to his murshid Shah Inayat, his songs still live on in folk and Sufi music.',
   works:[
    {title:'Kafis of Bulleh Shah',url:'https://www.rekhta.org/poets/bulleh-shah/all'}
   ],
@@ -124,7 +124,7 @@ works:[
   fl:{s:'round',n:5,w:.3,a:PK,b:RD,c:CR}},
  
  {id:'kaifi',name:'Kaifi Azmi',short:'Kaifi',ur:'کیفی اعظمی',b:1919,y:'1919–2002',era:3,
-  bio:'Born in Azamgarh, Kaifi Azmi left seminary studies to join the Communist Party and trade-union organizing in Bombay. Alongside acclaimed Hindi film lyrics, he wrote fiery progressive nazms championing working-class dignity and women\u2019s emancipation.',
+  bio:'Born in Azamgarh, Kaifi Azmi left seminary studies to join the Communist Party and trade-union organizing in Bombay. Alongside Hindi film lyrics, he wrote fiery progressive nazms championing working-class dignity and women\u2019s emancipation.',
   works:[
    {title:'Jhankaar'},
    {title:'Awaara Sajde'},
@@ -133,7 +133,7 @@ works:[
   fl:{s:'curl',n:6,a:RD,b:CR,c:YL}},
 
  {id:'shahryar',name:'Akhlaq Muhammad Khan',short:'Shahryar',ur:'شہریار',b:1936,y:'1936–2012',era:3,
-  bio:'Born in Bareily and based in Aligarh, Kunwar Akhlaq Muhammad Khan \u201cShahryar\u201d brought a refined, haunting modern sensibility to the Urdu ghazal. His verses reached wide audiences through films like Umrao Jaan, where delicate longing meets memorable melody.',
+  bio:'Born in Bareily and based in Aligarh, Kunwar Akhlaq Muhammad Khan \u201cShahryar\u201d brought a refined, haunting modern sensibility to the Urdu ghazal. His verses reached wide audiences through films like Umrao Jaan.',
   works:[
    {title:'Khwab Ka Dar Band Hai',url:'https://www.rekhta.org/ebooks/detail/khwab-ka-dar-band-hai-shahryar-ebooks'},
    {title:'Umrao Jaan (film lyrics)',url:'https://www.rekhta.org/poets/shahryar/all'}
